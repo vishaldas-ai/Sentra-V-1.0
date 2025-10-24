@@ -117,7 +117,7 @@
     --text-color-2: var(--secondary);
     --accent-color: #f48120 ;
     --accent-color-2: #FFFFFF;
-    --accent-color-3: #f48120 ;
+    --accent-color-3: #5f553f ;
     --accent-color-4: #0E0E0E;
     --accent-color-5: #0404047D;
     --accent-color-6: #f48120 ;
@@ -181,11 +181,12 @@
 
 .lightmode{
     --primary: #f48120;
-    --secondary: #ede8d0;
-    --text-color: #000000;
+    --secondary: #ffffff;
+    --text-color: #868686;
+    --text-color-2: var(--secondary);
     --accent-color: #f48120 ;
     --accent-color-2: #000000;
-    --accent-color-3: #f48120 ;
+    --accent-color-3: #dbdbdb;
     --accent-color-4: #2d2e2f;
     --accent-color-5: #FFFFFF7D;
     --accent-color-6: #f48120;
@@ -368,7 +369,7 @@ h1, h2, h3, h4, h5, h6 {
 
 button, a{
     font-size: var(--font-size-base);
-    color: var(--accent-color);
+    color: #ffffff;
     text-decoration: none;
     font-weight: var(--font-weight-semibold);
 }
@@ -3781,6 +3782,13 @@ body.lightmode .guide-banner::before {
     object-fit: cover;
     border: 5px solid var(--accent-color);
 }
+
+body.lightmode .avatar {
+    border:5px #ffffff; /* change this to any color you prefer */
+    color: var(--text-dark); /* optional — adjust text/icon color for visibility */
+}
+
+
 .avatar:not(:nth-child(1)){
     margin-left: -10px;
 }
@@ -4163,6 +4171,12 @@ body.lightmode .newsletter-layout{
     text-align: center;
     transition: all 0.3s ease-in-out;
 }
+
+body.lightmode .icon-circle {
+    background-color: #ffd699; /* change this to any color you prefer */
+    color: var(--text-dark); /* optional — adjust text/icon color for visibility */
+}
+
 
 /* 41.2 Stars */
 

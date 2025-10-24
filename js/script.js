@@ -12,6 +12,7 @@ Promise.all([
     $("#sidebar").html(sidebarHTML);
     $("#edit-sidebar").html(sidebarHTML);
     $("#search-form-container").html(searchHTML);
+    fixNavLinks();
   })
   .then(() => {
     initBannerVideo();
@@ -32,6 +33,19 @@ Promise.all([
     }
   });
       
+function fixNavLinks() {
+    const isInSubfolder = window.location.pathname.includes('/Solutions/') || window.location.pathname.includes('/Products/');
+    
+    if (isInSubfolder) {
+        $("#header a[href], #footer a[href], #sidebar a[href]").each(function() {
+            const href = $(this).attr('href');
+            if (href && href.startsWith('./') && !href.startsWith('../')) {
+                $(this).attr('href', '../' + href.substring(2));
+            }
+        });
+    }
+}
+
 function initBannerVideo() {
     var player;
 
