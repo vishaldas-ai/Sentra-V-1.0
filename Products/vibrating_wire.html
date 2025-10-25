@@ -420,8 +420,7 @@
                     </div>
                     <div class="product-image-right">
                         <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container" style="border-color: #DFCAA0; border-width: 2px; border-style:solid;">
+                            
                                     <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
@@ -459,8 +458,8 @@
                                             Secure on-board storage.
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                
+                            
                         </section>
                     </div>
                 </div>
@@ -706,8 +705,8 @@
               </tr>
             </tbody>
           </table>
-        </td>
-      </tr>
+         </td>
+        </tr>
 
                     </table>
 
@@ -715,7 +714,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_VibratingWire_EN">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_VibratingWire_EN">Vibration Wire Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -924,6 +923,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     <script>
+        (function () {
+            const hotspots = document.querySelectorAll('.hotspot-section .hotspot');
             if (!hotspots.length) {
                 return;
             }

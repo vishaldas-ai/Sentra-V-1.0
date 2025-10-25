@@ -389,14 +389,14 @@
                             </div>
                             <div class="single-service-spacer"></div>
                         </div>
-                    </div>
+                      </div>
 
                      <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
+                         <div class="section1">
+                      <div class="hero-container">
+                      <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                      <div class="product-info-left">
+                      <div class="product-tags" aria-hidden="true">
                             <span class="tag">LS-G6-VW-RCR</span>
                         </div>
                         <h2>Vibrating Wire</h2>
@@ -411,12 +411,12 @@
                             </div>
 
                         </div>
-                        <a class="product-cta" href="#" aria-label="Access full specs">Access full specs</a>
+                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
                     </div>
                     <div class="product-image-right">
                         <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container" style="border-color: #DFCAA0; border-width: 2px; border-style:solid;">
+                            
+                                <div class="image-container" >
                                     <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
@@ -455,7 +455,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
                         </section>
                     </div>
                 </div>
@@ -580,103 +580,76 @@
         <!-- Section Specifications Table -->
         <div class="section">
             <div class="hero-container">
-                <div class="specs-container">
+                <div class="specs-container" id="specsSection">
                     <h2>Main technical specifications</h2>
 
                     <table>
                         <tbody>
                             <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <th>Input Types</th>
+                                <td>Vibrating wire and thermistor per channel</td>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Memory</th>
+                                <td>73,500 readings</td>
+                            </tr>
+                           <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Vibrating Wire</th>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Measurement Method</th>
+                                <td>Embedded algorithms increasing immunity to noise</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Excitation Wave</th>
+                                <td>±5 V</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
-                            </tr>
-                            <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
-                            </tr>
-                            <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Measurement Range</th>
+                                <td>300 to 7000 Hz</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th>Accuracy</th>
+                                <td>From 0.008% to 0.013% (depending on frequency sweep range)</td>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Resolution</th>
+                                <td> &lt; 0.01 Hz (depending on frequency sweep range)</td>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Thermistor</th>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Measurement Range</th>
+                                <td>0 Ω to 4 MΩ</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Resolution</th>
+                                <td>1 Ω</td>
                             </tr>
                             <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <th>Accuracy (20°C)</th>
+                                <td>0.05°C (0.04% FS)</td>
                             </tr>
                             <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery Life Estimations</th>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th>Reporting Period – 5 min</th>
+                                <td>4.6 years</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
+                                <th>Reporting Period – 1 h</th>
+                                <td>22.7 years</td>
                             </tr>
                             <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
+                                <th>Reporting Period – 6 h</th>
+                                <td>> 25 years</td>
                             </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
+
                         </tbody>
                     </table>
 
@@ -684,7 +657,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/VW-RCR_Datasheet_EN?_gl=1*sutcy3*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Vibration Wire RCR Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -718,7 +691,7 @@
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                        <span>Download</span>
+                                         <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -862,6 +835,35 @@
     <footer>
         <div id="footer"></div>
     </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("scrollToSpecs");
+  const specsSection = document.getElementById("specsSection");
+
+  if (!scrollBtn || !specsSection) return;
+
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Try common header selectors — add your header selector if different
+    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Extra gap so content doesn't touch the header (adjust px as needed)
+    const extraGap = 80;
+
+    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+
+    window.scrollTo({
+      top: Math.max(targetY, 0),
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
 
     <script>
         (function () {

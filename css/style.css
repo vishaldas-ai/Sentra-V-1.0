@@ -117,18 +117,18 @@
     --text-color-2: var(--secondary);
     --accent-color: #f48120 ;
     --accent-color-2: #FFFFFF;
-    --accent-color-3: #5f553f ;
+    --accent-color-3: #000000 ;
     --accent-color-4: #0E0E0E;
     --accent-color-5: #0404047D;
-    --accent-color-6: #f48120 ;
+    --accent-color-6: #020202 ;
     --star-color: #EFBC2A;
     --error-color: #e63946;
     --accent-transparent: #00000000;
     --accent-transparent-2: #00000073;
-    --box-shadow-top-left: -3px -3px 7px 0px #f48120 ;
-    --box-shadow-bottom-right: 3px 3px 7px 0px #f48120 ;
-    --box-shadow-top-left-wide: -3px -3px 10px 0px #f48120 ;
-    --box-shadow-bottom-right-wide: 3px 3px 10px 0px #f48120 ;
+    --box-shadow-top-left: -3px -3px 7px 0px #000000 ;
+    --box-shadow-bottom-right: 3px 3px 7px 0px #000000 ;
+    --box-shadow-top-left-wide: -3px -3px 10px 0px #000000 ;
+    --box-shadow-bottom-right-wide: 3px 3px 10px 0px #000000 ;
     --global-font: "Plus Jakarta Sans", sans-serif;
     --global-border-radius: 25px 25px 25px 25px;
     --animation-normal: 1.25s;
@@ -2242,8 +2242,8 @@ body.lightmode .banner-layout .title-heading{
 }
 
 :root {
-    --box-shadow-top-left: 0 4px 8px #DFCAA0;
-    --box-shadow-bottom-right: 0 6px 12px #F48120;
+    --box-shadow-top-left: 0 4px 8px #dfcca079;
+    --box-shadow-bottom-right: 0 6px 12px #f4812079;
 }
 
 body.lightmode .navbar-icon-wrapper{
@@ -4158,8 +4158,8 @@ body.lightmode .newsletter-layout{
 
 .icon-circle {
     position: relative;
-    background-color: #fc9139;
-    color: var(--primary);
+    background-color: #ffffff;
+    color: var(--accent-color);
     font-size: var(--font-size-6xl);
     width: 59px;
     height: 59px;

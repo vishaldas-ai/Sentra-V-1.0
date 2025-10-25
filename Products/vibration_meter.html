@@ -414,12 +414,12 @@
                                 <div class="text-product">Up to 15 km of communication range using LoRa radio communications</div>
                             </div>
                         </div>
-                        <a class="product-cta" href="#" aria-label="Access full specs">Access full specs</a>
+                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
                     </div>
                     <div class="product-image-right">
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
-                                <div class="image-container" style="border-color: #DFCAA0; border-width: 2px; border-style:solid;">
+                                <div class="image-container"  >
                                     <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
@@ -583,7 +583,7 @@
         <!-- Section Specifications Table -->
         <div class="section">
             <div class="hero-container">
-                <div class="specs-container">
+                <div class="specs-container" id="specsSection">
                     <h2>Main technical specifications</h2>
 
                     <table>
@@ -721,7 +721,7 @@
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                        <span>Download</span>
+                                         <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -865,6 +865,34 @@
     <footer>
         <div id="footer"></div>
     </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("scrollToSpecs");
+  const specsSection = document.getElementById("specsSection");
+
+  if (!scrollBtn || !specsSection) return;
+
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Try common header selectors — add your header selector if different
+    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Extra gap so content doesn't touch the header (adjust px as needed)
+    const extraGap = 80;
+
+    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+
+    window.scrollTo({
+      top: Math.max(targetY, 0),
+      behavior: "smooth"
+    });
+  });
+});
+</script>
 
     <script>
         (function () {

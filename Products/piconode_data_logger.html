@@ -414,12 +414,12 @@
                                 <div class="text-product">Up to 15 km of wireless communication range with LoRa radio technology</div>
                             </div>
                         </div>
-                        <a class="product-cta" href="#" aria-label="Access full specs">Access full specs</a>
+                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
                     </div>
                     <div class="product-image-right">
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
-                                <div class="image-container" style="border-color: #DFCAA0; border-width: 2px; border-style:solid;">
+                                <div class="image-container"  >
                                     <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
@@ -583,102 +583,104 @@
         <!-- Section Specifications Table -->
         <div class="section">
             <div class="hero-container">
-                <div class="specs-container">
+                <div class="specs-container" id="specsSection">
                     <h2>Main technical specifications</h2>
 
                     <table>
                         <tbody>
-                            <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                             <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">General</th>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Device Type</th>
+                                <td>Compact analog wireless data logger</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Data Transmission</th>
+                                <td>LoRa radio communication (868 MHz or 915 MHz)</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Channels</th>
+                                <td>3 channels: 1 configurable, 1 thermistor, and 1 pulse counter channel</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Operating Temperature</th>
+                                <td>−40°C to +80°C</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <th>Weather Protection</th>
+                                <td>IP68</td>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>System Configuration</th>
+                                <td>Locally via Worldsensing App or remotely using CMT Edge (single-net deployments) and CMT Cloud (multi-net deployments)</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 1: Configurable</th>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Input Types</th>
+                                <td>Voltage, Potentiometer, Full Wheatstone Bridge</td>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th>Voltage Excitation</th>
+                                <td>0–5 VDC up to 50 mA</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Measurement Range</th>
+                                <td>±7.5 mV/V for FWB 0–5 VDC (0–1 V/V) for Potentiometer 0–5 VDC for Single-ended Voltage</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Accuracy</th>
+                                <td>0.04% FS for FWB 0.1% FS for Potentiometer 0.04–0.5% FS for Single-ended Voltage</td>
                             </tr>
                             <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 2: Thermistor</th>
                             </tr>
                             <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <th>Measuring Range</th>
+                                <td>0 Ω to 2 MΩ</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th>Accuracy (at 25°C)</th>
+                                <td>0.04°C (0.04% FS) for 32kΩ 0.05°C (0.04% FS) for 50kΩ</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 3: Pulse Counter</th>
                             </tr>
                             <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
+                                <th>Pulse Count</th>
+                                <td>0 to 4,294,967,295 pulses</td>
                             </tr>
                             <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
+                                <th>Pulse Rate</th>
+                                <td>0 to 50 Hz</td>
                             </tr>
                             <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
+                                <th>Accuracy</th>
+                                <td>±1 Pulse</td>
                             </tr>
                             <tr>
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
                             </tr>
                             <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
+                                <th style="font-weight: 600;">Reporting Period</th>
+                                <td style="font-weight: 600;">1 Cell / 2 Cells</td>
                             </tr>
                             <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
+                                <th>5 min</th>
+                                <td>1.3 years / 2.9 years</td>
                             </tr>
                             <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
+                                <th>1 h</th>
+                                <td>8.6 years / 17.2 years</td>
+                            </tr>
+                             <tr>
+                                <th>6 h</th>
+                                <td>15.4 years / >25 years</td>
                             </tr>
                         </tbody>
                     </table>
@@ -687,7 +689,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_Piconode_EN">Piconode Data Logger Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -721,7 +723,7 @@
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                        <span>Download</span>
+                                         <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -865,6 +867,34 @@
     <footer>
         <div id="footer"></div>
     </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("scrollToSpecs");
+  const specsSection = document.getElementById("specsSection");
+
+  if (!scrollBtn || !specsSection) return;
+
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Try common header selectors — add your header selector if different
+    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Extra gap so content doesn't touch the header (adjust px as needed)
+    const extraGap = 80;
+
+    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+
+    window.scrollTo({
+      top: Math.max(targetY, 0),
+      behavior: "smooth"
+    });
+  });
+});
+</script>
 
     <script>
         (function () {
