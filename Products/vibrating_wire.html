@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../image/favicon.ico">
     <style>
+
         .hotspot-section {
             display: flex;
             justify-content: center;
@@ -415,7 +416,7 @@
                                 <div class="text-product">Up to 15 km of communication range using LoRa radio communications</div>
                             </div>
                         </div>
-                        <a class="product-cta" href="#" aria-label="Access full specs">Access full specs</a>
+                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
                     </div>
                     <div class="product-image-right">
                         <section class="hotspot-section">
@@ -584,111 +585,137 @@
         <!-- Section Specifications Table -->
         <div class="section">
             <div class="hero-container">
-                <div class="specs-container">
+                <div class="specs-container"  id="specsSection">
                     <h2>Main technical specifications</h2>
 
                     <table>
                         <tbody>
                             <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <th>Input Types</th>
+                                <td>Vibrating wire and thermistor per channel</td>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Variants</th>
+                                <td>LS-G6-VW 5 Channel (external antenna) LS-G6-VW 1 Channel (external antenna)</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Memory</th>
+                                <td>73,500 readings for 5 channels 200,000 readings for 1 channel</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Operating Temperature</th>
+                                <td>-40ºC to 80ºC</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Weather Protection</th>
+                                <td>IP68</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
-                            </tr>
-                            <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>System Configuration</th>
+                                <td>Locally via Worldsensing App Remotely using CMT Edge (single-net) or CMT Cloud (multi-net)</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Vibrating Wire</th>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Measurement Method</th>
+                                <td>Embedded algorithms increasing immunity to noise</td>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th>Excitation Wave</th>
+                                <td>±5 V</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Measurement Range</th>
+                                <td>300 to 7000 Hz</td>
+                            </tr>
+                              <tr>
+                                <th>Accuracy</th>
+                                <td>0.008% to 0.013% (depending on frequency sweep range)</td>
+                            </tr>
+                              <tr>
+                                <th>Resolution</th>
+                                <td>0.01 Hz (depending on frequency sweep range)</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Thermistor</th>
                             </tr>
                             <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <th>Measurement Range</th>
+                                <td>0 Ω to 4 MΩ</td>
                             </tr>
                             <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <th>Resolution</th>
+                                <td>1 Ω</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th>Accuracy (at 20ºC)</th>
+                                <td>0.05ºC (0.04% FS)</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Barometer</th>
                             </tr>
                             <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
+                                <th>Pressure Range</th>
+                                <td>300 to 1,100 hPa</td>
                             </tr>
                             <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
+                                <th>Relative Accuracy</th>
+                                <td>±0.12 hPa (700 to 900 hPa at 25ºC)</td>
                             </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
-                        </tbody>
+
+
+                          <tr>
+                           <th colspan="2" style="padding-top:18px; padding-bottom:8px; font-weight:600; color:#DFCAA0; border-bottom:1px solid rgba(255,255,255,0.04);">Battery life estimations</th>
+                       </tr>
+
+      <!-- Battery nested table -->
+      <tr>
+        <td colspan="2" style="padding-top:10px;">
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <colgroup>
+              <col style="width:34%;">
+              <col style="width:33%;">
+              <col style="width:33%;">
+            </colgroup>
+            <thead>
+              <tr style="color:#BFBFBF;">
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">Reporting period</th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">1-ch, 1 cell</th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">5-ch, 4 cells</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">5 min</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">1.7 years</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">4.6 years</td>
+              </tr>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">1 hr</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">8.6 years</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">22.7 years</td>
+              </tr>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">6 hr</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">12.5 years</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">&gt;25 years</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
                     </table>
 
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_VibratingWire_EN">Vibration Meter Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -866,10 +893,37 @@
     <footer>
         <div id="footer"></div>
     </footer>
+    
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("scrollToSpecs");
+  const specsSection = document.getElementById("specsSection");
+
+  if (!scrollBtn || !specsSection) return;
+
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Try common header selectors — add your header selector if different
+    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Extra gap so content doesn't touch the header (adjust px as needed)
+    const extraGap = 80;
+
+    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+
+    window.scrollTo({
+      top: Math.max(targetY, 0),
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
 
     <script>
-        (function () {
-            const hotspots = document.querySelectorAll('.hotspot-section .hotspot');
             if (!hotspots.length) {
                 return;
             }
@@ -889,6 +943,8 @@
             });
         })();
     </script>
+
+
     <script>
         const toggleBtn = document.getElementById("toggleBtn");
         const fullTable = document.getElementById("fullTable");
