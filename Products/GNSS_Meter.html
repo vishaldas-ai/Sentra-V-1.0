@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -399,7 +413,7 @@
                         <div class="product-tags" aria-hidden="true">
                             <span class="tag">LSG7GNS-SXLH</span>
                         </div>
-                        <h2>Vibrating Wire</h2>
+                        <h2>GNSS Meter</h2>
                         <div class="product-bullets">
                             <div class="product-bullet">
                                 <div class="dot">✔</div>
@@ -420,7 +434,7 @@
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
                                 <div class="image-container"  >
-                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
+                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="GNSS Meter Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
                                         <div class="connector-vertical"></div>
@@ -590,96 +604,189 @@
                         <tbody>
                             <tr>
                                 <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <td>GNSS</td>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Secondary Sensor</th>
+                                <td>Tiltmeter</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
-                            </tr>
-                            <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
-                            </tr>
-                            <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Environmental Sensor</th>
+                                <td>Integrated temperature and humidity sensor</td>
                             </tr>
                             <tr>
                                 <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <td>4 x 3,6 V D-size user-replaceable, high energy density batteries</td>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Reporting Period</th>
+                                <td>1 h</td>
+                            </tr>
+                            <tr>
+                                <th>Communications</th>
+                                <td>LoRa radio (ISM sub GHz)</td>
+                            </tr>
+                            <tr>
+                                <th>GNSS time synchronization</th>
+                                <td>±1s</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
-                            </tr>
-                            <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Reporting Format</th>
+                                <td>Position (WGS84) data for <br>- Last hour sample <br> - Last 6 h aggregated <br>- Last 24 h aggregated</td>
                             </tr>
                             <tr>
                                 <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <td>Device setup and configuration via Worldsensing App. Remote configuration using CMT Edge. Data can be exported to third-party software via MQTT, REST API, or FTP.</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">GNSS Sensor</th>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Correction Technology</th>
+                                <td>Real time Kinematic (RTK)</td>
+                            </tr>
+                            <tr>
+                                <th>GNSS Channels</th>
+                                <td>184</td>
+                            </tr>
+                            <tr>
+                                <th>Constellations/ GNSS Signals received</th>
+                                <td>- GPS / QZSS: L1C/A, L2C <br>- GLONASS: L1OF, L2OF <br>- Galileo: E1-B/C, E5b <br>- BeiDou: B1I, B2I</td>
+                            </tr>
+                            <tr>
+                                <th>GNSS warmup time</th>
+                                <td>Selectable from: <br>- 10 s <br>- 20 s <br>- 30 s</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Tiltmeter</th>
+                            </tr>
+                            <tr>
+                                <th>Sensor type</th>
+                                <td>3-axis MEMS accelerometer</td>
                             </tr>
                             <tr>
                                 <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <td>±90º</td>
                             </tr>
                             <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <th>Accuracy</th>
+                                <td> ± 2º: ± 0.0025º <br> ± 15º: ± 0.013º <br> ± 80º: ± 0.23º</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th>Offset temperature dependency</th>
+                                <td>± 0.002°/°C</td>
                             </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
-                            </tr>
-                            <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
-                            </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
+                          <!-- GNSS Precision (fixed spacing) -->
+<tr>
+  <th colspan="2" style="padding-top:24px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">
+    GNSS Precision (95th Percentile)
+  </th>
+</tr>
+<tr>
+  <td colspan="2" style="padding-top:10px;">
+    <table style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
+  <colgroup>
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Distance base to rover</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Orientation</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">1 h (last sample)</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">6 h (last sample)</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">24 h (last sample)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">40 m</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
+    </tr>
+
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
+    </tr>
+
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">4000 m</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">21 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">8 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">4 mm</td>
+    </tr>
+
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">31 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">15 mm</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">7 mm</td>
+    </tr>
+  </tbody>
+</table>
+
+  </td>
+</tr>
+
+<!-- Battery Life Estimations (fixed spacing) -->
+<tr>
+  <th colspan="2" style="padding-top:28px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">Battery Life Estimations</th>
+</tr>
+<tr>
+  <td colspan="2" style="padding-top:10px;">
+    <table style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
+  <colgroup>
+    <col style="width:25%;">
+    <col style="width:25%;">
+    <col style="width:25%;">
+    <col style="width:25%;">
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Warm-up time</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">10 s</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">20 s</th>
+      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">30 s</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">Base</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">3.1 years</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2.7 years</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2.4 years</td>
+    </tr>
+
+    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+      <td style="padding:12px 10px; color:#F5F5F5;">Rover</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">3.5 years</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2.9 years</td>
+      <td style="padding:12px 10px; color:#F5F5F5;">2.5 years</td>
+    </tr>
+  </tbody>
+</table>
+
+  </td>
+</tr>
+
                         </tbody>
                     </table>
 
@@ -687,7 +794,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_GNSSMeter_EN">GNSS Meter Product Datasheet</a>
                     </p>
                 </div>
             </div>

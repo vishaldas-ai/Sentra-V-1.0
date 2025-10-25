@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -352,7 +366,7 @@
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">VIBRATION METER</h2>
+                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Vibration Meter</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
@@ -624,42 +638,42 @@
                                 <td>–40°C to +80°C</td>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Weather protection</th>
+                                <td>IP68</td>
                             </tr>
                             <tr>
                                 <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <td>Locally via Worldsensing App or remotely using CMT Edge on sigle-net deployments and CMT Cloud on multi-net deployments</td>
                             </tr>
                             <tr>
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
                             </tr>
                             <tr>
                                 <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <td>PPVx,y,z (mm/s), fx,y,z (Hz), T (ºC), PVS (mm/s)</td>
                             </tr>
                             <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <th>Range (velocity)</th>
+                                <td>0-60 mm/s (±0.01 mm/s)</td>
                             </tr>
                             <tr>
                                 <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <td>1 -100Hz (±0.5 Hz)</td>
                             </tr>
                             <tr>
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
                             </tr>
                             <tr>
                                 <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
+                                <td>LAW-x,y,z (dBm, T (ºC)</td>
                             </tr>
                             <tr>
                                 <th>Acceleration range</th>
-                                <td>±4g</td>
+                                <td>±2g</td>
                             </tr>
                             <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
+                                <th>LAW range</th>
+                                <td>&lt;100 dB (±0.05 dB)</td>
                             </tr>
                             <tr>
                                 <th>Frequency weighting</th>
@@ -669,16 +683,16 @@
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
                             </tr>
                             <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
+                                <th>Reporting period</th>
+                                <td>SF9 / SF11</td>
                             </tr>
                             <tr>
                                 <th>10 min</th>
-                                <td>5 years / 10 months</td>
+                                <td>1.5 years / 11 months</td>
                             </tr>
                             <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
+                                <th>30 min</th>
+                                <td>2 years / 1.4 years</td>
                             </tr>
                         </tbody>
                     </table>
@@ -687,7 +701,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_VibrationMeter_EN">Vibration Meter Product Datasheet</a>
                     </p>
                 </div>
             </div>

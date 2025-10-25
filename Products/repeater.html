@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -420,7 +434,7 @@
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
                                 <div class="image-container"  >
-                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
+                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Repeater Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
                                         <div class="connector-vertical"></div>
@@ -589,105 +603,143 @@
                     <table>
                         <tbody>
                             <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <th>Radio communication protocol</th>
+                                <td>LoRa</td>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Supported unlicensed bands</th>
+                                <td>863-874.4MHz (EMEA, India), 902-928MHz (North America), 915-928MHz (APAC, Latin America)</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Antenna</th>
+                                <td>Integrated internal antennas GPS, 4G, LoRa (peak gain=2,6dBi)</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Maximum distance between hops</th>
+                                <td>150 m to 3 km / 0.1 mi to 1.83 m</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Maximum number of hops</th>
+                                <td>8 hops</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Sensitivity</th>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Node to Repeater/ Gateway</th>
+                                <td>Down to -137 dBm (SF11)</td>
+                            </tr>
+                            <tr>
+                                <th>Repeater to Repeater/ Gateway</th>
+                                <td>Down to -127 dBm (SF7)</td>
                             </tr>
                         </tbody>
 
-                        <tbody class="hidden-section" id="fullTable">
+ <tbody class="hidden-section" id="fullTable">
+
+                        <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Communications performance</th>
+                            </tr>
+                              <tr>
+        <td colspan="2" style="padding-top:10px;">
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <colgroup>
+              <col style="width:34%;">
+              <col style="width:33%;">
+              <col style="width:33%;">
+            </colgroup>
+            <thead>
+              <tr style="color:#BFBFBF;">
+                <th style="text-align:left; padding:8px 6px; font-weight:600;"></th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">Message Rate</th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">Probability of transmission success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">Default network</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">3.125 messages/min</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">> 99.7% μ ± 3σ</td>
+              </tr>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">High demand network</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">8 messages/min</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">> 98.758% μ ± 2.5σ</td>
+              </tr>
+            </tbody>
+          </table>
+         </td>
+        </tr>
+
+        <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Device capacity per network</th>
+                            </tr>
+                              <tr>
+        <td colspan="2" style="padding-top:10px;">
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <colgroup>
+              <col style="width:34%;">
+              <col style="width:33%;">
+              <col style="width:33%;">
+            </colgroup>
+            <thead>
+              <tr style="color:#BFBFBF;">
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">Reporting Period</th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">Default network</th>
+                <th style="text-align:left; padding:8px 6px; font-weight:600;">High Demand Network</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">5 min</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">15</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">40</td>
+              </tr>
+              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">30 min</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">93</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">240</td>
+              </tr>
+               <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                <td style="padding:10px 6px; color:#F5F5F5;">1 h</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">187</td>
+                <td style="padding:10px 6px; color:#F5F5F5;">480</td>
+              </tr>
+            </tbody>
+          </table>
+         </td>
+        </tr>
+
+           <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power options</th>
+                            </tr>
+                              <tr>
+
+                            <tr>
+                                <th>Power options</th>
+                                <td>PoE both mode A and mode B (802.3af specifications); 5V through SB; PoE injector for indoor included in the kit</td>
+                            </tr>
+                            <tr>
+                                <th>Mean power consumption</th>
+                                <td>4.5 W</td>
+                            </tr>
+                            <tr>
+                                <th>Weather protection</th>
+                                <td>IP67</td>
+                            </tr>
                             <tr>
                                 <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <td>-40°C +60°C</td>
                             </tr>
-                            <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
-                            </tr>
-                            <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
-                            </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
-                            </tr>
-                            <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
-                            </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
-                            </tr>
-                            <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
-                            </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
-                        </tbody>
+                            
+ </tbody>
                     </table>
 
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/K20EdgeRepeater_Datasheet?_gl=1*1keb51l*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">K20 Edge Repeater Product Datasheet</a>
                     </p>
                 </div>
             </div>

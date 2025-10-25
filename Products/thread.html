@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -420,7 +434,7 @@
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
                                 <div class="image-container"  >
-                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
+                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Thread Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
                                         <div class="connector-vertical"></div>
@@ -589,97 +603,62 @@
                     <table>
                         <tbody>
                             <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Network features</th>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Cellular</th>
+                                <td>Integrated SIM card. Globally compliant on 600+ cellular networks across 190 countries</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Ethernet</th>
+                                <td>10/100 Ethernet interface with end-to end encrypted communication secured by TLS 1.2</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Wireless mesh</th>
+                                <td>LPWA with compatible devices and smart sensors through MQTT-SN standard. Automatic network role detection Gateway, Repeater, or Endpoint</td>
+                            </tr>
+                             <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Sensor I/O</th>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Number of channels</th>
+                                <td>3 channels</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <th>Input types</th>
+                                <td>Channel 01: USB, RS232, RS485, 4-20mA; Channel 02: RS232, RS485, 4-20mA; Channel 03: RS232, RS485, 4-20mA</td>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Power</th>
+                                <td>12 or 15 VDC Out, up to 20 W</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th>Advanced capabilities</th>
+                                <td>Supports Multiplexer (MUX) with up to 128 sensors. Relay capabilities: each device port can output 12V that can be toggled on and off manually, via API integration, by alert trigger, or by recorded flow</td>
+                            </tr>
+                             <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power requirements</th>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Input voltage</th>
+                                <td>Nominal voltage 24 VDC, range 15-26 VDC</td>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th>Mean power consumption</th>
+                                <td>Up to 2500mA (Charge mode); 200mA RMS (Standard mode); 20mA RMS (Low power mode) @24 VDC</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Direct connect solar panel</th>
+                                <td>Maximum Peak Power (Pmax): 160 W; Maximum open circuit voltage (Voc): 22.9 V; Optimum operating voltage (Vmp): 20.2 V; Maximum operating current (lmp): 7.92 A</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Battery</th>
+                                <td>Internal 12.8V 9.9AH (126.72Wh) LiFePO4</td>
                             </tr>
-                            <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
-                            </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
-                            </tr>
-                            <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
-                            </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
+                          
                         </tbody>
                     </table>
 
@@ -687,7 +666,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_ThreadX3_EN?_gl=1*147tzpe*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Thread X3 Product Datasheet</a>
                     </p>
                 </div>
             </div>

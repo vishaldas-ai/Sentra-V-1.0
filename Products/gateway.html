@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -422,7 +436,7 @@
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
                                 <div class="image-container"  >
-                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
+                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Gateway Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
                                         <div class="connector-vertical"></div>
@@ -591,97 +605,65 @@
                     <table>
                         <tbody>
                             <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                                <th>Radio communication protocol</th>
+                                <td>LoRa/LoRaWAN</td>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Backhaul connectivity</th>
+                                <td>4G Worldwide module with 3G/2G fallback; Ethernet (RJ45)</td>
                             </tr>
                             <tr>
-                                <th>Sampling rate</th>
-                                <td>1000 Hz derived from a 4 kHz signal</td>
+                                <th>Antenna</th>
+                                <td>Integrated internal antennas GPS, 4G, LoRa (peak gain=2,6dBi) <br>Optional external antenna</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Supported unlicensed bands</th>
+                                <td>863-874.4MHz (EMEA, India), 902-928MHz (North America), 915-928MHz (APAC, Latin America)</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Rx sensitivity</th>
+                                <td>-141 dBm (SF12)</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <th>Weather protection</th>
+                                <td>IP68</td>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Operating temperature</th>
+                                <td>-40°C +60°C</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th>Local access</th>
+                                <td>Via USB-C port</td>
+                            </tr>
+                            
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Device interfaces</th>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th>Ethernet</th>
+                                <td>Waterproof RJ45</td>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th>Cellular</th>
+                                <td>Waterproof Mini SIM Card slot</td>
+                            </tr>
+                            
+                             <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power requirements</th>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Power options</th>
+                                <td>PoE both mode A and mode B (802.3 af specifications) <br> 5V through USB-C <br> PoE injector for indoor use included in the kit</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Mean power consumption</th>
+                                <td>4.5 W</td>
                             </tr>
-                            <tr>
-                                <th>Range</th>
-                                <td>0–40 mm/s</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
-                            </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
-                            </tr>
-                            <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
-                            </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
-                            </tr>
-                            <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
-                            </tr>
-                            <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
-                            </tr>
-                            <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
 
@@ -689,7 +671,14 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <br>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/datasheet_4GGatewayCloud_EN?_gl=1*11d58oe*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">4G Rugged Gateway - Cloud Product Datasheet</a>
+                        <br>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/datasheet_4GGatewayEdge_EN?_gl=1*337tu4*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Edge Gateway Datasheet EN Product Datasheet</a>
+                        <br>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_4GRuggedGatewayEdge915R_EN?_gl=1*337tu4*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Edge Gateway 915R Datasheet EN Product Datasheet</a>
+                         <br>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/4G-Rugged-Gateway-Edge-datasheet-PT?_gl=1*jn3usr*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Edge Gateway Datasheet PT Product Datasheet</a>
                     </p>
                 </div>
             </div>

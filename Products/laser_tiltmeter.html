@@ -191,19 +191,33 @@
             max-height: 9999px;
         }
         .specs-container .toggle-btn {
+
             background: transparent;
-            border: 1px solid currentColor;
+
+            border: 1px solid #f48120;
+
             border-radius: 20px;
-            color: currentColor;
+
+            color: #f48120;
+
             padding: 8px 18px;
+
             font-size: 0.95rem;
+
             cursor: pointer;
+
             margin-top: 16px;
+
             transition: all 0.3s ease;
+
         }
+
         .specs-container .toggle-btn:hover {
-            background: currentColor;
-            color: var(--theme-bg);
+
+            background: #fff;
+
+            color: #000000;
+
         }
         .specs-container .footer-note {
             margin-top: 12px;
@@ -399,7 +413,7 @@
                         <div class="product-tags" aria-hidden="true">
                             <span class="tag">LS-G6-LAS-TIL90</span>
                         </div>
-                        <h2>Vibrating Wire</h2>
+                        <h2>Laser Tiltmeter</h2>
                         <div class="product-bullets">
                             <div class="product-bullet">
                                 <div class="dot">✔</div>
@@ -420,7 +434,7 @@
                         <section class="hotspot-section">
                             <div class="hotspot-wrapper">
                                 <div class="image-container"  >
-                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Vibrating Wire Product">
+                                    <img src="https://iili.io/KUPmPPR.png?w=1000" alt="Laser Tiltmeter Product">
                                     <div class="hotspot one" style="background-color: #f48120;">
                                         +
                                         <div class="connector-vertical"></div>
@@ -588,97 +602,112 @@
 
                     <table>
                         <tbody>
-                            <tr>
-                                <th>Sensor type</th>
-                                <td>3-axis MEMS accelerometer</td>
+                              <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">General</th>
                             </tr>
                             <tr>
-                                <th>Operation modes</th>
-                                <td>PPV-based and MTVV-based</td>
+                                <th>Sensor type</th>
+                                <td>2-in-1 Laser Distance Meter and 3-axis MEMS accelerometer</td>
+                            </tr>
+                            <tr>
+                                <th>Power Source</th>
+                                <td>2 × 3.6 V C-size replaceable batteries</td>
                             </tr>
                             <tr>
                                 <th>Sampling rate</th>
                                 <td>1000 Hz derived from a 4 kHz signal</td>
                             </tr>
                             <tr>
-                                <th>Noise floor</th>
-                                <td>22.5 μg/√Hz</td>
+                                <th>Memory</th>
+                                <td>100,000 readings including time, distance, and 3-axis tiltmeter measurements</td>
                             </tr>
                             <tr>
-                                <th>Original frequency band</th>
-                                <td>0.5 – 250 Hz</td>
+                                <th>Data Transmission</th>
+                                <td>LoRa radio communication (ISM sub-GHz)</td>
                             </tr>
                             <tr>
-                                <th>Power source</th>
-                                <td>1 × 3.6 V D-size replaceable battery</td>
+                                <th>Operating Temperature</th>
+                                <td>−20°C to +60°C</td>
                             </tr>
                             <tr>
-                                <th>Data transmission</th>
-                                <td>LoRa radio communications (ISM sub GHz)</td>
+                                <th>Weather Protection</th>
+                                <td>IP68</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th>Operating temperature</th>
-                                <td>–40°C to +80°C</td>
+                                <th>System Configuration</th>
+                                <td>Locally via Worldsensing App or remotely using CMT Edge on single-net deployments and CMT Cloud on multi-net deployments</td>
                             </tr>
                             <tr>
-                                <th>Wireless protocol</th>
-                                <td>LoRaWAN</td>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Laser Distance Meter</th>
                             </tr>
                             <tr>
-                                <th>System configuration</th>
-                                <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
+                                <th>Sensor</th>
+                                <td>Visible laser (class II) with 650 nm</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th>Laser Power</th>
+                                <td>0.75 to 0.95 mW</td>
                             </tr>
                             <tr>
-                                <th>Reported parameters</th>
-                                <td>PPV (mm/s), Acceleration (m/s²), TPV, PVS (mm/s)</td>
+                                <th>Resolution</th>
+                                <td>0.1 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Repeatability (1σ)</th>
+                                <td>0.15 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Accuracy</th>
+                                <td>±1 mm at 10 m ±4 mm at 50 m ±8 mm at 150 m</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Tiltmeter</th>
+                            </tr>
+                            <tr>
+                                <th>Sensor</th>
+                                <td>3-axis MEMS accelerometer</td>
                             </tr>
                             <tr>
                                 <th>Range</th>
-                                <td>0–40 mm/s</td>
+                                <td>±15°</td>
                             </tr>
                             <tr>
-                                <th>Frequency output range</th>
-                                <td>1–250 Hz</td>
+                                <th>Accuracy (±4°)</th>
+                                <td>±0.005°</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th>Repeatability</th>
+                                <td>±0.0005°</td>
                             </tr>
-                            <tr>
-                                <th>Reported parameters</th>
-                                <td>LAeq (dB), Lpeak (dB), MTVV, VDV (m/s¹·⁷⁵)</td>
+                             <tr>
+                                <th>Resolution</th>
+                                <td>±0.0001°</td>
                             </tr>
-                            <tr>
-                                <th>Acceleration range</th>
-                                <td>±4g</td>
-                            </tr>
-                            <tr>
-                                <th>Linear range</th>
-                                <td>±2g</td>
-                            </tr>
-                            <tr>
-                                <th>Frequency weighting</th>
-                                <td>Wm</td>
+                             <tr>
+                                <th>Temperature Sensor Resolution</th>
+                                <td>0.1°C</td>
                             </tr>
                             <tr>
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
                             </tr>
                             <tr>
-                                <th>Reporting parameters</th>
-                                <td>SPP / SPP+</td>
+                                <th>Reporting Period</th>
+                                <td>20 m Distance / 65 m Distance</td>
                             </tr>
                             <tr>
-                                <th>10 min</th>
-                                <td>5 years / 10 months</td>
+                                <th>5 min</th>
+                                <td>1.8 years / 6 months</td>
                             </tr>
                             <tr>
-                                <th>20 min</th>
-                                <td>9 years / 1.4 years</td>
+                                <th>1 h</th>
+                                <td>10.3 years / 5.1 years</td>
+                            </tr>
+                             <tr>
+                                <th>6 h</th>
+                                <td>14.3 years / 9.2 years</td>
                             </tr>
                         </tbody>
                     </table>
@@ -687,7 +716,7 @@
 
                     <p class="footer-note">
                         See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="#">Vibration Meter Product Datasheet</a>
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_LaserTilt90_EN">Laser Tiltmeter Product Datasheet</a>
                     </p>
                 </div>
             </div>
