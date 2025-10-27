@@ -110,6 +110,72 @@
 
 /* 2.1 Colors Variables */
 
+
+
+/* Default: Maintain spacing for large screens */
+.navbar-nav .nav-item .nav-link {
+  padding: 0.75rem 1.0rem;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ✅ Responsive adjustment for laptops smaller than 16" (width < 1440px) */
+@media (max-width: 1840px) {
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.6rem 0.7rem;
+    font-size: 14px;
+  }
+}
+
+/* ✅ Further adjust for common 14"-15" laptops (width < 1366px) */
+@media (max-width: 1366px) {
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 0.7rem;
+    font-size: 14px;
+  }
+
+  /* Adjust icon spacing */
+  .nav-link i.fa-angle-down {
+    margin-left: 3px;
+    font-size: 0.8em;
+  }
+
+  /* Make navbar logo slightly smaller */
+  .navbar-brand img {
+    max-height: 45px;
+  }
+
+  /* Reduce gap between menu and right-side contact info */
+  .navbar-action-container {
+    gap: 12px;
+  }
+}
+
+/* ✅ For tight 13”-14” screens or narrow windows (<1280px) */
+@media (max-width: 1280px) {
+  .navbar-nav .nav-item .nav-link {
+    font-size: 13.5px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbar-action-container h6 {
+    font-size: 13px;
+  }
+
+  .navbar-action-container .icon-circle {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ✅ Ensure no wrapping or overflow */
+.navbar-nav {
+  flex-wrap: nowrap;
+}
+
+
+
+
 :root{
     --primary: #dfcaa0;
     --secondary: #2d2e2f  ;
@@ -186,7 +252,7 @@
     --text-color-2: var(--secondary);
     --accent-color: #f48120 ;
     --accent-color-2: #000000;
-    --accent-color-3: #dbdbdb;
+    --accent-color-3: #000000;
     --accent-color-4: #2d2e2f;
     --accent-color-5: #FFFFFF7D;
     --accent-color-6: #f48120;
@@ -4159,7 +4225,7 @@ body.lightmode .newsletter-layout{
 .icon-circle {
     position: relative;
     background-color: #ffffff;
-    color: var(--accent-color);
+    color: var(--accent-color-3);
     font-size: var(--font-size-6xl);
     width: 59px;
     height: 59px;
@@ -4173,7 +4239,7 @@ body.lightmode .newsletter-layout{
 }
 
 body.lightmode .icon-circle {
-    background-color: #ffd699; /* change this to any color you prefer */
+    background-color: #f48120; /* change this to any color you prefer */
     color: var(--text-dark); /* optional — adjust text/icon color for visibility */
 }
 
