@@ -440,6 +440,7 @@ button, a{
     font-weight: var(--font-weight-semibold);
 }
 
+
 p {
     font-size: var(--font-size-lg);
     margin-bottom: 14.4px;
@@ -3288,8 +3289,8 @@ body.lightmode .case-studies-content::before{
     transform: rotateZ(5deg);
 }
 
-.cs-component a{
-    color: var(--primary);
+.cs-component a {
+    color: #ffffff;
     font-size: var(--font-size-base);
 }
 
