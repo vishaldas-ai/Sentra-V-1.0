@@ -3870,8 +3870,9 @@ body.lightmode .avatar {
 
 .underline-accent-short{
     border-bottom: 2px solid var(--accent-color) !important;
-    width: 20%;
+    width: 100%;
 }
+
 
 .underline-muted-full{
     border-bottom: 1px solid var(--accent-color-3);
