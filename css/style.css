@@ -3241,21 +3241,21 @@ body.lightmode .case-studies-content::before{
 }
 
 .case-studies-content.local-business{
-    background-image: url('../image/dummy-img-600x400.jpg');
+    background-image: url('../image/revolutionary\ IOT.png');
     width: 56.2%;
 }
 
 .case-studies-content.saas-leads{
-    background-image: url('../image/dummy-img-600x400.jpg');
+    background-image: url('../image/sentra\ makes\ clovetech\ break\ boundaries.png');
     width: 42%;
 }
 
-.case-studies-content.ecommerce{
+..ecommerce{
     background-image: url('../image/dummy-img-600x400.jpg');
     width: 42%;
 }
 .case-studies-content.startup-branding{
-    background-image: url('../image/dummy-img-600x400.jpg');
+    background-image: url('../image/Innovative_bridge_solutions.png');
     width: 56.2%;
 }
 
