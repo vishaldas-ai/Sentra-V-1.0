@@ -91,7 +91,7 @@ function initDropdownHandler() {
     });
     
     // Handle product link clicks (for new product dropdown structure)
-    $('.product-link, .column-title, .explore-btn').on('click', function() {
+    $('.product-link, .column-title, .explore-btn .link-content').on('click', function() {
         // Close all dropdowns when a product link is clicked
         $('.nav-item.dropdown .dropdown-menu').removeClass('show');
         $('.nav-item.dropdown .dropdown-toggle').attr('aria-expanded', 'false');

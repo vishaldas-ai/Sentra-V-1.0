@@ -112,6 +112,8 @@
 
 
 
+
+
 /* Default: Maintain spacing for large screens */
 .navbar-nav .nav-item .nav-link {
   padding: 0.75rem 1.0rem;
@@ -246,16 +248,16 @@
 }
 
 .lightmode{
-    --primary: #f48120;
+    --primary: #ff6721;
     --secondary: #ffffff;
     --text-color: #868686;
     --text-color-2: var(--secondary);
-    --accent-color: #f48120 ;
+    --accent-color: #ff6721 ;
     --accent-color-2: #000000;
     --accent-color-3: #000000;
     --accent-color-4: #2d2e2f;
     --accent-color-5: #FFFFFF7D;
-    --accent-color-6: #f48120;
+    --accent-color-6: #ff6721;
     --accent-color-7: #FFFFFF8C;
     --star-color: #EFBC2A;
     --error-color: #E63946;
@@ -445,6 +447,19 @@ p {
     font-size: var(--font-size-lg);
     margin-bottom: 14.4px;
     font-weight: var(--font-weight-medium);
+    color: var(--text-color);
+}
+
+.p0 {
+    font-size: 14px;
+    margin-bottom: 14.4px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.p1 {
+    font-size: 14px;
+    margin-bottom: 14.4px;
     color: var(--text-color);
 }
 
@@ -1134,6 +1149,28 @@ body.lightmode .form select{
     color: var(--accent-color);
     border-bottom-color: var(--accent-color);
     padding-left: 4px;
+}
+
+/* Default (dark mode or base) */
+.link-content {
+  font-size: 0.95rem;
+  color: #f48120;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+
+/* Light mode */
+.lightmode .link-content {
+  color: #000000;
+}
+
+/* Hover effect */
+.link-content:hover {
+  color: var(--accent-color-2);
+  border-bottom-color: var(--accent-color-2);
+  padding-left: 4px;
 }
 
 /* Services Callout Section */
@@ -2180,7 +2217,7 @@ body.lightmode .digital-process-banner{
 }
 
 .digital-process-steps{
-    background-color: var(--secondary);
+    background-color: var(--accent-color-3);
     display: flex;
     flex-direction: row;
     gap: 30px 30px;
@@ -2239,6 +2276,12 @@ body.lightmode .digital-process-banner{
     background-image: linear-gradient(230deg, var(--accent-transparent) 1%, var(--primary) 100%);
     -webkit-text-fill-color: transparent;
     -webkit-tap-highlight-color: transparent;
+}
+
+.title-heading1{
+     display: inline-block;
+     color: var(--primary);
+    background-image: var(--primary);
 }
 
 body.lightmode .banner-layout .title-heading{
@@ -3223,7 +3266,7 @@ body.lightmode .card-case-studies{
     content: '';
     position: absolute;
     background-color: var(--accent-transparent);
-    background-image: linear-gradient(180deg, var(--accent-color-5) 0%, var(--secondary) 100%);
+    background-image: linear-gradient(180deg, var(--accent-color-5) 0%, var(--accent-color-3) 100%);
     width: 100%;
     height: 100%;
     top: 0;
@@ -3237,7 +3280,7 @@ body.lightmode .case-studies-content{
 }
 
 body.lightmode .case-studies-content::before{
-    background-image: linear-gradient(180deg, var(--accent-color-7) 10%, var(--accent-color-3) 100%);
+    background-image: linear-gradient(180deg, #0404047d 0%, var(--accent-color-3) 100%);
 }
 
 .case-studies-content.local-business{
@@ -3250,7 +3293,7 @@ body.lightmode .case-studies-content::before{
     width: 42%;
 }
 
-..ecommerce{
+.ecommerce{
     background-image: url('../image/dummy-img-600x400.jpg');
     width: 42%;
 }
