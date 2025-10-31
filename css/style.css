@@ -95,6 +95,9 @@
     57.2 Mobile Responsive
 */
 
+/* Default: Dark theme (white logo visible) */
+
+
 /* ================== 01. Import Vendor ================== */
 
 @import url('../css/vendor/font-family-plus-jakarta-sans.css');
@@ -109,9 +112,6 @@
 /* ================== 02 Root Variables ================== */
 
 /* 2.1 Colors Variables */
-
-
-
 
 
 /* Default: Maintain spacing for large screens */
@@ -248,17 +248,17 @@
 }
 
 .lightmode{
-    --primary: #ff6721;
-    --secondary: #ffffff;
-    --text-color: #868686;
+    --primary: #f48120;
+    --secondary: #fff;
+    --text-color: #000000;
     --text-color-2: var(--secondary);
-    --accent-color: #ff6721 ;
-    --accent-color-2: #000000;
-    --accent-color-3: #000000;
-    --accent-color-4: #2d2e2f;
-    --accent-color-5: #FFFFFF7D;
+    --accent-color: #f48120 ;
+    --accent-color-2: #888888;
+    --accent-color-3: #c2c2c2;
+    --accent-color-4: #f2f2f2;
+    --accent-color-5: #0000007d;
     --accent-color-6: #ff6721;
-    --accent-color-7: #FFFFFF8C;
+    --accent-color-7: #0000008c;
     --star-color: #EFBC2A;
     --error-color: #E63946;
     --scrolled-bg: #2d2e2f;
@@ -435,11 +435,18 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-button, a{
+button,
+a {
     font-size: var(--font-size-base);
     color: #ffffff;
     text-decoration: none;
     font-weight: var(--font-weight-semibold);
+}
+
+/* When in light mode */
+.lightmode button,
+.lightmode a {
+    color: #ffffff;
 }
 
 
@@ -754,10 +761,16 @@ body.lightmode .form select{
     z-index: 3;
     padding: 1em;
     border: 1px solid var(--accent-color-3);
-    background-color: var(--accent-color-4);
+    background-color: #0E0E0E;
     padding: 15px 25px 15px 25px;
     border-radius: var(--global-border-radius);
 }
+
+.navbar.lightmode {
+    border: 1px solid var(--accent-color-3);
+    background-color: #2d2e2f;
+}
+
 
 .navbar-container{
     display: flex;
@@ -766,15 +779,18 @@ body.lightmode .form select{
     width: 100%;
 }
 
-.nav-btn{
+/* Base dark mode */
+.nav-btn {
     display: none;
     padding: 8px 16px;
     background-color: var(--accent-color);
-    color: var(--primary);
+    color: var(--accent-color-3);
     box-shadow: none;
     transition: all 0.3s ease;
     order: 1;
 }
+
+
 .navbar-nav .nav-link:focus {
     color: var(--accent-color);
     background-color: none;
@@ -1127,6 +1143,47 @@ body.lightmode .form select{
     text-transform: uppercase;
 }
 
+.text-product {
+  color: #ffffff;
+}
+
+.product-cta {
+    display: inline-block;
+    background: #ffffff;
+    color: #111;
+    padding: 12px 18px;
+    border-radius: 28px;
+    text-decoration: none;
+    font-weight: 600;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.product-cta:hover {
+    transform: scale(1.05);
+}
+/* Light mode override */
+body.lightmode .product-cta {
+    background: #2d2e2f; /* dark button for contrast on light backgrounds */
+    color: #ffffff;       /* white text */
+}
+
+body.lightmode .product-cta:hover {
+     transform: scale(1.05); /* adjust glow color for contrast */
+}
+/* Light mode override */
+body.lightmode .text-product {
+  color: #000000; /* text becomes black in light mode */
+}
+
+.product-headings{
+    color:var(--primary);
+}
+
+body.product-headings.lightmode{
+    color:#f48120;
+}
+
 .product-list {
     list-style: none;
     margin: 0;
@@ -1134,6 +1191,18 @@ body.lightmode .form select{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+
+.specs-container .footer-note {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #ccc; /* light gray on dark background */
+}
+
+/* Light mode override */
+body.lightmode .specs-container .footer-note {
+    color: #333; /* dark gray for readability on light background */
 }
 
 .product-link {
@@ -1802,16 +1871,26 @@ body.lightmode .btn-title span {
     letter-spacing: 1px;
 }
 
-.themeswitch{
+
+/* Base dark mode */
+.themeswitch {
     height: 45px;
     width: 45px;
     padding: 0;
     border-radius: 50%;
-    background-color: var(--accent-color-4);
+    background-color: var(--accent-color-3);
     display: flex;
     justify-content: center;
     align-items: center;
     order: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Light mode override */
+body.lightmode .themeswitch {
+    background-color: #2d2e2f; /* dark background for contrast on light mode */
+    color: #ffffff; /* icon inside can be white */
 }
 
 .themeswitch i{
@@ -2094,8 +2173,42 @@ body.lightmode .banner-layout-wrapper::before {
 }
 
 /* ================== 15. Footer ================== */
+/* 🌙 Default (dark mode) — your current styles */
 
-.bg-footer-wrapper{
+/* ☀️ Light mode footer */
+body.lightmode .bg-footer-wrapper::before {
+    background-image: linear-gradient(180deg, var(--accent-color-light) 0%, var(--accent-transparent-light) 100%);
+    opacity: 0.4;
+}
+
+body.lightmode .bg-footer {
+    background-image: radial-gradient(at top left, var(--accent-color-3-light), var(--secondary-light) 60%);
+}
+
+body.lightmode .bg-footer::before {
+    background-image: radial-gradient(at bottom center, var(--accent-color-2-light) 0%, var(--accent-transparent-light) 40%);
+    opacity: 0.3;
+}
+
+:root {
+    --accent-color: #f48120;
+    --accent-color-2: #ffb347;
+    --accent-color-3: #1a1a1a;
+    --accent-transparent: rgba(244, 129, 32, 0.1);
+    --secondary: #0a0a0a;
+}
+
+/* Light mode colors */
+body.lightmode {
+    --accent-color-light: #f48120;
+    --accent-color-2-light: #ffd9b3;
+    --accent-color-3-light: #2d2e2f;
+    --accent-transparent-light: rgba(0, 0, 0, 0.08);
+    --secondary-light: #2d2e2f;
+}
+
+
+.bg-footer-wrapper {
     display: flex;
     flex-direction: column;
     border-radius: var(--global-border-radius);
@@ -2105,7 +2218,7 @@ body.lightmode .banner-layout-wrapper::before {
     z-index: 1;
 }
 
-.bg-footer-wrapper::before{
+.bg-footer-wrapper::before {
     content: '';
     position: absolute;
     background-color: transparent;
@@ -2118,7 +2231,7 @@ body.lightmode .banner-layout-wrapper::before {
     z-index: 0;
 }
 
-.bg-footer{
+.bg-footer {
     display: flex;
     flex-direction: column;
     background-color: transparent;
@@ -2131,11 +2244,11 @@ body.lightmode .banner-layout-wrapper::before {
     z-index: 1;
 }
 
-.bg-footer::before{
+.bg-footer::before {
     content: '';
     position: absolute;
     background-color: transparent;
-    background-image: radial-gradient(at bottom center, var(--accent-color) 0%, var(--accent-transparent) 40%);
+    background-image: radial-gradient(at bottom center, var(--accent-color-2) 0%, var(--accent-transparent) 40%);
     opacity: 0.2;
     top: 0;
     left: 0;
@@ -2143,7 +2256,6 @@ body.lightmode .banner-layout-wrapper::before {
     height: 100%;
     z-index: 0;
 }
-
 /* ================== 16. Digital Process ================== */
 
 .section-wrapper-digital-process{
@@ -2273,7 +2385,7 @@ body.lightmode .digital-process-banner{
      display: inline-block;
     -webkit-background-clip: text;
     background-color: transparent;
-    background-image: linear-gradient(230deg, var(--accent-transparent) 1%, var(--primary) 100%);
+    background-image: linear-gradient( var(--primary) 100%);
     -webkit-text-fill-color: transparent;
     -webkit-tap-highlight-color: transparent;
 }
@@ -2284,8 +2396,9 @@ body.lightmode .digital-process-banner{
     background-image: var(--primary);
 }
 
-body.lightmode .banner-layout .title-heading{
-    background-image: linear-gradient(230deg, transparent 1%, #ffffff 100%);
+body.lightmode .banner-layout .title-heading {
+    background-image: none;
+    -webkit-text-fill-color: #2d2e2f;
 }
 
 .banner-heading{
@@ -4284,7 +4397,7 @@ body.lightmode .newsletter-layout{
 }
 
 body.lightmode .icon-circle {
-    background-color: #f48120; /* change this to any color you prefer */
+    background-color: #000; /* change this to any color you prefer */
     color: var(--text-dark); /* optional — adjust text/icon color for visibility */
 }
 
@@ -4302,7 +4415,7 @@ body.lightmode .icon-circle {
     flex-direction: column;
     min-height: 60px;
     width: 60px;
-    background-color: var(--secondary);
+    background-color: #000;
     justify-content: center;
     align-items: center;
     border-radius: 20px 20px 20px 20px;
@@ -4317,12 +4430,28 @@ body.lightmode .icon-circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 15px;
     background-color: transparent;
     background-image: radial-gradient(at top left, var(--primary) 0%, var(--accent-color-4) 70%);
     box-shadow: var(--box-shadow-top-left);
     text-decoration: none;
     font-size: var(--font-size-lg);
+    color: #ffffff;
+}
+
+/* hover effect (works in both modes) */
+.social-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    color: var(--primary);
+}
+
+/* ☀️ Light mode (global toggle) */
+body.lightmode .social-item {
+    background-color: transparent;
+    background-image: radial-gradient(at top left, #2d2e2f 0%, #000000 70%);
+    color: #000000;
+    box-shadow: var(--box-shadow-top-left);
 }
 
 .social-item i {
@@ -4330,6 +4459,15 @@ body.lightmode .icon-circle {
 }
 
 .social-item:hover i {
+    color: var(--accent-color);
+}
+
+/* ☀️ Light mode (same style as dark) */
+body.lightmode .social-item i {
+    color: hsl(0, 0%, 100%);
+}
+
+body.lightmode .social-item:hover i {
     color: var(--accent-color);
 }
 
@@ -4428,6 +4566,10 @@ body.lightmode .icon-circle {
     font-size: var(--font-size-base);
     font-weight: 700;
     line-height: var(--line-height-loose);
+}
+
+body.lightmode .check-list li {
+  color: var(--text-color);
 }
 
 .check-list a {
@@ -5041,6 +5183,10 @@ body.lightmode .cta-service-banner::before{
 
 /* 56.1 Footer Layout */
 
+.footer-p{
+    color: #fff;
+}
+
 .footer{
     border-radius: 10px;
 }
@@ -5076,6 +5222,16 @@ body.lightmode .cta-service-banner::before{
 
 .footer-list a:hover{
     color: var(--primary);
+}
+
+/* 🌞 Light mode override */
+body.lightmode .footer-list li,
+body.lightmode .footer-list a{
+    color: #ffffff; /* white text for light mode footer */
+}
+
+body.lightmode .footer-list a:hover {
+    color: var(--primary); /* keep hover color same */
 }
 
 /* 56.3 Contact List */
@@ -5160,6 +5316,9 @@ body.lightmode .cta-service-banner::before{
     line-height: var(--line-height-loose);
 }
 
+body.lightmode .copyright {
+    color: #fff; /* or #ffffff if you want white */
+}
 /* 56.9 Legal Link */
 
 .legal-link{

@@ -18,9 +18,7 @@
             max-width: 800px;
         }
 
-        .text-product{
-  color: #fff;
-}
+        
 
         .hotspot-section .image-container {
             position: relative;
@@ -219,11 +217,7 @@
             color: #000000;
 
         }
-        .specs-container .footer-note {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #ccc;
-        }
+        
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
@@ -251,6 +245,12 @@
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+        body.lightmode .specs-container th,
+body.lightmode .specs-container td {
+    color: #000000; /* black text for light background */
+    border-bottom-color: #ddd; /* light border */
+}
+
         @media (max-width: 640px) {
             .specs-container table { font-size: 0.9rem; }
             .specs-container h2 { font-size: 1.5rem; }
@@ -316,21 +316,7 @@
             margin-top: 2px;
             font-weight: 600;
         }
-        .product-cta {
-            display: inline-block;
-            background: #ffffff;
-            color: #111;
-            padding: 12px 18px;
-            border-radius: 28px;
-            text-decoration: none;
-            font-weight: 600;
-            width: fit-content;
-            transition: all 0.3s ease;
-        }
-        .product-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(201, 255, 0, 0.3);
-        }
+       
         .product-image-right {
             position: relative;
         }
@@ -499,7 +485,7 @@
                                     </div>
                                 </div>
                                 <div class="card service-included">
-                                    <h4>What's Included</h4>
+                                    <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
                                     <p>Thread X3 nodes with 4G/LTE connectivity and mesh networking for rapid, reliable sensor integration..</p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
@@ -565,7 +551,7 @@
                         <div class="col col-xl-4">
                             <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-5">
                                 <div class="card service-recent">
-                                    <h4>Recent Services</h4>
+                                    <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
                                         <li><a href="../single_services.html">Sensor Network Deployment</a></li>
@@ -578,7 +564,7 @@
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
-                                    <h3 class="title-heading">Transform Your Projects with Sentra!</h3>
+                                    <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
                                         Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
                                     </p>
