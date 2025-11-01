@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,148 +9,10 @@
     <link rel="icon" href="https://clovetech.com/wp-content/uploads/2025/04/favicon.png" type="image/png" sizes="16x16">
     <style>
 
-          .service-icon i {
-  font-size: 40px;  /* adjust as needed */
-}
 
-.service-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;   /* optional */
-  height: 80px;  /* optional */
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.service-icon i {
-  font-size: 36px;
-  color: var(--primary);
-}
-
-.service-icon .lightmode{
-  font-size: 36px;
-  color: var(--accent-color);
-}
-
-        /* Carousel Styles */
-        :root{
-          --carousel-desktop-width: 810px;
-          --carousel-desktop-height: 300px;
-          --carousel-bg: #f0f0f0;
-          --carousel-accent: #f48120;
-        }
-
-        #carousel-slider {
-          position: relative;
-          width: var(--carousel-desktop-width);
-          height: var(--carousel-desktop-height);
-          max-width: 100%;
-          border-radius: 12px;
-          perspective: 1200px;
-          overflow: visible;
-          box-sizing: border-box;
-          margin: 0 auto 20px auto;
-        }
-
-        @supports (aspect-ratio: 3/2) {
-          #carousel-slider {
-            width: min(var(--carousel-desktop-width), 100%);
-            aspect-ratio: 3 / 2;
-            height: auto;
-          }
-        }
-
-        @media (max-width: 640px) {
-          #carousel-slider {
-            width: calc(100% - 32px);
-            aspect-ratio: 3 / 2;
-          }
-          .carousel-slide-content { bottom: 12px; left: 12px; padding: 10px 14px; max-width: 220px; }
-          .carousel-slide-content h2 { font-size: 1.05rem; }
-          .carousel-slide-content p { font-size: 0.85rem; }
-          .carousel-view-btn { padding: 7px 12px; font-size: 0.85rem; }
-        }
-
-        .carousel-slide {
-          position: absolute;
-          inset: 0;
-          border-radius: 12px;
-          overflow: hidden;
-          transition: transform 0.8s cubic-bezier(.2,.9,.3,1), opacity 0.8s ease;
-          display: flex;
-          align-items: stretch;
-          justify-content: flex-start;
-          color: #fff;
-          background: #ddd;
-          box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-        }
-
-        .carousel-slide img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          background: #fafafa;
-          display: block;
-        }
-
-        .carousel-slide-content {
-          position: absolute;
-          bottom: 20px;
-          left: 20px;
-          background: rgba(0,0,0,0.55);
-          padding: 14px 18px;
-          border-radius: 10px;
-          max-width: 300px;
-          box-sizing: border-box;
-          backdrop-filter: blur(4px);
-        }
-
-        .carousel-slide-content h2 {
-          margin: 0 0 6px 0;
-          font-size: 1.25rem;
-          font-weight: 600;
-          line-height: 1.1;
-          color: #fff;
-        }
-
-        .carousel-slide-content p {
-          margin: 0 0 12px 0;
-          font-size: 0.9rem;
-          color: #e6e6e6;
-        }
-
-        .carousel-view-btn {
-          display: inline-block;
-          border: 2px solid rgba(255,255,255,0.9);
-          color: rgba(255,255,255,0.95);
-          background: transparent;
-          padding: 8px 16px;
-          border-radius: 24px;
-          cursor: pointer;
-          font-size: 0.92rem;
-          transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
-          text-decoration: none;
-          line-height: 1;
-        }
-        .carousel-view-btn:hover,
-        .carousel-view-btn:focus {
-          background: var(--carousel-accent);
-          border-color: var(--carousel-accent);
-          color: #fff;
-          outline: none;
-          box-shadow: 0 6px 18px rgba(0,123,255,0.18);
-        }
-
-        .carousel-slide { opacity: 0; transform: translate3d(100%, 0, -100px); z-index: 0; }
-        .carousel-active { opacity: 1; transform: translate3d(0, 0, 0); z-index: 3; }
-        .carousel-prev { opacity: 0.6; transform: translate3d(-18%, 0, -100px); z-index: 2; }
-        .carousel-next { opacity: 0.6; transform: translate3d(18%, 0, -100px); z-index: 2; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .carousel-slide { transition: none; transform: none; }
-        }
     </style>
 </head>
+
 <body class="product-page">
 
     <!-- Section Header -->
@@ -180,7 +43,8 @@
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Core Communications</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Core Communications</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
@@ -200,21 +64,25 @@
                 <div class="d-flex flex-column gspace-5">
                     <!-- Carousel Slider -->
                     <div id="carousel-slider" aria-roledescription="carousel">
-                        <div class="carousel-slide carousel-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
+                        <div class="carousel-slide carousel-active" role="group" aria-roledescription="slide"
+                            aria-label="Slide 1 of 3">
                             <img src="../image/sample_gateway.png" alt="Core Communications Product View 1">
                             <div class="carousel-slide-content">
                                 <h2>4G Rugged Gateway</h2>
                                 <p>Narrowband Gateways</p>
-                                <a class="carousel-view-btn" href="/Products/gateway.html" role="button">View Details</a>
+                                <a class="carousel-view-btn" href="/Products/gateway.html" role="button">View
+                                    Details</a>
                             </div>
                         </div>
 
-                        <div class="carousel-slide carousel-next" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
+                        <div class="carousel-slide carousel-next" role="group" aria-roledescription="slide"
+                            aria-label="Slide 2 of 3">
                             <img src="../image/sample_repeater.png" alt="Core Communications Product View 2">
                             <div class="carousel-slide-content">
                                 <h2>K20 Edge Repeater</h2>
                                 <p>Narrowband Repeaters</p>
-                                <a class="carousel-view-btn" href="/Products/repeater.html" role="button">View Details</a>
+                                <a class="carousel-view-btn" href="/Products/repeater.html" role="button">View
+                                    Details</a>
                             </div>
                         </div>
 
@@ -229,114 +97,132 @@
                     </div>
                 </div>
 
-                    <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
-                        <div class="col col-xl-8">
-                            <div class="d-flex flex-column gspace-2">
-                                <h4>Product Overview</h4>
-                                <p>
-                                    The Sentra Core Communications is engineered for continuous structural health monitoring across diverse environments. Whether deployed on bridges monitoring traffic-induced vibrations, buildings tracking seismic activity, or industrial equipment detecting mechanical wear, our sensor provides actionable insights that protect assets and lives.
-                                </p>
-                                <p>
-                                    Combining cutting-edge MEMS technology with long-range wireless communication, the sensor captures acceleration data across a wide frequency spectrum (0.1 Hz - 10 kHz) and transmits it securely to cloud-based platforms for real-time visualization and intelligent analysis.
-                                </p>
-                                <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
+                <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
+                    <div class="col col-xl-8">
+                        <div class="d-flex flex-column gspace-2">
+                            <h4>Product Overview</h4>
+                            <p>
+                                The Sentra Core Communications is engineered for continuous structural health monitoring
+                                across diverse environments. Whether deployed on bridges monitoring traffic-induced
+                                vibrations, buildings tracking seismic activity, or industrial equipment detecting
+                                mechanical wear, our sensor provides actionable insights that protect assets and lives.
+                            </p>
+                            <p>
+                                Combining cutting-edge MEMS technology with long-range wireless communication, the
+                                sensor captures acceleration data across a wide frequency spectrum (0.1 Hz - 10 kHz) and
+                                transmits it securely to cloud-based platforms for real-time visualization and
+                                intelligent analysis.
+                            </p>
+                            <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
+                                <div class="col">
+                                    <div class="image-container">
+                                        <img src="../image/repeater_01.png" alt="Core Communications Installation"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-container">
+                                        <img src="../image/thread_01.png" alt="Core Communications Dashboard"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card service-included">
+                                <h4>Key Features & Specifications</h4>
+                                <div class="underline-accent-short"></div>
+                                <p>Enterprise-grade hardware and software designed for mission-critical monitoring
+                                    applications.</p>
+                                <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                     <div class="col">
-                                        <div class="image-container">
-                                            <img src="../image/repeater_01.png" alt="Core Communications Installation" class="img-fluid">
-                                        </div>
+                                        <ul class="check-list">
+                                            <li>3-axis MEMS accelerometer (±16g range)</li>
+                                            <li>Frequency range: 0.1 Hz - 10 kHz</li>
+                                            <li>LoRaWAN & 4G LTE connectivity</li>
+                                            <li>IP67 waterproof & dustproof rating</li>
+                                        </ul>
                                     </div>
                                     <div class="col">
-                                        <div class="image-container">
-                                            <img src="../image/thread_01.png" alt="Core Communications Dashboard" class="img-fluid">
+                                        <ul class="check-list">
+                                            <li>5-10 year battery life (replaceable)</li>
+                                            <li>Real-time alerts & notifications</li>
+                                            <li>Cloud-based analytics platform</li>
+                                            <li>BIM/GIS integration ready</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Why Choose Sentra's Core Communications?</h4>
+                            <p>Proven reliability and performance trusted by infrastructure owners and engineering teams
+                                worldwide.</p>
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    <div class="d-flex flex-column gspace-2">
+                                        <div
+                                            class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
+                                            <div class="d-flex flex-column gspace-0">
+                                                <h5>High-Precision Detection</h5>
+                                                <p>Capture minute vibrations with exceptional accuracy for comprehensive
+                                                    structural health assessment.</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
+                                            <div class="d-flex flex-column gspace-0">
+                                                <h5>Predictive Maintenance</h5>
+                                                <p>AI-powered analytics identify patterns and trends, enabling proactive
+                                                    maintenance before failures occur.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card service-included">
-                                    <h4>Key Features & Specifications</h4>
-                                    <div class="underline-accent-short"></div>
-                                    <p>Enterprise-grade hardware and software designed for mission-critical monitoring applications.</p>
-                                    <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
-                                        <div class="col">
-                                            <ul class="check-list">
-                                                <li>3-axis MEMS accelerometer (±16g range)</li>
-                                                <li>Frequency range: 0.1 Hz - 10 kHz</li>
-                                                <li>LoRaWAN & 4G LTE connectivity</li>
-                                                <li>IP67 waterproof & dustproof rating</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul class="check-list">
-                                                <li>5-10 year battery life (replaceable)</li>
-                                                <li>Real-time alerts & notifications</li>
-                                                <li>Cloud-based analytics platform</li>
-                                                <li>BIM/GIS integration ready</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4>Why Choose Sentra's Core Communications?</h4>
-                                <p>Proven reliability and performance trusted by infrastructure owners and engineering teams worldwide.</p>
-                                <div class="row row-cols-2">
-                                    <div class="col">
-                                        <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
-                                                <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
-                                                <div class="d-flex flex-column gspace-0">
-                                                    <h5>High-Precision Detection</h5>
-                                                    <p>Capture minute vibrations with exceptional accuracy for comprehensive structural health assessment.</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
-                                                <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
-                                                <div class="d-flex flex-column gspace-0">
-                                                    <h5>Predictive Maintenance</h5>
-                                                    <p>AI-powered analytics identify patterns and trends, enabling proactive maintenance before failures occur.</p>
-                                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column gspace-2">
+                                        <div
+                                            class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
+                                            <div class="d-flex flex-column gspace-0">
+                                                <h5>Rugged & Reliable</h5>
+                                                <p>Weather-resistant construction ensures continuous operation in harsh
+                                                    environmental conditions.</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
-                                                <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
-                                                <div class="d-flex flex-column gspace-0">
-                                                    <h5>Rugged & Reliable</h5>
-                                                    <p>Weather-resistant construction ensures continuous operation in harsh environmental conditions.</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
-                                                <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
-                                                <div class="d-flex flex-column gspace-0">
-                                                    <h5>Easy Integration</h5>
-                                                    <p>Seamless connectivity with existing IoT platforms, SCADA systems, and building management software.</p>
-                                                </div>
+                                        <div
+                                            class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
+                                            <div class="d-flex flex-column gspace-0">
+                                                <h5>Easy Integration</h5>
+                                                <p>Seamless connectivity with existing IoT platforms, SCADA systems, and
+                                                    building management software.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-xl-4">
-                            <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-5">
-                                <div class="card service-recent">
-                                    <h4>Related Products</h4>
-                                    <div class="underline-accent-short"></div>
-                                    <ul class="single-service-list">
-                                        <li><a href="/Products/repeater.html">K20 Edge Repeater</a></li>
-                                        <li><a href="/Products/thread.html">Thread</a></li>
-                                        <li><a href="/Products/gateway.html">4G Rugged Gateway</a></li>
-                                    </ul>
-                                </div>
-                                <div class="cta-service-banner">
-                                    <div class="spacer"></div>
-                                    <h3 class="title-heading">Ready to Upgrade Your Monitoring?</h3>
-                                    <p>
-                                        Protect your infrastructure with intelligent vibration monitoring. Contact our team for a custom solution tailored to your needs.
-                                    </p>
-                                    <div class="link-wrapper">
-                                        <a href="../contact.html">Get a Quote</a>
-                                        <i class="fa-solid fa-circle-arrow-right"></i>
-                                    </div>
+                    </div>
+                    <div class="col col-xl-4">
+                        <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-5">
+                            <div class="card service-recent">
+                                <h4>Related Products</h4>
+                                <div class="underline-accent-short"></div>
+                                <ul class="single-service-list">
+                                    <li><a href="/Products/repeater.html">K20 Edge Repeater</a></li>
+                                    <li><a href="/Products/thread.html">Thread</a></li>
+                                    <li><a href="/Products/gateway.html">4G Rugged Gateway</a></li>
+                                </ul>
+                            </div>
+                            <div class="cta-service-banner">
+                                <div class="spacer"></div>
+                                <h3 class="title-heading">Ready to Upgrade Your Monitoring?</h3>
+                                <p>
+                                    Protect your infrastructure with intelligent vibration monitoring. Contact our team
+                                    for a custom solution tailored to your needs.
+                                </p>
+                                <div class="link-wrapper">
+                                    <a href="../contact.html">Get a Quote</a>
+                                    <i class="fa-solid fa-circle-arrow-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -344,22 +230,28 @@
                 </div>
             </div>
         </div>
+        </div>
 
         <!-- Section Key Benefits -->
         <div class="section">
             <div class="hero-container">
                 <div class="d-flex flex-column justify-content-center text-center gspace-5">
                     <div class="d-flex flex-column justify-content-center text-center gspace-2">
-                        <div class="sub-heading align-self-center animate-box animated animate__animated" data-animate="animate__fadeInDown">
+                        <div class="sub-heading align-self-center animate-box animated animate__animated"
+                            data-animate="animate__fadeInDown">
                             <i class="fa-regular fa-circle-dot"></i>
                             <span>Product Benefits</span>
                         </div>
-                        <h2 class="title-heading heading-container heading-container-medium animate-box animated animate__animated" data-animate="animate__fadeInDown">Why Infrastructure Owners Choose Our Core Communications</h2>
+                        <h2 class="title-heading heading-container heading-container-medium animate-box animated animate__animated"
+                            data-animate="animate__fadeInDown">Why Infrastructure Owners Choose Our Core Communications
+                        </h2>
                     </div>
                     <div class="row row-cols-xl-3 row-cols-md-2 row-cols-1 grid-spacer-3">
                         <div class="col">
-                            <div class="card card-service animate-box animated slow animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated slow animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -372,13 +264,16 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Continuous monitoring detects structural anomalies early, protecting people and assets from potential failures.
+                                    Continuous monitoring detects structural anomalies early, protecting people and
+                                    assets from potential failures.
                                 </p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card card-service animate-box animated animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -391,13 +286,16 @@
                                     </div>
                                 </div>
                                 <p>
-                                    AI-powered insights identify trends and patterns, enabling data-driven maintenance decisions and cost optimization.
+                                    AI-powered insights identify trends and patterns, enabling data-driven maintenance
+                                    decisions and cost optimization.
                                 </p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card card-service animate-box animated fast animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated fast animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -410,13 +308,16 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Real-time data collection and instant alerts ensure you're always aware of critical changes in structural behavior.
+                                    Real-time data collection and instant alerts ensure you're always aware of critical
+                                    changes in structural behavior.
                                 </p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card card-service animate-box animated slow animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated slow animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -429,13 +330,16 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Reduce maintenance costs and extend asset life with targeted interventions based on actual condition data.
+                                    Reduce maintenance costs and extend asset life with targeted interventions based on
+                                    actual condition data.
                                 </p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card card-service animate-box animated animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -448,13 +352,16 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Wireless design eliminates complex cabling, enabling rapid deployment and flexible sensor placement.
+                                    Wireless design eliminates complex cabling, enabling rapid deployment and flexible
+                                    sensor placement.
                                 </p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card card-service animate-box animated fast animate__animated" data-animate="animate__fadeInLeft">
-                                <div class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
+                            <div class="card card-service animate-box animated fast animate__animated"
+                                data-animate="animate__fadeInLeft">
+                                <div
+                                    class="d-flex flex-row justify-content-between gspace-2 gspace-md-3 align-items-center">
                                     <div>
                                         <div class="service-icon-wrapper">
                                             <div class="service-icon">
@@ -467,7 +374,8 @@
                                     </div>
                                 </div>
                                 <p>
-                                    CE, FCC, and ISO 9001 certified with full compliance to international monitoring standards and regulations.
+                                    CE, FCC, and ISO 9001 certified with full compliance to international monitoring
+                                    standards and regulations.
                                 </p>
                             </div>
                         </div>
@@ -482,15 +390,16 @@
                 <div class="d-flex flex-column gspace-5">
                     <div class="d-flex flex-column flex-xl-row gspace-5">
                         <div class="testimonial-reviewer-container">
-                            <div class="testimonial-header-wrapper animate-box animated fast animate__animated" data-animate="animate__fadeInDown">
+                            <div class="testimonial-header-wrapper animate-box animated fast animate__animated"
+                                data-animate="animate__fadeInDown">
                                 <div class="card card-testimonial-reviewer">
-                                    <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-3">
+                                    <div
+                                        class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-3">
                                         <div class="testimonial-reviewer">
                                             <div class="avatar-container">
-                                                <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Reviewer" class="avatar">
-                                                <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Reviewer" class="avatar">
-                                                <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Reviewer" class="avatar">
-                                                <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Reviewer" class="avatar">
+                                                <img src="../image/reviews1.jpg" alt="Reviewer" class="avatar">
+                                                <img src="../image/reviews2.jpg" alt="Reviewer" class="avatar">
+                                                <img src="../image/reviews3.jpg" alt="Reviewer" class="avatar">
                                             </div>
                                             <div class="detail">
                                                 <h6>500+ Projects</h6>
@@ -498,24 +407,27 @@
                                             </div>
                                         </div>
                                         <div class="testimonial-rating-container">
-                                            <div class="d-flex flex-column justify-content-center align-items-center gspace-1">
-                                                 <div class="d-flex flex-row align-items-center">
-                                                    <span class="counter" data-target="99"></span>
+                                            <div
+                                                class="d-flex flex-column justify-content-center align-items-center gspace-1">
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <span class="counter" data-target="100"></span>
                                                     <span class="counter-detail">%</span>
                                                 </div>
-                                                <p>Uptime</p>
+                                                <p>Future Proof</p>
                                             </div>
                                             <div class="underline-vertical"></div>
-                                            <div class="d-flex flex-column justify-content-center align-items-center gspace-1">
-                                                 <div class="d-flex flex-row align-items-center">
-                                                    <span class="counter" data-target="10"></span>
-                                                    <span class="counter-detail">yr</span>
+                                            <div
+                                                class="d-flex flex-column justify-content-center align-items-center gspace-1">
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <span class="counter" data-target="95"></span>
+                                                    <span class="counter-detail">%</span>
                                                 </div>
-                                                <p>Battery Life</p>
+                                                <p>Scalability</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-center gspace-2">
+                                    <div
+                                        class="d-flex flex-column flex-md-row flex-xl-column justify-content-center gspace-2">
                                         <div class="testimonial-header-link-wrapper">
                                             <i class="fa-regular fa-circle-check accent-color"></i>
                                             <a href="#">IoT Monitoring</a>
@@ -529,129 +441,143 @@
                             </div>
                         </div>
                         <div class="testimonial-title-container">
-                            <div class="testimonial-header-wrapper-title animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <div class="testimonial-header-wrapper-title animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="card-testimonial-header-title">
                                     <div class="sub-heading">
                                         <i class="fa-regular fa-circle-dot"></i>
                                         <span>Customer Success Stories</span>
                                     </div>
                                     <h2 class="title-heading">Trusted by Infrastructure Leaders</h2>
-                                    <p>See how organizations worldwide rely on Sentra's Core Communicationss for critical infrastructure monitoring.</p>
+                                    <p>See how organizations worldwide rely on Sentra's Core Communicationss for
+                                        critical infrastructure monitoring.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column">
                         <div class="overflow-hidden">
-                        <div class="swiper swiperTestimonial">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="card card-testimonial">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center justify-content-between">
-                                            <div class="d-flex flex-row gspace-2">
-                                                <div class="testimonial-image">
-                                                    <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Person Image" class="img-fluid">
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <span class="profile-name">Dr. Michael Chen</span>
-                                                    <p class="profile-info">Chief Engineer, Bridge Authority</p>
-                                                </div>
+                            <div class="swiper swiperTestimonial">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="card card-testimonial">
+                                            <div class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                                <div class="d-flex flex-row gspace-2">
+                                                    <div class="testimonial-image">
+                                                        <img src="../image/dummy-img-400x400.jpg"
+                                                            alt="Testimonial Person Image" class="img-fluid">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="profile-name">Dr. Michael Chen</span>
+                                                        <p class="profile-info">Chief Engineer, Bridge Authority</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            </div>
+                                            <p class="testimonial-description">
+                                                "Sentra's Core Communicationss have transformed how we monitor our
+                                                bridge infrastructure. Early detection capabilities have prevented
+                                                costly repairs and ensured public safety."
+                                            </p>
                                         </div>
-                                        <p class="testimonial-description">
-                                            "Sentra's Core Communicationss have transformed how we monitor our bridge infrastructure. Early detection capabilities have prevented costly repairs and ensured public safety."
-                                        </p>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card card-testimonial">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center justify-content-between">
-                                            <div class="d-flex flex-row gspace-2">
-                                                <div class="testimonial-image">
-                                                    <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Person Image" class="img-fluid">
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <span class="profile-name">Sarah Johnson</span>
-                                                    <p class="profile-info">Facilities Director, Tech Campus</p>
-                                                </div>
+                                    <div class="swiper-slide">
+                                        <div class="card card-testimonial">
+                                            <div class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                                <div class="d-flex flex-row gspace-2">
+                                                    <div class="testimonial-image">
+                                                        <img src="../image/dummy-img-400x400.jpg"
+                                                            alt="Testimonial Person Image" class="img-fluid">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="profile-name">Sarah Johnson</span>
+                                                        <p class="profile-info">Facilities Director, Tech Campus</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            </div>
+                                            <p class="testimonial-description">
+                                                "The real-time alerts and predictive analytics have been game-changing
+                                                for our building management. We now address issues proactively rather
+                                                than reactively."
+                                            </p>
                                         </div>
-                                        <p class="testimonial-description">
-                                            "The real-time alerts and predictive analytics have been game-changing for our building management. We now address issues proactively rather than reactively."
-                                        </p>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card card-testimonial">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center justify-content-between">
-                                            <div class="d-flex flex-row gspace-2">
-                                                <div class="testimonial-image">
-                                                    <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Person Image" class="img-fluid">
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <span class="profile-name">James Rodriguez</span>
-                                                    <p class="profile-info">Operations Manager, Industrial Plant</p>
-                                                </div>
+                                    <div class="swiper-slide">
+                                        <div class="card card-testimonial">
+                                            <div class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                                <div class="d-flex flex-row gspace-2">
+                                                    <div class="testimonial-image">
+                                                        <img src="../image/dummy-img-400x400.jpg"
+                                                            alt="Testimonial Person Image" class="img-fluid">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="profile-name">James Rodriguez</span>
+                                                        <p class="profile-info">Operations Manager, Industrial Plant</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            </div>
+                                            <p class="testimonial-description">
+                                                "Reliability and accuracy are critical for our operations. Sentra's
+                                                sensors deliver consistently precise data that we trust for our most
+                                                important decisions."
+                                            </p>
                                         </div>
-                                        <p class="testimonial-description">
-                                            "Reliability and accuracy are critical for our operations. Sentra's sensors deliver consistently precise data that we trust for our most important decisions."
-                                        </p>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card card-testimonial">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center justify-content-between">
-                                            <div class="d-flex flex-row gspace-2">
-                                                <div class="testimonial-image">
-                                                    <img src="../image/dummy-img-400x400.jpg" alt="Testimonial Person Image" class="img-fluid">
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <span class="profile-name">Lisa Anderson</span>
-                                                    <p class="profile-info">Project Lead, Transportation Dept</p>
-                                                </div>
+                                    <div class="swiper-slide">
+                                        <div class="card card-testimonial">
+                                            <div class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                                <div class="d-flex flex-row gspace-2">
+                                                    <div class="testimonial-image">
+                                                        <img src="../image/dummy-img-400x400.jpg"
+                                                            alt="Testimonial Person Image" class="img-fluid">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="profile-name">Lisa Anderson</span>
+                                                        <p class="profile-info">Project Lead, Transportation Dept</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-3x fa-quote-right accent-color"></i>
+                                            </div>
+                                            <p class="testimonial-description">
+                                                "Installation was straightforward, and the wireless connectivity made
+                                                deployment across our tunnel network seamless. Excellent product and
+                                                support."
+                                            </p>
                                         </div>
-                                        <p class="testimonial-description">
-                                            "Installation was straightforward, and the wireless connectivity made deployment across our tunnel network seamless. Excellent product and support."
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -664,9 +590,11 @@
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Updated on Smart Monitoring Technology</h3>
-                                <p>Get the latest insights on vibration monitoring, IoT innovations, and structural health management delivered to your inbox.</p>
+                                <p>Get the latest insights on vibration monitoring, IoT innovations, and structural
+                                    health management delivered to your inbox.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
@@ -678,9 +606,12 @@
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="../php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="../php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Enter your email address" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Enter your email address" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
@@ -726,7 +657,9 @@
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Our Core Communications is suitable for bridges, buildings, tunnels, dams, industrial facilities, wind turbines, and any structure where vibration monitoring is critical for safety and performance.
+                                                Our Core Communications is suitable for bridges, buildings, tunnels,
+                                                dams, industrial facilities, wind turbines, and any structure where
+                                                vibration monitoring is critical for safety and performance.
                                             </p>
                                         </div>
                                     </div>
@@ -737,14 +670,16 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="true"
                                             aria-controls="faq2">
-                                           How is the sensor powered and what's the battery life?
+                                            How is the sensor powered and what's the battery life?
                                         </button>
                                     </h2>
                                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                The sensor is powered by long-life batteries (5-10 years) or can be connected to AC/DC power. Solar panel options are also available for extended deployment in remote locations.
+                                                The sensor is powered by long-life batteries (5-10 years) or can be
+                                                connected to AC/DC power. Solar panel options are also available for
+                                                extended deployment in remote locations.
                                             </p>
                                         </div>
                                     </div>
@@ -761,7 +696,9 @@
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               The sensor supports LoRaWAN for long-range wireless communication, 4G LTE for cellular connectivity, Bluetooth for local configuration, and RS485 for wired connections.
+                                                The sensor supports LoRaWAN for long-range wireless communication, 4G
+                                                LTE for cellular connectivity, Bluetooth for local configuration, and
+                                                RS485 for wired connections.
                                             </p>
                                         </div>
                                     </div>
@@ -778,7 +715,9 @@
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Yes, the sensor has an IP67 rating for waterproof and dustproof protection, with an operating temperature range of -40°C to +85°C, making it suitable for extreme environments.
+                                                Yes, the sensor has an IP67 rating for waterproof and dustproof
+                                                protection, with an operating temperature range of -40°C to +85°C,
+                                                making it suitable for extreme environments.
                                             </p>
                                         </div>
                                     </div>
@@ -788,14 +727,16 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false"
                                             aria-controls="faq5">
-                                           How is data accessed and analyzed?
+                                            How is data accessed and analyzed?
                                         </button>
                                     </h2>
                                     <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Data is transmitted to our cloud platform where it can be viewed through web dashboards or mobile apps. The platform includes real-time visualization, historical analysis, and automated alert systems.
+                                                Data is transmitted to our cloud platform where it can be viewed through
+                                                web dashboards or mobile apps. The platform includes real-time
+                                                visualization, historical analysis, and automated alert systems.
                                             </p>
                                         </div>
                                     </div>
@@ -812,7 +753,9 @@
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                The sensor is CE and FCC certified, manufactured under ISO 9001 quality standards, and RoHS compliant. Full calibration certificates are provided with each unit.
+                                                The sensor is CE and FCC certified, manufactured under ISO 9001 quality
+                                                standards, and RoHS compliant. Full calibration certificates are
+                                                provided with each unit.
                                             </p>
                                         </div>
                                     </div>
@@ -878,4 +821,5 @@
         carouselSliderEl.addEventListener('mouseleave', () => carouselTimer = setInterval(nextCarouselSlide, carouselIntervalMs));
     </script>
 </body>
+
 </html>
