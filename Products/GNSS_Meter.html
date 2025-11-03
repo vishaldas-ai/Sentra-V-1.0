@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,27 +13,30 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
         }
 
-        
+
 
         .hotspot-section .image-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
-            
-             
+
+
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
+
         .hotspot-section .hotspot {
             position: absolute;
             width: 26px;
@@ -50,10 +54,12 @@
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -61,6 +67,7 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -68,6 +75,7 @@
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -75,6 +83,7 @@
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -92,11 +101,13 @@
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -104,78 +115,95 @@
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
-            top: 31%;
-            left: 35%;
+            top: 20%;
+            left: 32%;
         }
+
         .hotspot-section .hotspot.two {
-            top: 32%;
+            top: 22%;
             left: 73%;
         }
+
         .hotspot-section .hotspot.three {
             top: 60%;
-            left: 35%;
+            left: 23%;
         }
+
         .hotspot-section .hotspot.four {
-            top: 58%;
-            left: 72%;
+            top: 64%;
+            left: 68%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -183,11 +211,13 @@
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -217,44 +247,60 @@
             color: #000000;
 
         }
-        
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+
         body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -262,22 +308,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -285,12 +335,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -298,11 +350,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -316,14 +370,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-      
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -352,20 +407,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">GNSS Meter</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">GNSS Meter</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Edge Devices</a>
                             <span class="separator-link">/</span>
                             <p class="current-page">GNSS Meter</p>
-                        </nav>    
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -378,12 +434,19 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">High-Precision Positioning for Safer Infrastructure</h3>
-                                        <p>Sentra delivers next-generation vibration monitoring solutions designed to ensure infrastructure integrity and operational safety. Our expertise lies in combining precision sensing, edge intelligence, and long-range wireless connectivity to transform vibration data into actionable insights — empowering engineers to make faster, data-driven maintenance decisions.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">High-Precision Positioning for Safer
+                                            Infrastructure</h3>
+                                        <p>Sentra delivers next-generation vibration monitoring solutions designed to
+                                            ensure infrastructure integrity and operational safety. Our expertise lies
+                                            in combining precision sensing, edge intelligence, and long-range wireless
+                                            connectivity to transform vibration data into actionable insights —
+                                            empowering engineers to make faster, data-driven maintenance decisions.</p>
                                     </div>
                                 </div>
                             </div>
@@ -391,86 +454,95 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">LSG7GNS-SXLH</span>
-                        </div>
-                        <h2>GNSS Meter</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">High-accuracy GNSS positioning for continuous structural and geotechnical monitoring</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Long-term, maintenance-free operation with robust power management</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Flexible communication options, including LoRa and wired networks</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="/image/GNSSMeter_1.png" alt="GNSS Meter Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>High-Precision Positioning</strong><br>
-                                            Delivers millimeter-level accuracy
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">LSG7GNS-SXLH</span>
+                                    </div>
+                                    <h2>GNSS Meter</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">High-accuracy GNSS positioning for continuous
+                                                structural and geotechnical monitoring</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Long-term, maintenance-free operation with robust
+                                                power management</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Flexible communication options, including LoRa and
+                                                wired networks</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Multi-Constellation Support</strong><br>
-                                            Tracks GPS, GLONASS, Galileo
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="/image/GNSSMeter_1.png" alt="GNSS Meter Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>High-Precision Positioning</strong><br>
+                                                        Delivers millimeter-level accuracy
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Multi-Constellation Support</strong><br>
+                                                        Tracks GPS, GLONASS, Galileo
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Continuous Tracking</strong><br>
+                                                        24/7 position logging ensures
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Seamless Integration</strong><br>
+                                                        Easily connects with gateways and cloud platforms
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Continuous Tracking</strong><br>
-                                            24/7 position logging ensures
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Seamless Integration</strong><br>
-                                            Easily connects with gateways and cloud platforms
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                   The Sentra GNSS Meter is a precision positioning sensor for long-term, continuous monitoring of bridges, tunnels, buildings, and slopes. It captures millimeter-level displacements using high-precision GNSS technology, with onboard algorithms to detect movement and deviations automatically. Data is transmitted to cloud or edge platforms in real time, eliminating the need for manual data collection and enabling immediate response to critical movements.
+                                    The Sentra GNSS Meter is a precision positioning sensor for long-term, continuous
+                                    monitoring of bridges, tunnels, buildings, and slopes. It captures millimeter-level
+                                    displacements using high-precision GNSS technology, with onboard algorithms to
+                                    detect movement and deviations automatically. Data is transmitted to cloud or edge
+                                    platforms in real time, eliminating the need for manual data collection and enabling
+                                    immediate response to critical movements.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
@@ -491,16 +563,20 @@ body.lightmode .specs-container td {
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>High-precision GNSS sensor with millimeter-level displacement detection</li>
+                                                <li>High-precision GNSS sensor with millimeter-level displacement
+                                                    detection</li>
                                                 <li>Rugged IP68 enclosure for outdoor and exposed installations</li>
                                                 <li>LoRa and wired connectivity for flexible network integration</li>
-                                                <li>Mobile and web setup tools for quick deployment and configuration</li>
+                                                <li>Mobile and web setup tools for quick deployment and configuration
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>Long-life battery and power optimization for multi-year operation</li>
-                                                <li>Cloud integration and API support for alerts, dashboards, and analytics</li>
+                                                <li>Long-life battery and power optimization for multi-year operation
+                                                </li>
+                                                <li>Cloud integration and API support for alerts, dashboards, and
+                                                    analytics</li>
                                                 <li>Monthly Performance Reports</li>
                                             </ul>
                                         </div>
@@ -511,14 +587,17 @@ body.lightmode .specs-container td {
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Accurate Positioning</h5>
-                                                    <p>Millimeter-level displacement detection for infrastructure and geotechnical projects</p>
+                                                    <p>Millimeter-level displacement detection for infrastructure and
+                                                        geotechnical projects</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Real-Time Alerts</h5>
@@ -529,14 +608,16 @@ body.lightmode .specs-container td {
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Low Maintenance</h5>
                                                     <p>Long-term operation with minimal intervention</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Edge Intelligence</h5>
@@ -554,19 +635,26 @@ body.lightmode .specs-container td {
                                     <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
-                                        <li><a href="../single_services.html">Deployment of GNSS networks for structural and geotechnical monitoring</a></li>
-                                        <li><a href="../single_services.html">Continuous displacement and settlement tracking for bridges, tunnels, and slopes</a></li>
-                                        <li><a href="../single_services.html">Integration with early-warning systems and dashboards for remote monitoring</a></li>
-                                        <li><a href="../single_services.html">Calibration, field installation, and reference point setup</a></li>
-                                        <li><a href="../single_services.html">Cloud-based data routing, visualization, and custom alert configuration</a></li>
-                                        <li><a href="../single_services.html">Long-term maintenance and technical support</a></li>
+                                        <li><a href="../single_services.html">Deployment of GNSS networks for structural
+                                                and geotechnical monitoring</a></li>
+                                        <li><a href="../single_services.html">Continuous displacement and settlement
+                                                tracking for bridges, tunnels, and slopes</a></li>
+                                        <li><a href="../single_services.html">Integration with early-warning systems and
+                                                dashboards for remote monitoring</a></li>
+                                        <li><a href="../single_services.html">Calibration, field installation, and
+                                                reference point setup</a></li>
+                                        <li><a href="../single_services.html">Cloud-based data routing, visualization,
+                                                and custom alert configuration</a></li>
+                                        <li><a href="../single_services.html">Long-term maintenance and technical
+                                                support</a></li>
                                     </ul>
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -621,14 +709,17 @@ body.lightmode .specs-container td {
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
                                 <th>Reporting Format</th>
-                                <td>Position (WGS84) data for <br>- Last hour sample <br> - Last 6 h aggregated <br>- Last 24 h aggregated</td>
+                                <td>Position (WGS84) data for <br>- Last hour sample <br> - Last 6 h aggregated <br>-
+                                    Last 24 h aggregated</td>
                             </tr>
                             <tr>
                                 <th>System configuration</th>
-                                <td>Device setup and configuration via Worldsensing App. Remote configuration using CMT Edge. Data can be exported to third-party software via MQTT, REST API, or FTP.</td>
+                                <td>Device setup and configuration via Worldsensing App. Remote configuration using CMT
+                                    Edge. Data can be exported to third-party software via MQTT, REST API, or FTP.</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">GNSS Sensor</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">GNSS Sensor
+                                </th>
                             </tr>
                             <tr>
                                 <th>Correction Technology</th>
@@ -640,14 +731,16 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>Constellations/ GNSS Signals received</th>
-                                <td>- GPS / QZSS: L1C/A, L2C <br>- GLONASS: L1OF, L2OF <br>- Galileo: E1-B/C, E5b <br>- BeiDou: B1I, B2I</td>
+                                <td>- GPS / QZSS: L1C/A, L2C <br>- GLONASS: L1OF, L2OF <br>- Galileo: E1-B/C, E5b <br>-
+                                    BeiDou: B1I, B2I</td>
                             </tr>
                             <tr>
                                 <th>GNSS warmup time</th>
                                 <td>Selectable from: <br>- 10 s <br>- 20 s <br>- 30 s</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Tiltmeter</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Tiltmeter
+                                </th>
                             </tr>
                             <tr>
                                 <th>Sensor type</th>
@@ -665,113 +758,136 @@ body.lightmode .specs-container td {
                                 <th>Offset temperature dependency</th>
                                 <td>± 0.002°/°C</td>
                             </tr>
-                          <!-- GNSS Precision (fixed spacing) -->
-<tr>
-  <th colspan="2" style="padding-top:24px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">
-    GNSS Precision (95th Percentile)
-  </th>
-</tr>
-<tr>
-  <td colspan="2" style="padding-top:10px;">
-    <table style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
-  <colgroup>
-    <col style="width:20%;">
-    <col style="width:20%;">
-    <col style="width:20%;">
-    <col style="width:20%;">
-    <col style="width:20%;">
-  </colgroup>
+                            <!-- GNSS Precision (fixed spacing) -->
+                            <tr>
+                                <th colspan="2"
+                                    style="padding-top:24px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">
+                                    GNSS Precision (95th Percentile)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top:10px;">
+                                    <table
+                                        style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
+                                        <colgroup>
+                                            <col style="width:20%;">
+                                            <col style="width:20%;">
+                                            <col style="width:20%;">
+                                            <col style="width:20%;">
+                                            <col style="width:20%;">
+                                        </colgroup>
 
-  <thead>
-    <tr>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Distance base to rover</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Orientation</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">1 h (last sample)</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">6 h (last sample)</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">24 h (last sample)</th>
-    </tr>
-  </thead>
+                                        <thead>
+                                            <tr>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    Distance base to rover</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    Orientation</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    1 h (last sample)</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    6 h (last sample)</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    24 h (last sample)</th>
+                                            </tr>
+                                        </thead>
 
-  <tbody>
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">40 m</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
-    </tr>
+                                        <tbody>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">40 m</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
+                                            </tr>
 
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
-    </tr>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">9 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">3 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2 mm</td>
+                                            </tr>
 
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">4000 m</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">21 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">8 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">4 mm</td>
-    </tr>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">4000 m</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Horizontal</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">21 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">8 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">4 mm</td>
+                                            </tr>
 
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">31 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">15 mm</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">7 mm</td>
-    </tr>
-  </tbody>
-</table>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">&nbsp;</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Vertical</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">31 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">15 mm</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">7 mm</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
-  </td>
-</tr>
+                                </td>
+                            </tr>
 
-<!-- Battery Life Estimations (fixed spacing) -->
-<tr>
-  <th colspan="2" style="padding-top:28px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">Battery Life Estimations</th>
-</tr>
-<tr>
-  <td colspan="2" style="padding-top:10px;">
-    <table style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
-  <colgroup>
-    <col style="width:25%;">
-    <col style="width:25%;">
-    <col style="width:25%;">
-    <col style="width:25%;">
-  </colgroup>
+                            <!-- Battery Life Estimations (fixed spacing) -->
+                            <tr>
+                                <th colspan="2"
+                                    style="padding-top:28px; padding-bottom:10px; font-weight:600; color:#DFCAA0;">
+                                    Battery Life Estimations</th>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top:10px;">
+                                    <table
+                                        style="width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed;">
+                                        <colgroup>
+                                            <col style="width:25%;">
+                                            <col style="width:25%;">
+                                            <col style="width:25%;">
+                                            <col style="width:25%;">
+                                        </colgroup>
 
-  <thead>
-    <tr>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">Warm-up time</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">10 s</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">20 s</th>
-      <th style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">30 s</th>
-    </tr>
-  </thead>
+                                        <thead>
+                                            <tr>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    Warm-up time</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    10 s</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    20 s</th>
+                                                <th
+                                                    style="text-align:left; padding:12px 10px; font-weight:700; font-size:13px; color:#f5f5f5;">
+                                                    30 s</th>
+                                            </tr>
+                                        </thead>
 
-  <tbody>
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">Base</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">3.1 years</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2.7 years</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2.4 years</td>
-    </tr>
+                                        <tbody>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Base</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">3.1 years</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2.7 years</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2.4 years</td>
+                                            </tr>
 
-    <tr style="border-top:1px solid rgba(255,255,255,0.06);">
-      <td style="padding:12px 10px; color:#F5F5F5;">Rover</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">3.5 years</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2.9 years</td>
-      <td style="padding:12px 10px; color:#F5F5F5;">2.5 years</td>
-    </tr>
-  </tbody>
-</table>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.06);">
+                                                <td style="padding:12px 10px; color:#F5F5F5;">Rover</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">3.5 years</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2.9 years</td>
+                                                <td style="padding:12px 10px; color:#F5F5F5;">2.5 years</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
-  </td>
-</tr>
+                                </td>
+                            </tr>
 
                         </tbody>
                     </table>
@@ -779,8 +895,9 @@ body.lightmode .specs-container td {
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_GNSSMeter_EN">GNSS Meter Product Datasheet</a>
+                        See detailed information about sensor capabilities and battery life estimations in the
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_GNSSMeter_EN">GNSS
+                            Meter Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -793,28 +910,33 @@ body.lightmode .specs-container td {
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Ahead with GNSS Monitoring</h3>
-                                <p>Receive the latest updates, innovations, and best practices in high-precision GNSS monitoring and infrastructure safety — delivered straight to your inbox.</p>
+                                <p>Receive the latest updates, innovations, and best practices in high-precision GNSS
+                                    monitoring and infrastructure safety — delivered straight to your inbox.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -847,7 +969,7 @@ body.lightmode .specs-container td {
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                           What does the GNSS Meter measure?   
+                                            What does the GNSS Meter measure?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -855,7 +977,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                It captures precise 3D positioning and displacement of structures, slopes, tunnels, and other critical infrastructure, detecting even millimeter-level movements.
+                                                It captures precise 3D positioning and displacement of structures,
+                                                slopes, tunnels, and other critical infrastructure, detecting even
+                                                millimeter-level movements.
                                             </p>
                                         </div>
                                     </div>
@@ -866,14 +990,16 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="true"
                                             aria-controls="faq2">
-                                            How is movement detected and reported? 
+                                            How is movement detected and reported?
                                         </button>
                                     </h2>
                                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                High-precision GNSS receivers track coordinate changes in real time, and onboard algorithms automatically flag deviations beyond predefined thresholds for immediate alerts.
+                                                High-precision GNSS receivers track coordinate changes in real time, and
+                                                onboard algorithms automatically flag deviations beyond predefined
+                                                thresholds for immediate alerts.
                                             </p>
                                         </div>
                                     </div>
@@ -883,14 +1009,16 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                           What communication methods are supported?
+                                            What communication methods are supported?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               The GNSS Meter supports LoRa wireless networks, wired connections, and cloud integration, enabling remote monitoring and dashboard visualization.
+                                                The GNSS Meter supports LoRa wireless networks, wired connections, and
+                                                cloud integration, enabling remote monitoring and dashboard
+                                                visualization.
                                             </p>
                                         </div>
                                     </div>
@@ -900,14 +1028,15 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false"
                                             aria-controls="faq4">
-                                           How long can the device operate autonomously?
+                                            How long can the device operate autonomously?
                                         </button>
                                     </h2>
                                     <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Designed for low-power operation, the device can run unattended for years, depending on the reporting interval and environmental conditions.
+                                                Designed for low-power operation, the device can run unattended for
+                                                years, depending on the reporting interval and environmental conditions.
                                             </p>
                                         </div>
                                     </div>
@@ -924,7 +1053,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Yes — data is provided via APIs, MQTT, or FTP, making it easy to integrate into SCADA, asset management, or custom monitoring platforms.
+                                                Yes — data is provided via APIs, MQTT, or FTP, making it easy to
+                                                integrate into SCADA, asset management, or custom monitoring platforms.
                                             </p>
                                         </div>
                                     </div>
@@ -941,12 +1071,14 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               Ideal for bridges, tunnels, retaining walls, slopes, rail lines, and any infrastructure requiring precise positioning and early detection of movement.
+                                                Ideal for bridges, tunnels, retaining walls, slopes, rail lines, and any
+                                                infrastructure requiring precise positioning and early detection of
+                                                movement.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -960,32 +1092,32 @@ body.lightmode .specs-container td {
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
 
     <script>
@@ -1031,4 +1163,5 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
 </body>
+
 </html>

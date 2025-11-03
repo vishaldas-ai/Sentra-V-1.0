@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,27 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="https://clovetech.com/wp-content/uploads/2025/04/favicon.png" type="image/png" sizes="16x16">
     <style>
-        
-.product-specs-heading {
-    padding-top: 20px;
-    font-weight: 600;
-    color: #f48120; /* dark theme primary color */
-    text-align: left; /* optional, adjust as needed */
-}
+        .product-specs-heading {
+            padding-top: 20px;
+            font-weight: 600;
+            color: #f48120;
+            /* dark theme primary color */
+            text-align: left;
+            /* optional, adjust as needed */
+        }
 
-/* Light mode override */
-body.lightmode .product-specs-heading {
-    color: #f48120; /* black text for light mode */
-}
+        /* Light mode override */
+        body.lightmode .product-specs-heading {
+            color: #f48120;
+            /* black text for light mode */
+        }
 
         .hotspot-section {
             display: flex;
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
@@ -35,15 +39,17 @@ body.lightmode .product-specs-heading {
             position: relative;
             width: 100%;
             border-radius: 12px;
-            
-             
+
+
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
+
         .hotspot-section .hotspot {
             position: absolute;
             width: 26px;
@@ -61,10 +67,12 @@ body.lightmode .product-specs-heading {
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -72,6 +80,7 @@ body.lightmode .product-specs-heading {
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -79,6 +88,7 @@ body.lightmode .product-specs-heading {
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -86,6 +96,7 @@ body.lightmode .product-specs-heading {
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -103,11 +114,13 @@ body.lightmode .product-specs-heading {
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -115,78 +128,95 @@ body.lightmode .product-specs-heading {
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
-            top: 31%;
+            top: 25%;
             left: 35%;
         }
+
         .hotspot-section .hotspot.two {
             top: 32%;
-            left: 73%;
+            left: 70%;
         }
+
         .hotspot-section .hotspot.three {
             top: 60%;
-            left: 35%;
+            left: 30%;
         }
+
         .hotspot-section .hotspot.four {
-            top: 58%;
-            left: 72%;
+            top: 68%;
+            left: 68%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -194,11 +224,13 @@ body.lightmode .product-specs-heading {
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -228,46 +260,61 @@ body.lightmode .product-specs-heading {
             color: #000000;
 
         }
-       
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
 
         /* Light mode table */
-body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container th,
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -275,22 +322,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -298,12 +349,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -311,11 +364,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -329,14 +384,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-        
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -365,20 +421,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Repeater</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Repeater</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Edge Devices</a>
                             <span class="separator-link">/</span>
                             <p class="current-page">Repeater</p>
-                        </nav>    
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -391,12 +448,20 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Extend Sensor Connectivity for Continuous Monitoring</h3>
-                                        <p>Sentra delivers advanced K20 Edge Repeaters designed to expand the range and reliability of your remote sensor networks. By combining robust wireless communication, edge intelligence, and seamless integration with gateways and cloud platforms, our repeaters ensure uninterrupted data flow from field sensors to your monitoring dashboards, enabling faster and safer infrastructure decisions.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">Extend Sensor Connectivity for
+                                            Continuous Monitoring</h3>
+                                        <p>Sentra delivers advanced K20 Edge Repeaters designed to expand the range and
+                                            reliability of your remote sensor networks. By combining robust wireless
+                                            communication, edge intelligence, and seamless integration with gateways and
+                                            cloud platforms, our repeaters ensure uninterrupted data flow from field
+                                            sensors to your monitoring dashboards, enabling faster and safer
+                                            infrastructure decisions.</p>
                                     </div>
                                 </div>
                             </div>
@@ -404,86 +469,96 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">RPK20E</span>
-                        </div>
-                        <h2>K20 Edge Repeater</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Extends LoRa/LoRaWAN network coverage for remote sensor installations</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Reliable operation in harsh outdoor and industrial environments</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Supports multi-hop communication for complex or distributed sites</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="../image/repeater_01.png" alt="Repeater Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Extended Network Coverage</strong><br>
-                                            Boosts signal reach to connect remote nodes
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">RPK20E</span>
+                                    </div>
+                                    <h2>K20 Edge Repeater</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Extends LoRa/LoRaWAN network coverage for remote
+                                                sensor installations</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Reliable operation in harsh outdoor and industrial
+                                                environments</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Supports multi-hop communication for complex or
+                                                distributed sites</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Reliable Data Relay</strong><br>
-                                            Uninterrupted transmission between sensors and gateways over long distances
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="../image/repeater_01.png" alt="Repeater Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Extended Network Coverage</strong><br>
+                                                        Boosts signal reach to connect remote nodes
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Reliable Data Relay</strong><br>
+                                                        Uninterrupted transmission between sensors and gateways over
+                                                        long distances
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Low-Power Operation</strong><br>
+                                                        Optimized energy consumption for years
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Easy Deployment</strong><br>
+                                                        Compact, weatherproof design for quick installation
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Low-Power Operation</strong><br>
-                                            Optimized energy consumption for years
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Easy Deployment</strong><br>
-                                            Compact, weatherproof design for quick installation
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                  The Sentra K20 Edge Repeater strengthens wireless sensor networks by boosting signal reach and maintaining continuous communication between sensors and gateways. Ideal for challenging terrains, tunnels, or extended infrastructure projects, it ensures that critical tilt, vibration, and GNSS data is transmitted reliably. With built-in edge processing, the repeater can manage event-based triggers and locally buffer data when network connectivity is temporarily unavailable.
+                                    The Sentra K20 Edge Repeater strengthens wireless sensor networks by boosting signal
+                                    reach and maintaining continuous communication between sensors and gateways. Ideal
+                                    for challenging terrains, tunnels, or extended infrastructure projects, it ensures
+                                    that critical tilt, vibration, and GNSS data is transmitted reliably. With built-in
+                                    edge processing, the repeater can manage event-based triggers and locally buffer
+                                    data when network connectivity is temporarily unavailable.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
@@ -500,11 +575,13 @@ body.lightmode .specs-container td {
                                 <div class="card service-included">
                                     <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
-                                    <p>Field-ready hardware and services to expand and stabilize your sensor networks.</p>
+                                    <p>Field-ready hardware and services to expand and stabilize your sensor networks.
+                                    </p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>K20 Edge Repeater with IP65 rugged housing and extended temperature tolerance</li>
+                                                <li>K20 Edge Repeater with IP65 rugged housing and extended temperature
+                                                    tolerance</li>
                                                 <li>Wireless range extension for LoRa/LoRaWAN devices</li>
                                                 <li>Edge processing for event buffering and local alerts</li>
                                                 <li>Easy mobile/web configuration and management tools</li>
@@ -520,40 +597,50 @@ body.lightmode .specs-container td {
                                     </div>
                                 </div>
                                 <h4>Why Choose Sentra's K20 Edge Repeater?</h4>
-                                <p>Reliable network extension and seamless data flow for remote sensor deployments, ensuring uninterrupted monitoring in challenging or large-scale infrastructure projects.</p>
+                                <p>Reliable network extension and seamless data flow for remote sensor deployments,
+                                    ensuring uninterrupted monitoring in challenging or large-scale infrastructure
+                                    projects.</p>
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Extended Network Reach</h5>
-                                                    <p>Expands the coverage of sensor networks in hard-to-reach or remote locations</p>
+                                                    <p>Expands the coverage of sensor networks in hard-to-reach or
+                                                        remote locations</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Reliable Data Delivery</h5>
-                                                    <p>Maintains consistent communication even in challenging terrain or long distances</p>
+                                                    <p>Maintains consistent communication even in challenging terrain or
+                                                        long distances</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Durable Construction</h5>
-                                                    <p>IP65-rated housing built to withstand outdoor and industrial conditions</p>
+                                                    <p>IP65-rated housing built to withstand outdoor and industrial
+                                                        conditions</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Smart Edge Management</h5>
-                                                    <p>Locally handles data buffering and event forwarding to prevent data loss</p>
+                                                    <p>Locally handles data buffering and event forwarding to prevent
+                                                        data loss</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -567,11 +654,16 @@ body.lightmode .specs-container td {
                                     <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
-                                        <li><a href="../single_services.html">Repeater Deployment & Network Extension</a></li>
-                                        <li><a href="../single_services.html">Continuous Multi-Sensor Data Forwarding</a></li>
-                                        <li><a href="../single_services.html">Local Event Processing & Rapid Alerts</a></li>
-                                        <li><a href="../single_services.html">Gateway, Dashboard & SCADA Integration</a></li>
-                                        <li><a href="../single_services.html">Remote Configuration & Firmware Management</a></li>
+                                        <li><a href="../single_services.html">Repeater Deployment & Network
+                                                Extension</a></li>
+                                        <li><a href="../single_services.html">Continuous Multi-Sensor Data
+                                                Forwarding</a></li>
+                                        <li><a href="../single_services.html">Local Event Processing & Rapid Alerts</a>
+                                        </li>
+                                        <li><a href="../single_services.html">Gateway, Dashboard & SCADA Integration</a>
+                                        </li>
+                                        <li><a href="../single_services.html">Remote Configuration & Firmware
+                                                Management</a></li>
                                         <li><a href="../single_services.html">Long-Term Support & Maintenance</a></li>
                                     </ul>
                                 </div>
@@ -579,7 +671,8 @@ body.lightmode .specs-container td {
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -607,7 +700,8 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>Supported unlicensed bands</th>
-                                <td>863-874.4MHz (EMEA, India), 902-928MHz (North America), 915-928MHz (APAC, Latin America)</td>
+                                <td>863-874.4MHz (EMEA, India), 902-928MHz (North America), 915-928MHz (APAC, Latin
+                                    America)</td>
                             </tr>
                             <tr>
                                 <th>Antenna</th>
@@ -634,89 +728,98 @@ body.lightmode .specs-container td {
                             </tr>
                         </tbody>
 
- <tbody class="hidden-section" id="fullTable">
+                        <tbody class="hidden-section" id="fullTable">
 
-                        <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Communications performance</th>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">
+                                    Communications performance</th>
                             </tr>
-                              <tr>
-        <td colspan="2" style="padding-top:10px;">
-          <table style="width:100%; border-collapse:collapse; font-size:13px;">
-            <colgroup>
-              <col style="width:34%;">
-              <col style="width:33%;">
-              <col style="width:33%;">
-            </colgroup>
-            <thead>
-              <tr style="color:#BFBFBF;">
-                <th style="text-align:left; padding:8px 6px; font-weight:600;"> </th>
-                <th style="text-align:left; padding:8px 6px; font-weight:600;">Message Rate</th>
-                <th style="text-align:left; padding:8px 6px; font-weight:600;">Probability of transmission success</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
-                <td style="padding:10px 6px; color:#F5F5F5;">Default network</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">3.125 messages/min</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">> 99.7% μ ± 3σ</td>
-              </tr>
-              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
-                <td style="padding:10px 6px; color:#F5F5F5;">High demand network</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">8 messages/min</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">> 98.758% μ ± 2.5σ</td>
-              </tr>
-            </tbody>
-          </table>
-         </td>
-        </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top:10px;">
+                                    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                                        <colgroup>
+                                            <col style="width:34%;">
+                                            <col style="width:33%;">
+                                            <col style="width:33%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr style="color:#BFBFBF;">
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;"> </th>
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;">Message
+                                                    Rate</th>
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;">
+                                                    Probability of transmission success</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                                                <td style="padding:10px 6px; color:#F5F5F5;">Default network</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">3.125 messages/min</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">> 99.7% μ ± 3σ</td>
+                                            </tr>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                                                <td style="padding:10px 6px; color:#F5F5F5;">High demand network</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">8 messages/min</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">> 98.758% μ ± 2.5σ</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
 
-        <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Device capacity per network</th>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Device
+                                    capacity per network</th>
                             </tr>
-                              <tr>
-        <td colspan="2" style="padding-top:10px;">
-          <table style="width:100%; border-collapse:collapse; font-size:13px;">
-            <colgroup>
-              <col style="width:34%;">
-              <col style="width:33%;">
-              <col style="width:33%;">
-            </colgroup>
-            <thead>
-              <tr style="color:#BFBFBF;">
-                <th style="text-align:left; padding:8px 6px; font-weight:600;">Reporting Period</th>
-                <th style="text-align:left; padding:8px 6px; font-weight:600;">Default network</th>
-                <th style="text-align:left; padding:8px 6px; font-weight:600;">High Demand Network</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
-                <td style="padding:10px 6px; color:#F5F5F5;">5 min</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">15</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">40</td>
-              </tr>
-              <tr style="border-top:1px solid rgba(255,255,255,0.03);">
-                <td style="padding:10px 6px; color:#F5F5F5;">30 min</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">93</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">240</td>
-              </tr>
-               <tr style="border-top:1px solid rgba(255,255,255,0.03);">
-                <td style="padding:10px 6px; color:#F5F5F5;">1 h</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">187</td>
-                <td style="padding:10px 6px; color:#F5F5F5;">480</td>
-              </tr>
-            </tbody>
-          </table>
-         </td>
-        </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top:10px;">
+                                    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                                        <colgroup>
+                                            <col style="width:34%;">
+                                            <col style="width:33%;">
+                                            <col style="width:33%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr style="color:#BFBFBF;">
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;">Reporting
+                                                    Period</th>
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;">Default
+                                                    network</th>
+                                                <th style="text-align:left; padding:8px 6px; font-weight:600;">High
+                                                    Demand Network</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                                                <td style="padding:10px 6px; color:#F5F5F5;">5 min</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">15</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">40</td>
+                                            </tr>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                                                <td style="padding:10px 6px; color:#F5F5F5;">30 min</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">93</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">240</td>
+                                            </tr>
+                                            <tr style="border-top:1px solid rgba(255,255,255,0.03);">
+                                                <td style="padding:10px 6px; color:#F5F5F5;">1 h</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">187</td>
+                                                <td style="padding:10px 6px; color:#F5F5F5;">480</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
 
-           <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power options</th>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power options
+                                </th>
                             </tr>
-                              <tr>
+                            <tr>
 
                             <tr>
                                 <th>Power options</th>
-                                <td>PoE both mode A and mode B (802.3af specifications); 5V through SB; PoE injector for indoor included in the kit</td>
+                                <td>PoE both mode A and mode B (802.3af specifications); 5V through SB; PoE injector for
+                                    indoor included in the kit</td>
                             </tr>
                             <tr>
                                 <th>Mean power consumption</th>
@@ -730,15 +833,17 @@ body.lightmode .specs-container td {
                                 <th>Operating temperature</th>
                                 <td>-40°C +60°C</td>
                             </tr>
-                            
- </tbody>
+
+                        </tbody>
                     </table>
 
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="https://info.worldsensing.com/K20EdgeRepeater_Datasheet?_gl=1*1keb51l*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">K20 Edge Repeater Product Datasheet</a>
+                        See detailed information about sensor capabilities and battery life estimations in the
+                        <a style="color: #f48120;"
+                            href="https://info.worldsensing.com/K20EdgeRepeater_Datasheet?_gl=1*1keb51l*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">K20
+                            Edge Repeater Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -751,28 +856,34 @@ body.lightmode .specs-container td {
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Connected with Sentra K20 Edge Repeater</h3>
-                                <p>Receive the latest updates, best practices, and innovations in remote sensor connectivity, network extension, and edge data management — delivered directly to your inbox.</p>
+                                <p>Receive the latest updates, best practices, and innovations in remote sensor
+                                    connectivity, network extension, and edge data management — delivered directly to
+                                    your inbox.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -805,7 +916,7 @@ body.lightmode .specs-container td {
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                           What is the primary role of the K20 Edge Repeater?    
+                                            What is the primary role of the K20 Edge Repeater?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -813,7 +924,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                It strengthens and extends wireless sensor networks, ensuring data from remote or hard-to-reach sensors reliably reaches gateways.
+                                                It strengthens and extends wireless sensor networks, ensuring data from
+                                                remote or hard-to-reach sensors reliably reaches gateways.
                                             </p>
                                         </div>
                                     </div>
@@ -831,7 +943,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                The repeater boosts weak signals, enables multi-hop communication, and reduces data loss across long distances or obstructed areas.
+                                                The repeater boosts weak signals, enables multi-hop communication, and
+                                                reduces data loss across long distances or obstructed areas.
                                             </p>
                                         </div>
                                     </div>
@@ -841,14 +954,15 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                           Can it operate independently of other devices?
+                                            Can it operate independently of other devices?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               While it requires connected sensors, the K20 can locally store and forward data during temporary gateway or network outages.
+                                                While it requires connected sensors, the K20 can locally store and
+                                                forward data during temporary gateway or network outages.
                                         </div>
                                     </div>
                                 </div>
@@ -864,7 +978,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               It is designed for large infrastructure projects, tunnels, bridges, rail corridors, and other locations where direct connectivity is challenging.
+                                                It is designed for large infrastructure projects, tunnels, bridges, rail
+                                                corridors, and other locations where direct connectivity is challenging.
                                             </p>
                                         </div>
                                     </div>
@@ -881,7 +996,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                It can run on mains power or battery setups and is engineered for low-maintenance, long-term operation in outdoor or industrial environments.
+                                                It can run on mains power or battery setups and is engineered for
+                                                low-maintenance, long-term operation in outdoor or industrial
+                                                environments.
                                             </p>
                                         </div>
                                     </div>
@@ -891,19 +1008,21 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
                                             aria-controls="faq6">
-                                           How do I integrate it with existing monitoring systems?
+                                            How do I integrate it with existing monitoring systems?
                                         </button>
                                     </h2>
                                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                The K20 supports standard communication protocols (MQTT, REST API, FTP) and works with Sentra gateways or third-party dashboards for seamless data integration.
+                                                The K20 supports standard communication protocols (MQTT, REST API, FTP)
+                                                and works with Sentra gateways or third-party dashboards for seamless
+                                                data integration.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -917,32 +1036,32 @@ body.lightmode .specs-container td {
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <script>
         (function () {
@@ -987,4 +1106,5 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
 </body>
+
 </html>

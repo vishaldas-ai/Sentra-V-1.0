@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Product - Piconode  Data Logger</title>
+    <title>Single Product - Piconode Data Logger</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="https://clovetech.com/wp-content/uploads/2025/04/favicon.png" type="image/png" sizes="16x16">
     <style>
@@ -12,27 +13,30 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
         }
 
-        
+
 
         .hotspot-section .image-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
-            
-             
+
+
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
+
         .hotspot-section .hotspot {
             position: absolute;
             width: 26px;
@@ -50,10 +54,12 @@
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -61,6 +67,7 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -68,6 +75,7 @@
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -75,6 +83,7 @@
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -92,11 +101,13 @@
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -104,78 +115,95 @@
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
             top: 31%;
-            left: 35%;
+            left: 57%;
         }
+
         .hotspot-section .hotspot.two {
-            top: 32%;
-            left: 73%;
+            top: 33%;
+            left: 36%;
         }
+
         .hotspot-section .hotspot.three {
             top: 60%;
-            left: 35%;
+            left: 37%;
         }
+
         .hotspot-section .hotspot.four {
-            top: 58%;
-            left: 72%;
+            top: 61%;
+            left: 54%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -183,11 +211,13 @@
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -217,44 +247,60 @@
             color: #000000;
 
         }
-        
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+
         body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -262,22 +308,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -285,12 +335,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -298,11 +350,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -316,14 +370,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-        
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -352,20 +407,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Piconode  Data Logger</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Piconode Data Logger</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Edge Devices</a>
                             <span class="separator-link">/</span>
-                            <p class="current-page">Piconode  Data Logger</p>
-                        </nav>    
+                            <p class="current-page">Piconode Data Logger</p>
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -378,12 +434,20 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Reliable Analog Data Logging for Smarter Infrastructure Management</h3>
-                                        <p>Sentra’s Piconode Data Logger provides compact, wireless data acquisition for low-power analog sensors such as rain gauges, load cells, thermistors, and displacement sensors. By combining precise analog measurement, long-life battery operation, and secure LoRa wireless communication, it turns raw sensor data into actionable insights for faster, data-driven maintenance decisions.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">Reliable Analog Data Logging for Smarter
+                                            Infrastructure Management</h3>
+                                        <p>Sentra’s Piconode Data Logger provides compact, wireless data acquisition for
+                                            low-power analog sensors such as rain gauges, load cells, thermistors, and
+                                            displacement sensors. By combining precise analog measurement, long-life
+                                            battery operation, and secure LoRa wireless communication, it turns raw
+                                            sensor data into actionable insights for faster, data-driven maintenance
+                                            decisions.</p>
                                     </div>
                                 </div>
                             </div>
@@ -391,86 +455,95 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">LS-G6-PICO</span>
-                        </div>
-                        <h2>Piconode  Data Logger</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Capture data from low-power analog sensors including rain gauges, load cells, NTC thermistors, and potentiometer-output displacement sensors</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Supports voltage, potentiometer, and full Wheatstone bridge inputs</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Up to 15 km of wireless communication range with LoRa radio technology</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="/image/Piconode_1.png" alt="Piconode Data Logger Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Compact Form Factor</strong><br>
-                                            Ultra-small design for easy integration
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">LS-G6-PICO</span>
+                                    </div>
+                                    <h2>Piconode Data Logger</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Capture data from low-power analog sensors
+                                                including rain gauges, load cells, NTC thermistors, and
+                                                potentiometer-output displacement sensors</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Supports voltage, potentiometer, and full
+                                                Wheatstone bridge inputs</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Up to 15 km of wireless communication range with
+                                                LoRa radio technology</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Single-Channel Precision</strong><br>
-                                            Optimized for vibrating wire and temperature sensors
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="/image/Piconode_1.png" alt="Piconode Data Logger Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Compact Form Factor</strong><br>
+                                                        Ultra-small design for easy integration
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Single-Channel Precision</strong><br>
+                                                        Optimized for vibrating wire and temperature sensors
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Low-Power Operation</strong><br>
+                                                        Efficient power management enabling
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Wireless-Ready Connectivity</strong><br>
+                                                        Seamlessly connects to LoRa or thread networks
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Low-Power Operation</strong><br>
-                                            Efficient power management enabling
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Wireless-Ready Connectivity</strong><br>
-                                           Seamlessly connects to LoRa or thread networks
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                   The Piconode is a 3-channel compact wireless data logger designed for long-term, unattended operations. It includes one configurable analog channel, one thermistor channel, and one pulse counter channel. The device transmits high-accuracy measurements via LoRa, while onboard software and mobile apps allow field setup, sample collection, and signal coverage testing without manual data retrieval.
+                                    The Piconode is a 3-channel compact wireless data logger designed for long-term,
+                                    unattended operations. It includes one configurable analog channel, one thermistor
+                                    channel, and one pulse counter channel. The device transmits high-accuracy
+                                    measurements via LoRa, while onboard software and mobile apps allow field setup,
+                                    sample collection, and signal coverage testing without manual data retrieval.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
@@ -487,13 +560,16 @@ body.lightmode .specs-container td {
                                 <div class="card service-included">
                                     <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
-                                    <p>Robust components and intelligent services that make analog monitoring reliable from the start</p>
+                                    <p>Robust components and intelligent services that make analog monitoring reliable
+                                        from the start</p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>3-channel data logger (1 configurable, 1 thermistor, 1 pulse counter)</li>
+                                                <li>3-channel data logger (1 configurable, 1 thermistor, 1 pulse
+                                                    counter)</li>
                                                 <li>Sensor power output: 5 V DC, up to 50 mA</li>
-                                                <li>High-accuracy measurements for voltage, potentiometer, Wheatstone bridge, and thermistors</li>
+                                                <li>High-accuracy measurements for voltage, potentiometer, Wheatstone
+                                                    bridge, and thermistors</li>
                                                 <li>Internal temperature monitoring with each reading</li>
                                             </ul>
                                         </div>
@@ -507,40 +583,49 @@ body.lightmode .specs-container td {
                                     </div>
                                 </div>
                                 <h4>Why Choose Sentra for Analog Data Logging?</h4>
-                                <p>Designed for infrastructure owners and engineers, delivering actionable insights with minimal effort</p>
+                                <p>Designed for infrastructure owners and engineers, delivering actionable insights with
+                                    minimal effort</p>
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Continuous Reliability</h5>
-                                                    <p>Long-term, unattended data logging with efficient battery and power management.</p>
+                                                    <p>Long-term, unattended data logging with efficient battery and
+                                                        power management.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Precision Measurements</h5>
-                                                    <p>Capture accurate signals from voltage, potentiometer, Wheatstone bridge, thermistor, and pulse sensors.</p>
+                                                    <p>Capture accurate signals from voltage, potentiometer, Wheatstone
+                                                        bridge, thermistor, and pulse sensors.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Easy Setup & Integration</h5>
-                                                    <p>Configure in the field via mobile app and seamlessly connect to cloud platforms for remote monitoring.</p>
+                                                    <p>Configure in the field via mobile app and seamlessly connect to
+                                                        cloud platforms for remote monitoring.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Insightful Alerts</h5>
-                                                    <p>Automatic notifications on threshold breaches and real-time data for smarter decision-making.</p>
+                                                    <p>Automatic notifications on threshold breaches and real-time data
+                                                        for smarter decision-making.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -554,19 +639,26 @@ body.lightmode .specs-container td {
                                     <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
-                                        <li><a href="../single_services.html">Analog Sensor Supply, Calibration & Installation</a></li>
-                                        <li><a href="../single_services.html">Structural, Environmental & Geotechnical Monitoring</a></li>
-                                        <li><a href="../single_services.html">LoRa & Private Network Deployments</a></li>
-                                        <li><a href="../single_services.html">Mobile App & Cloud Integration via CMT Edge/Cloud</a></li>
-                                        <li><a href="../single_services.html">Sensor Supply, Calibration & Installation</a></li>
-                                        <li><a href="../single_services.html">Field Support & Ongoing Maintenance</a></li>
+                                        <li><a href="../single_services.html">Analog Sensor Supply, Calibration &
+                                                Installation</a></li>
+                                        <li><a href="../single_services.html">Structural, Environmental & Geotechnical
+                                                Monitoring</a></li>
+                                        <li><a href="../single_services.html">LoRa & Private Network Deployments</a>
+                                        </li>
+                                        <li><a href="../single_services.html">Mobile App & Cloud Integration via CMT
+                                                Edge/Cloud</a></li>
+                                        <li><a href="../single_services.html">Sensor Supply, Calibration &
+                                                Installation</a></li>
+                                        <li><a href="../single_services.html">Field Support & Ongoing Maintenance</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -588,7 +680,7 @@ body.lightmode .specs-container td {
 
                     <table>
                         <tbody>
-                             <tr>
+                            <tr>
                                 <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">General</th>
                             </tr>
                             <tr>
@@ -613,13 +705,15 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>System Configuration</th>
-                                <td>Locally via Worldsensing App or remotely using CMT Edge (single-net deployments) and CMT Cloud (multi-net deployments)</td>
+                                <td>Locally via Worldsensing App or remotely using CMT Edge (single-net deployments) and
+                                    CMT Cloud (multi-net deployments)</td>
                             </tr>
                         </tbody>
 
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 1: Configurable</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 1:
+                                    Configurable</th>
                             </tr>
                             <tr>
                                 <th>Input Types</th>
@@ -631,14 +725,17 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>Measurement Range</th>
-                                <td>±7.5 mV/V for FWB 0–5 VDC (0–1 V/V) for Potentiometer 0–5 VDC for Single-ended Voltage</td>
+                                <td>±7.5 mV/V for FWB 0–5 VDC (0–1 V/V) for Potentiometer 0–5 VDC for Single-ended
+                                    Voltage</td>
                             </tr>
                             <tr>
                                 <th>Accuracy</th>
-                                <td>0.04% FS for FWB 0.1% FS for Potentiometer 0.04–0.5% FS for Single-ended Voltage</td>
+                                <td>0.04% FS for FWB 0.1% FS for Potentiometer 0.04–0.5% FS for Single-ended Voltage
+                                </td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 2: Thermistor</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 2:
+                                    Thermistor</th>
                             </tr>
                             <tr>
                                 <th>Measuring Range</th>
@@ -649,7 +746,8 @@ body.lightmode .specs-container td {
                                 <td>0.04°C (0.04% FS) for 32kΩ 0.05°C (0.04% FS) for 50kΩ</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 3: Pulse Counter</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Channel 3:
+                                    Pulse Counter</th>
                             </tr>
                             <tr>
                                 <th>Pulse Count</th>
@@ -664,7 +762,8 @@ body.lightmode .specs-container td {
                                 <td>±1 Pulse</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life
+                                    estimations</th>
                             </tr>
                             <tr>
                                 <th style="font-weight: 600;">Reporting Period</th>
@@ -678,7 +777,7 @@ body.lightmode .specs-container td {
                                 <th>1 h</th>
                                 <td>8.6 years / 17.2 years</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <th>6 h</th>
                                 <td>15.4 years / >25 years</td>
                             </tr>
@@ -688,8 +787,9 @@ body.lightmode .specs-container td {
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_Piconode_EN">Piconode Data Logger Product Datasheet</a>
+                        See detailed information about sensor capabilities and battery life estimations in the
+                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_Piconode_EN">Piconode
+                            Data Logger Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -702,28 +802,34 @@ body.lightmode .specs-container td {
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Ahead in Analog Data Logging</h3>
-                                <p>Get the latest updates, tips, and innovations in wireless analog monitoring and infrastructure sensing delivered straight to your inbox — keeping your projects precise, reliable, and connected.</p>
+                                <p>Get the latest updates, tips, and innovations in wireless analog monitoring and
+                                    infrastructure sensing delivered straight to your inbox — keeping your projects
+                                    precise, reliable, and connected.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -756,7 +862,7 @@ body.lightmode .specs-container td {
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                          What types of sensors can Piconode connect to?    
+                                            What types of sensors can Piconode connect to?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -764,7 +870,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Piconode supports analog sensors including voltage, potentiometer, Wheatstone bridge, thermistors, and pulse counters, making it versatile for environmental, geotechnical, and structural monitoring.
+                                                Piconode supports analog sensors including voltage, potentiometer,
+                                                Wheatstone bridge, thermistors, and pulse counters, making it versatile
+                                                for environmental, geotechnical, and structural monitoring.
                                             </p>
                                         </div>
                                     </div>
@@ -782,7 +890,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                The logger captures measurements from connected sensors and transmits them wirelessly via LoRa to a gateway or cloud platform, enabling remote monitoring without manual data retrieval.
+                                                The logger captures measurements from connected sensors and transmits
+                                                them wirelessly via LoRa to a gateway or cloud platform, enabling remote
+                                                monitoring without manual data retrieval.
                                             </p>
                                         </div>
                                     </div>
@@ -792,14 +902,16 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                           Can Piconode operate in remote or hard-to-reach locations?
+                                            Can Piconode operate in remote or hard-to-reach locations?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Yes, its long-range LoRa communication and extended battery life allow deployment in remote, difficult-to-access areas for years without intervention.
+                                                Yes, its long-range LoRa communication and extended battery life allow
+                                                deployment in remote, difficult-to-access areas for years without
+                                                intervention.
                                             </p>
                                         </div>
                                     </div>
@@ -816,7 +928,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               Depending on configuration and reporting frequency, Piconode can operate for up to 25 years on its internal battery, minimizing maintenance requirements.
+                                                Depending on configuration and reporting frequency, Piconode can operate
+                                                for up to 25 years on its internal battery, minimizing maintenance
+                                                requirements.
                                             </p>
                                         </div>
                                     </div>
@@ -833,7 +947,9 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Absolutely. Data can be accessed via cloud platforms or mobile apps, and Piconode can be integrated with third-party asset management and data analysis systems.
+                                                Absolutely. Data can be accessed via cloud platforms or mobile apps, and
+                                                Piconode can be integrated with third-party asset management and data
+                                                analysis systems.
                                             </p>
                                         </div>
                                     </div>
@@ -843,19 +959,21 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
                                             aria-controls="faq6">
-                                          Which environments are suitable for deployment?
+                                            Which environments are suitable for deployment?
                                         </button>
                                     </h2>
                                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Piconode is designed for bridges, tunnels, buildings, geotechnical sites, environmental stations, and industrial installations, offering reliable analog data capture in harsh conditions.
+                                                Piconode is designed for bridges, tunnels, buildings, geotechnical
+                                                sites, environmental stations, and industrial installations, offering
+                                                reliable analog data capture in harsh conditions.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -869,32 +987,32 @@ body.lightmode .specs-container td {
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <script>
         (function () {
@@ -939,4 +1057,5 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
 </body>
+
 </html>

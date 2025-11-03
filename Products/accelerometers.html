@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +13,24 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
         }
+
         .hotspot-section .image-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
 
         /* Base dark mode */
@@ -49,10 +53,12 @@
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -60,6 +66,7 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -67,6 +74,7 @@
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -74,6 +82,7 @@
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -91,11 +100,13 @@
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -103,78 +114,95 @@
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
             top: 31%;
-            left: 35%;
+            left: 25%;
         }
+
         .hotspot-section .hotspot.two {
             top: 32%;
             left: 73%;
         }
+
         .hotspot-section .hotspot.three {
-            top: 60%;
-            left: 35%;
+            top: 70%;
+            left: 15%;
         }
+
         .hotspot-section .hotspot.four {
-            top: 58%;
+            top: 68%;
             left: 72%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -182,11 +210,13 @@
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -216,45 +246,61 @@
             color: #000000;
 
         }
-        
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+
         body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -262,22 +308,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -285,12 +335,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -298,11 +350,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -316,14 +370,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-        
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -352,20 +407,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Accelerometer</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Accelerometer</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Wired Sensors</a>
                             <span class="separator-link">/</span>
                             <p class="current-page">Accelerometer</p>
-                        </nav>    
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -378,12 +434,19 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Measure the Movements That Matter</h3>
-                                        <p>Sentra’s accelerometer systems bring precision, reliability, and intelligence to structural and industrial vibration monitoring. Designed for continuous operation in the toughest environments, our MEMS-based accelerometers transform raw acceleration data into actionable insights — helping engineers detect instability, assess performance, and extend the life of critical assets.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">Measure the Movements That Matter</h3>
+                                        <p>Sentra’s accelerometer systems bring precision, reliability, and intelligence
+                                            to structural and industrial vibration monitoring. Designed for continuous
+                                            operation in the toughest environments, our MEMS-based accelerometers
+                                            transform raw acceleration data into actionable insights — helping engineers
+                                            detect instability, assess performance, and extend the life of critical
+                                            assets.</p>
                                     </div>
                                 </div>
                             </div>
@@ -391,106 +454,120 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">LS-G6-VW</span>
-                            <span class="tag">LS-G6-VW-1</span>
-                        </div>
-                        <h2>Accelerometer</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">High-resolution triaxial MEMS sensing across X, Y, and Z axes</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Sealed IP65 housing for outdoor or industrial deployment</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Wide 5–30 VDC input range for versatile field compatibility</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="../image/acceleorometer_01.png" alt="Accelerometer Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Wireless Module</strong><br>
-                                            LoRa communication for 15 km range.
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">LS-G6-VW</span>
+                                        <span class="tag">LS-G6-VW-1</span>
+                                    </div>
+                                    <h2>Accelerometer</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">High-resolution triaxial MEMS sensing across X, Y,
+                                                and Z axes</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Sealed IP65 housing for outdoor or industrial
+                                                deployment</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Wide 5–30 VDC input range for versatile field
+                                                compatibility</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Sensor Interface</strong><br>
-                                            Compatible with all leading manufacturers.
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="../image/acceleorometer_01.png" alt="Accelerometer Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Wireless Module</strong><br>
+                                                        LoRa communication for 15 km range.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Sensor Interface</strong><br>
+                                                        Compatible with all leading manufacturers.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Long-Life Battery</strong><br>
+                                                        25 years of unattended operations.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Data Logger</strong><br>
+                                                        Secure on-board storage.
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Long-Life Battery</strong><br>
-                                            25 years of unattended operations.
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Data Logger</strong><br>
-                                            Secure on-board storage.
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                   The Model 4030 Triaxial MEMS DC Accelerometer is engineered for precision measurement of acceleration, tilt, and low-frequency vibration across bridges, tunnels, buildings, and machinery.
-With ±2 g and ±6 g dynamic range options, it captures subtle and dynamic movements alike — from structural deflection to machine vibration. A rugged, molded nylon housing, brass mounting inserts, and a shielded six-conductor cable ensure durability and clean data transmission.
-Its integrated low-pass filter and self-test function make it ideal for permanent installations, laboratory tests, and smart infrastructure networks where reliability and verification matter most.
+                                    The Model 4030 Triaxial MEMS DC Accelerometer is engineered for precision
+                                    measurement of acceleration, tilt, and low-frequency vibration across bridges,
+                                    tunnels, buildings, and machinery.
+                                    With ±2 g and ±6 g dynamic range options, it captures subtle and dynamic movements
+                                    alike — from structural deflection to machine vibration. A rugged, molded nylon
+                                    housing, brass mounting inserts, and a shielded six-conductor cable ensure
+                                    durability and clean data transmission.
+                                    Its integrated low-pass filter and self-test function make it ideal for permanent
+                                    installations, laboratory tests, and smart infrastructure networks where reliability
+                                    and verification matter most.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
                                         <div class="image-container">
-                                            <img src="../image/acceleorometer_01.png" alt="Service Image" class="img-fluid">
+                                            <img src="../image/acceleorometer_01.png" alt="Service Image"
+                                                class="img-fluid">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="image-container">
-                                            <img src="../image/acceleorometer_01.png" alt="Service Image" class="img-fluid">
+                                            <img src="../image/acceleorometer_01.png" alt="Service Image"
+                                                class="img-fluid">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card service-included">
                                     <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
-                                    <p>Deployment-ready components and capabilities that make motion monitoring seamless from day one</p>
+                                    <p>Deployment-ready components and capabilities that make motion monitoring seamless
+                                        from day one</p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
@@ -504,46 +581,56 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                                             <ul class="check-list">
                                                 <li>Rugged IP65-rated housing with brass mounting inserts</li>
                                                 <li>Integrated self-test and low-pass filter</li>
-                                                <li>Compatibility with Sentra’s GeoNet data loggers and digital reporting systems</li>
+                                                <li>Compatibility with Sentra’s GeoNet data loggers and digital
+                                                    reporting systems</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <h4>Why Choose Sentra for Structural Health Monitoring?</h4>
-                                <p>Reliable, actionable, and designed with the needs of infrastructure owners and engineering teams in mind.</p>
+                                <p>Reliable, actionable, and designed with the needs of infrastructure owners and
+                                    engineering teams in mind.</p>
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Result-Driven Monitoring</h5>
-                                                    <p>Detect subtle motion, vibration, or settlement before they escalate into costly damage.</p>
+                                                    <p>Detect subtle motion, vibration, or settlement before they
+                                                        escalate into costly damage.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Engineered Accuracy</h5>
-                                                    <p>High-fidelity MEMS sensors deliver consistent, drift-free acceleration data.</p>
+                                                    <p>High-fidelity MEMS sensors deliver consistent, drift-free
+                                                        acceleration data.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Edge Intelligence</h5>
-                                                    <p>On-device algorithms and connected gateways ensure rapid event detection and reduced false alarms.</p>
+                                                    <p>On-device algorithms and connected gateways ensure rapid event
+                                                        detection and reduced false alarms.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Actionable Reporting</h5>
-                                                    <p>Automated dashboards and integration-ready alerts streamline decision-making for asset managers and engineers.</p>
+                                                    <p>Automated dashboards and integration-ready alerts streamline
+                                                        decision-making for asset managers and engineers.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -557,19 +644,24 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                                     <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
-                                        <li><a href="../single_services.html">Bridge & Tunnel Vibration Assessment</a></li>
-                                        <li><a href="../single_services.html">Building & Industrial Structural Health Monitoring</a></li>
+                                        <li><a href="../single_services.html">Bridge & Tunnel Vibration Assessment</a>
+                                        </li>
+                                        <li><a href="../single_services.html">Building & Industrial Structural Health
+                                                Monitoring</a></li>
                                         <li><a href="../single_services.html">Seismic & Ground Motion Analysis</a></li>
-                                        <li><a href="../single_services.html">Seismic & Dynamic Response Analytics</a></li>
+                                        <li><a href="../single_services.html">Seismic & Dynamic Response Analytics</a>
+                                        </li>
                                         <li><a href="../single_services.html">Machinery & Equipment Diagnostics</a></li>
-                                        <li><a href="../single_services.html">Smart City & Transportation Infrastructure Monitoring</a></li>
+                                        <li><a href="../single_services.html">Smart City & Transportation Infrastructure
+                                                Monitoring</a></li>
                                     </ul>
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -635,7 +727,8 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                                 <td>Configuration via monitoring App or remotely using GNSS Edge + GNSS Cloud</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based operation mode specifications</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">PPV-based
+                                    operation mode specifications</th>
                             </tr>
                             <tr>
                                 <th>Reported parameters</th>
@@ -650,7 +743,8 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                                 <td>1–250 Hz</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based operation mode specifications</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">MTVV-based
+                                    operation mode specifications</th>
                             </tr>
                             <tr>
                                 <th>Reported parameters</th>
@@ -669,7 +763,8 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                                 <td>Wm</td>
                             </tr>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life estimations</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Battery life
+                                    estimations</th>
                             </tr>
                             <tr>
                                 <th>Reporting parameters</th>
@@ -689,8 +784,10 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
-                         <a style="color: #f48120;" href="../Products/Datasheets/ENG_DS_4020_4030_Accelerometer_A2 (1).pdf">Accelerometer Product Datasheet</a>
+                        See detailed information about sensor capabilities and battery life estimations in the
+                        <a style="color: #f48120;"
+                            href="../Products/Datasheets/ENG_DS_4020_4030_Accelerometer_A2 (1).pdf">Accelerometer
+                            Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -703,29 +800,34 @@ Its integrated low-pass filter and self-test function make it ideal for permanen
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Ahead with Smart Motion Insights</h3>
-                                <p>Get full specifications, installation guidance, and performance data for Sentra’s Accelerometer Monitoring solutions.
-Simply enter your email to receive the complete data sheet instantly.</p>
+                                <p>Get full specifications, installation guidance, and performance data for Sentra’s
+                                    Accelerometer Monitoring solutions.
+                                    Simply enter your email to receive the complete data sheet instantly.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -758,7 +860,7 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                           What do accelerometers measure in structural systems?    
+                                            What do accelerometers measure in structural systems?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -766,7 +868,9 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Sentra accelerometers capture acceleration, vibration, and tilt — offering a complete picture of how a structure or machine responds to dynamic loads, traffic, or seismic activity.
+                                                Sentra accelerometers capture acceleration, vibration, and tilt —
+                                                offering a complete picture of how a structure or machine responds to
+                                                dynamic loads, traffic, or seismic activity.
                                             </p>
                                         </div>
                                     </div>
@@ -784,7 +888,9 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                A precision capacitive MEMS element converts even the smallest accelerations into stable electrical signals. Internal filtering and temperature compensation ensure clean, drift-free measurements.
+                                                A precision capacitive MEMS element converts even the smallest
+                                                accelerations into stable electrical signals. Internal filtering and
+                                                temperature compensation ensure clean, drift-free measurements.
                                             </p>
                                         </div>
                                     </div>
@@ -794,14 +900,16 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                           Can the accelerometer connect to wireless monitoring systems?
+                                            Can the accelerometer connect to wireless monitoring systems?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Yes. Sentra accelerometers integrate with GeoNet LoRa®, Cellular, Wi-Fi, and Satellite data loggers for long-range, low-power communication directly to your cloud dashboard.
+                                                Yes. Sentra accelerometers integrate with GeoNet LoRa®, Cellular, Wi-Fi,
+                                                and Satellite data loggers for long-range, low-power communication
+                                                directly to your cloud dashboard.
                                             </p>
                                         </div>
                                     </div>
@@ -811,14 +919,16 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false"
                                             aria-controls="faq4">
-                                           What power and maintenance requirements should I expect?
+                                            What power and maintenance requirements should I expect?
                                         </button>
                                     </h2>
                                     <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               The sensor operates on 5–30 V DC and consumes minimal power. When paired with Sentra’s low-power edge devices, the system can run autonomously for years with routine inspections only.
+                                                The sensor operates on 5–30 V DC and consumes minimal power. When paired
+                                                with Sentra’s low-power edge devices, the system can run autonomously
+                                                for years with routine inspections only.
                                             </p>
                                         </div>
                                     </div>
@@ -828,14 +938,16 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false"
                                             aria-controls="faq5">
-                                           Can accelerometer data be merged with other sensors?
+                                            Can accelerometer data be merged with other sensors?
                                         </button>
                                     </h2>
                                     <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                            Absolutely. It’s designed for hybrid monitoring — combining acceleration data with strain, tilt, or displacement sensors to create a complete digital twin of structural behavior.
+                                                Absolutely. It’s designed for hybrid monitoring — combining acceleration
+                                                data with strain, tilt, or displacement sensors to create a complete
+                                                digital twin of structural behavior.
                                             </p>
                                         </div>
                                     </div>
@@ -845,19 +957,21 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
                                             aria-controls="faq6">
-                                           Where can Sentra accelerometers be deployed?
+                                            Where can Sentra accelerometers be deployed?
                                         </button>
                                     </h2>
                                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                            They are ideal for bridges, tunnels, buildings, industrial foundations, seismic stations, and smart city assets — anywhere precise vibration or motion tracking is critical to safety and performance.
+                                                They are ideal for bridges, tunnels, buildings, industrial foundations,
+                                                seismic stations, and smart city assets — anywhere precise vibration or
+                                                motion tracking is critical to safety and performance.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -871,32 +985,32 @@ Simply enter your email to receive the complete data sheet instantly.</p>
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <script>
         (function () {
@@ -941,4 +1055,5 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,27 +13,30 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
         }
 
-        
+
 
         .hotspot-section .image-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
-            
-             
+
+
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
+
         .hotspot-section .hotspot {
             position: absolute;
             width: 26px;
@@ -50,10 +54,12 @@
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -61,6 +67,7 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -68,6 +75,7 @@
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -75,6 +83,7 @@
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -92,11 +101,13 @@
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -104,78 +115,95 @@
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
             top: 31%;
-            left: 35%;
+            left: 25%;
         }
+
         .hotspot-section .hotspot.two {
-            top: 32%;
-            left: 73%;
+            top: 30%;
+            left: 78%;
         }
+
         .hotspot-section .hotspot.three {
-            top: 60%;
-            left: 35%;
+            top: 65%;
+            left: 25%;
         }
+
         .hotspot-section .hotspot.four {
             top: 58%;
-            left: 72%;
+            left: 82%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -183,11 +211,13 @@
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -217,44 +247,60 @@
             color: #000000;
 
         }
-        
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+
         body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -262,22 +308,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -285,12 +335,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -298,11 +350,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -316,14 +370,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-       
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -352,20 +407,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Thread</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Thread</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Edge Devices</a>
                             <span class="separator-link">/</span>
                             <p class="current-page">Thread</p>
-                        </nav>    
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -378,12 +434,20 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Enable High-Bandwidth Sensor Networks with Thread X3</h3>
-                                        <p>Sentra provides the Thread X3, a high-performance broadband node engineered for demanding monitoring environments. By combining secure 4G/LTE connectivity, mesh networking, and local event processing, Thread X3 ensures continuous, high-speed data transfer from multiple sensors to your cloud or SCADA platform, empowering engineers to make timely, data-driven decisions even in remote or challenging sites.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">Enable High-Bandwidth Sensor Networks
+                                            with Thread X3</h3>
+                                        <p>Sentra provides the Thread X3, a high-performance broadband node engineered
+                                            for demanding monitoring environments. By combining secure 4G/LTE
+                                            connectivity, mesh networking, and local event processing, Thread X3 ensures
+                                            continuous, high-speed data transfer from multiple sensors to your cloud or
+                                            SCADA platform, empowering engineers to make timely, data-driven decisions
+                                            even in remote or challenging sites.</p>
                                     </div>
                                 </div>
                             </div>
@@ -391,86 +455,96 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">ThreadX3</span>
-                        </div>
-                        <h2>Thread X3</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Broadband 4G/LTE connectivity with integrated SIM — no carrier setup required</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Weatherproof, industrial-grade enclosure with battery and solar options</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Supports mesh networking, multiplexers, and up to 128 sensors per input</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="../image/thread_01.png" alt="Thread Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Mesh Network Backbone</strong><br>
-                                            self-healing wireless mesh for robust and scalable sensor communication
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">ThreadX3</span>
+                                    </div>
+                                    <h2>Thread X3</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Broadband 4G/LTE connectivity with integrated SIM
+                                                — no carrier setup required</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Weatherproof, industrial-grade enclosure with
+                                                battery and solar options</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Supports mesh networking, multiplexers, and up to
+                                                128 sensors per input</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Seamless Integration</strong><br>
-                                           Ensures consistent data flow across the network
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="../image/thread_01.png" alt="Thread Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Mesh Network Backbone</strong><br>
+                                                        self-healing wireless mesh for robust and scalable sensor
+                                                        communication
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Seamless Integration</strong><br>
+                                                        Ensures consistent data flow across the network
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Adaptive Routing</strong><br>
+                                                        Automatically adjusts communication paths to maintain optimal
+                                                        signal reliability
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Ultra-Low Power</strong><br>
+                                                        Long-term operation with minimal energy consumption in the field
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Adaptive Routing</strong><br>
-                                            Automatically adjusts communication paths to maintain optimal signal reliability
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Ultra-Low Power</strong><br>
-                                            Long-term operation with minimal energy consumption in the field
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                   The Thread X3 is a high-performance broadband node built for demanding monitoring environments. It facilitates secure, high-speed data transmission from multiple sensors, including cameras, total stations, and multiparameter instruments. Advanced relay capabilities and local processing ensure critical alerts are maintained even in temporary network outages.
+                                    The Thread X3 is a high-performance broadband node built for demanding monitoring
+                                    environments. It facilitates secure, high-speed data transmission from multiple
+                                    sensors, including cameras, total stations, and multiparameter instruments. Advanced
+                                    relay capabilities and local processing ensure critical alerts are maintained even
+                                    in temporary network outages.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
@@ -487,7 +561,8 @@ body.lightmode .specs-container td {
                                 <div class="card service-included">
                                     <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
-                                    <p>Thread X3 nodes with 4G/LTE connectivity and mesh networking for rapid, reliable sensor integration..</p>
+                                    <p>Thread X3 nodes with 4G/LTE connectivity and mesh networking for rapid, reliable
+                                        sensor integration..</p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
@@ -501,7 +576,8 @@ body.lightmode .specs-container td {
                                             <ul class="check-list">
                                                 <li>Battery, AC, or solar power options</li>
                                                 <li>Low-power and standard operation modes</li>
-                                                <li>Easy configuration through cloud platform with JSON data forwarding</li>
+                                                <li>Easy configuration through cloud platform with JSON data forwarding
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -511,36 +587,43 @@ body.lightmode .specs-container td {
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Reliable 4G/LTE Connectivity</h5>
-                                                    <p>Ensures continuous multi-sensor communication across remote or challenging sites</p>
+                                                    <p>Ensures continuous multi-sensor communication across remote or
+                                                        challenging sites</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Mesh Networking Intelligence</h5>
-                                                    <p>Enables robust data routing and local event handling for uninterrupted monitoring</p>
+                                                    <p>Enables robust data routing and local event handling for
+                                                        uninterrupted monitoring</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Rugged Industrial Design</h5>
                                                     <p>Weatherproof and built for outdoor or harsh environments</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Seamless Integration</h5>
-                                                    <p>Works with existing Sentra sensor networks and cloud platforms</p>
+                                                    <p>Works with existing Sentra sensor networks and cloud platforms
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -557,16 +640,19 @@ body.lightmode .specs-container td {
                                         <li><a href="../single_services.html">Sensor Network Deployment</a></li>
                                         <li><a href="../single_services.html">Multi-Sensor Data Acquisition</a></li>
                                         <li><a href="../single_services.html">Multi-Sensor Data Acquisition</a></li>
-                                        <li><a href="../single_services.html">Integration with Cloud, SCADA & Dashboards</a></li>
+                                        <li><a href="../single_services.html">Integration with Cloud, SCADA &
+                                                Dashboards</a></li>
                                         <li><a href="../single_services.html">Remote Device Management</a></li>
-                                        <li><a href="../single_services.html">Power and Connectivity Optimization</a></li>
+                                        <li><a href="../single_services.html">Power and Connectivity Optimization</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -589,22 +675,27 @@ body.lightmode .specs-container td {
                     <table>
                         <tbody>
                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Network features</th>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Network
+                                    features</th>
                             </tr>
                             <tr>
                                 <th>Cellular</th>
-                                <td>Integrated SIM card. Globally compliant on 600+ cellular networks across 190 countries</td>
+                                <td>Integrated SIM card. Globally compliant on 600+ cellular networks across 190
+                                    countries</td>
                             </tr>
                             <tr>
                                 <th>Ethernet</th>
-                                <td>10/100 Ethernet interface with end-to end encrypted communication secured by TLS 1.2</td>
+                                <td>10/100 Ethernet interface with end-to end encrypted communication secured by TLS 1.2
+                                </td>
                             </tr>
                             <tr>
                                 <th>Wireless mesh</th>
-                                <td>LPWA with compatible devices and smart sensors through MQTT-SN standard. Automatic network role detection Gateway, Repeater, or Endpoint</td>
+                                <td>LPWA with compatible devices and smart sensors through MQTT-SN standard. Automatic
+                                    network role detection Gateway, Repeater, or Endpoint</td>
                             </tr>
-                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Sensor I/O</th>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Sensor I/O
+                                </th>
                             </tr>
                             <tr>
                                 <th>Number of channels</th>
@@ -612,7 +703,8 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>Input types</th>
-                                <td>Channel 01: USB, RS232, RS485, 4-20mA; Channel 02: RS232, RS485, 4-20mA; Channel 03: RS232, RS485, 4-20mA</td>
+                                <td>Channel 01: USB, RS232, RS485, 4-20mA; Channel 02: RS232, RS485, 4-20mA; Channel 03:
+                                    RS232, RS485, 4-20mA</td>
                             </tr>
                             <tr>
                                 <th>Power</th>
@@ -623,10 +715,13 @@ body.lightmode .specs-container td {
                         <tbody class="hidden-section" id="fullTable">
                             <tr>
                                 <th>Advanced capabilities</th>
-                                <td>Supports Multiplexer (MUX) with up to 128 sensors. Relay capabilities: each device port can output 12V that can be toggled on and off manually, via API integration, by alert trigger, or by recorded flow</td>
+                                <td>Supports Multiplexer (MUX) with up to 128 sensors. Relay capabilities: each device
+                                    port can output 12V that can be toggled on and off manually, via API integration, by
+                                    alert trigger, or by recorded flow</td>
                             </tr>
-                             <tr>
-                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power requirements</th>
+                            <tr>
+                                <th colspan="2" style="padding-top:20px; font-weight:600; color: #DFCAA0;">Power
+                                    requirements</th>
                             </tr>
                             <tr>
                                 <th>Input voltage</th>
@@ -634,25 +729,30 @@ body.lightmode .specs-container td {
                             </tr>
                             <tr>
                                 <th>Mean power consumption</th>
-                                <td>Up to 2500mA (Charge mode); 200mA RMS (Standard mode); 20mA RMS (Low power mode) @24 VDC</td>
+                                <td>Up to 2500mA (Charge mode); 200mA RMS (Standard mode); 20mA RMS (Low power mode) @24
+                                    VDC</td>
                             </tr>
                             <tr>
                                 <th>Direct connect solar panel</th>
-                                <td>Maximum Peak Power (Pmax): 160 W; Maximum open circuit voltage (Voc): 22.9 V; Optimum operating voltage (Vmp): 20.2 V; Maximum operating current (lmp): 7.92 A</td>
+                                <td>Maximum Peak Power (Pmax): 160 W; Maximum open circuit voltage (Voc): 22.9 V;
+                                    Optimum operating voltage (Vmp): 20.2 V; Maximum operating current (lmp): 7.92 A
+                                </td>
                             </tr>
                             <tr>
                                 <th>Battery</th>
                                 <td>Internal 12.8V 9.9AH (126.72Wh) LiFePO4</td>
                             </tr>
-                          
+
                         </tbody>
                     </table>
 
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
-                        <a style="color: #f48120;" href="https://info.worldsensing.com/Datasheet_ThreadX3_EN?_gl=1*147tzpe*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Thread X3 Product Datasheet</a>
+                        See detailed information about sensor capabilities and battery life estimations in the
+                        <a style="color: #f48120;"
+                            href="https://info.worldsensing.com/Datasheet_ThreadX3_EN?_gl=1*147tzpe*_gcl_au*NjgzMjAxOTU5LjE3NjEzMDU4MTU.">Thread
+                            X3 Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -665,28 +765,34 @@ body.lightmode .specs-container td {
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Connected with Thread X3</h3>
-                                <p>Subscribe to receive updates, best practices, and insights on remote sensor networking, 4G/LTE connectivity, and Thread X3 deployments delivered straight to your inbox.</p>
+                                <p>Subscribe to receive updates, best practices, and insights on remote sensor
+                                    networking, 4G/LTE connectivity, and Thread X3 deployments delivered straight to
+                                    your inbox.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -719,7 +825,7 @@ body.lightmode .specs-container td {
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                           What sensors can Thread X3 connect to?   
+                                            What sensors can Thread X3 connect to?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -727,7 +833,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Supports total stations, cameras, multiparameter weather stations, and up to 128 sensors via multiplexers.
+                                                Supports total stations, cameras, multiparameter weather stations, and
+                                                up to 128 sensors via multiplexers.
                                             </p>
                                         </div>
                                     </div>
@@ -745,7 +852,8 @@ body.lightmode .specs-container td {
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Data is sent via 4G/LTE, Ethernet, or mesh network with end-to-end encryption (TLS 1.2).
+                                                Data is sent via 4G/LTE, Ethernet, or mesh network with end-to-end
+                                                encryption (TLS 1.2).
                                             </p>
                                         </div>
                                     </div>
@@ -755,14 +863,15 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                          Can Thread X3 operate without mains power?
+                                            Can Thread X3 operate without mains power?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Yes, it supports internal battery, solar, or AC, with low-power modes for extended operation.
+                                                Yes, it supports internal battery, solar, or AC, with low-power modes
+                                                for extended operation.
                                             </p>
                                         </div>
                                     </div>
@@ -772,14 +881,15 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false"
                                             aria-controls="faq4">
-                                           Does it process events locally?
+                                            Does it process events locally?
                                         </button>
                                     </h2>
                                     <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               Yes, it can relay or trigger alerts autonomously even if the network is temporarily unavailable.
+                                                Yes, it can relay or trigger alerts autonomously even if the network is
+                                                temporarily unavailable.
                                             </p>
                                         </div>
                                     </div>
@@ -789,14 +899,15 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false"
                                             aria-controls="faq5">
-                                           How is the device configured?
+                                            How is the device configured?
                                         </button>
                                     </h2>
                                     <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Configuration is simplified via a cloud platform; no onsite setup required.
+                                                Configuration is simplified via a cloud platform; no onsite setup
+                                                required.
                                             </p>
                                         </div>
                                     </div>
@@ -806,19 +917,20 @@ body.lightmode .specs-container td {
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
                                             aria-controls="faq6">
-                                           Where is Thread X3 suitable for deployment?
+                                            Where is Thread X3 suitable for deployment?
                                         </button>
                                     </h2>
                                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Ideal for industrial, construction, or remote monitoring sites with high-bandwidth sensor requirements.
+                                                Ideal for industrial, construction, or remote monitoring sites with
+                                                high-bandwidth sensor requirements.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -832,32 +944,32 @@ body.lightmode .specs-container td {
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <script>
         (function () {
@@ -902,4 +1014,5 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
 </body>
+
 </html>
