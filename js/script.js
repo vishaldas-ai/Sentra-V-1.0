@@ -52,6 +52,7 @@ function initBannerVideo() {
     var $tag = $('<script>', { src: "https://www.youtube.com/iframe_api" });
     $('script').first().before($tag);
 
+    // Homepage Hero section video
     window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player('banner-video-background', {
             videoId: 'Hgg7M3kSqyE',
@@ -147,8 +148,8 @@ function initThemeSwitch() {
             partnerLogos.each(function () {
                 const $img = $(this);
                 const src = $img.attr('src');
-                if (!src.includes('-dark')) {
-                    $img.attr('src', src.replace('.png', '-dark.png'));
+                if (!src.includes('')) {
+                    $img.attr('src', src.replace('.png', '.png'));
                 }
             });
         } else {
@@ -160,7 +161,7 @@ function initThemeSwitch() {
             partnerLogos.each(function () {
                 const $img = $(this);
                 const src = $img.attr('src');
-                $img.attr('src', src.replace('-dark.png', '.png'));
+                $img.attr('src', src.replace('.png', '.png'));
             });
         }
     };

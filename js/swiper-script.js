@@ -1,15 +1,13 @@
 $(function(){
-   var swiperPartner = new Swiper('.swiper.swiperPartner',{
+
+var swiperPartner = new Swiper('.swiper.swiperPartner',{
         autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
+            delay: 1000,
         },
-        speed: 1000,
+        speed: 2000,
         slidesPerView: 6,
         spaceBetween: 20,
         loop: true,
-        loopAdditionalSlides: 5,
         hasNavigation: true,
         grabCursor: true,
         breakpoints: {
@@ -28,22 +26,23 @@ $(function(){
         el: '.swiper-pagination',
         type: 'bullets',
         clickable: true,
+        simulateTouch: true,
         },
    });
+
 });
+
+
 
 $(function(){
     var swiperTestimonial = new Swiper('.swiper.swiperTestimonial',{
         autoplay: {
             delay: 5000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
         },
-        speed: 1000,
+        speed: 2000,
         slidesPerView: 3,
         spaceBetween: 50,
         loop: true,
-        loopAdditionalSlides: 3,
         hasNavigation: true,
         grabCursor: true,
         breakpoints: {
