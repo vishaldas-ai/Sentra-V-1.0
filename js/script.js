@@ -1,43 +1,43 @@
 // Dynamically determine correct path prefix based on current location
-const pathPrefix = (window.location.pathname.includes('/Solutions/') || window.location.pathname.includes('/Products/') || window.location.pathname.includes('/Case_studies/') || window.location.pathname.includes('/Blogs/')) ? '../' : './';
+const pathPrefix = (window.location.pathname.includes('/Solutions/') || window.location.pathname.includes('/Products/') || window.location.pathname.includes('/Case_studies/') || window.location.pathname.includes('/Article/') || window.location.pathname.includes('/Blogs/')) ? '../' : './';
 Promise.all([
-        fetch(pathPrefix + "header.html").then(res => res.text()),
-        fetch(pathPrefix + "footer.html").then(res => res.text()),
-        fetch(pathPrefix + "sidebar.html").then(res => res.text()),
-        fetch(pathPrefix + "search-form.html").then(res => res.text())
-    ])
-  .then(([headerHTML, footerHTML, sidebarHTML, searchHTML]) => {
-    $("#header").html(headerHTML);
-    $("#footer").html(footerHTML);
-    $("#sidebar").html(sidebarHTML);
-    $("#edit-sidebar").html(sidebarHTML);
-    $("#search-form-container").html(searchHTML);
-    fixNavLinks();
-  })
-  .then(() => {
-    initBannerVideo();
-    initNavLink();
-    initSidebar();
-    initEditSidebar();
-    initSidebarDropdown();
-    initCounter();
-    initThemeSwitch();
-    initScrollHeader();
-    initSearchBar();
-    initSubmitContact();
-    initSubmitNewsletter();
-    initAnimateData();
-    // Initialize dropdown handler after header is loaded
-    if (typeof initDropdownHandler === 'function') {
-      initDropdownHandler();
-    }
-  });
-      
+    fetch(pathPrefix + "header.html").then(res => res.text()),
+    fetch(pathPrefix + "footer.html").then(res => res.text()),
+    fetch(pathPrefix + "sidebar.html").then(res => res.text()),
+    fetch(pathPrefix + "search-form.html").then(res => res.text())
+])
+    .then(([headerHTML, footerHTML, sidebarHTML, searchHTML]) => {
+        $("#header").html(headerHTML);
+        $("#footer").html(footerHTML);
+        $("#sidebar").html(sidebarHTML);
+        $("#edit-sidebar").html(sidebarHTML);
+        $("#search-form-container").html(searchHTML);
+        fixNavLinks();
+    })
+    .then(() => {
+        initBannerVideo();
+        initNavLink();
+        initSidebar();
+        initEditSidebar();
+        initSidebarDropdown();
+        initCounter();
+        initThemeSwitch();
+        initScrollHeader();
+        initSearchBar();
+        initSubmitContact();
+        initSubmitNewsletter();
+        initAnimateData();
+        // Initialize dropdown handler after header is loaded
+        if (typeof initDropdownHandler === 'function') {
+            initDropdownHandler();
+        }
+    });
+
 function fixNavLinks() {
     const isInSubfolder = window.location.pathname.includes('/Solutions/') || window.location.pathname.includes('/Products/');
-    
+
     if (isInSubfolder) {
-        $("#header a[href], #footer a[href], #sidebar a[href]").each(function() {
+        $("#header a[href], #footer a[href], #sidebar a[href]").each(function () {
             const href = $(this).attr('href');
             if (href && href.startsWith('./') && !href.startsWith('../')) {
                 $(this).attr('href', '../' + href.substring(2));
@@ -52,7 +52,7 @@ function initBannerVideo() {
     var $tag = $('<script>', { src: "https://www.youtube.com/iframe_api" });
     $('script').first().before($tag);
 
-    window.onYouTubeIframeAPIReady = function() {
+    window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player('banner-video-background', {
             videoId: 'Hgg7M3kSqyE',
             playerVars: {
@@ -113,14 +113,14 @@ function initBannerVideo() {
     }
 
     function handleYouTubeErrors() {
-        window.addEventListener('message', function(event) {
+        window.addEventListener('message', function (event) {
             if (event.origin !== 'https://www.youtube.com') return;
-        
+
             try {
                 var data = JSON.parse(event.data);
-               
+
             } catch (e) {
-     
+
             }
         });
     }
@@ -189,7 +189,7 @@ function initThemeSwitch() {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     initThemeSwitch();
 });
 
@@ -199,7 +199,7 @@ function initCounter() {
     function updateCount($counter) {
         var target = +$counter.data("target");
         var count = +$counter.text().replace("+", "");
-        var duration = 2000; 
+        var duration = 2000;
         var steps = 60;
         var increment = Math.max(1, Math.ceil(target / steps));
         var delay = Math.floor(duration / (target / increment));
@@ -207,7 +207,7 @@ function initCounter() {
         if (count < target) {
             var nextCount = Math.min(target, count + increment);
             $counter.text(nextCount);
-            setTimeout(function() {
+            setTimeout(function () {
                 updateCount($counter);
             }, delay);
         } else {
@@ -215,8 +215,8 @@ function initCounter() {
         }
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 var $counter = $(entry.target);
                 updateCount($counter);
@@ -227,26 +227,26 @@ function initCounter() {
         threshold: 0.5
     });
 
-    $counters.each(function() {
+    $counters.each(function () {
         observer.observe(this);
     });
 }
 
 function initNavLink() {
     const currentUrl = window.location.href;
-    $(".navbar-nav .nav-link").each(function() {
+    $(".navbar-nav .nav-link").each(function () {
         if (this.href === currentUrl) {
             $(this).addClass("active");
         }
     });
-    $(".navbar-nav .dropdown-menu .dropdown-item").each(function() {
+    $(".navbar-nav .dropdown-menu .dropdown-item").each(function () {
         if (this.href === currentUrl) {
             $(this).closest(".dropdown").find(".nav-link.dropdown-toggle").addClass("active");
         }
     });
 }
 
-$(function(){
+$(function () {
     const elements = document.querySelectorAll('[data-animate]');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -255,7 +255,7 @@ $(function(){
                 setTimeout(() => {
                     entry.target.classList.add(entry.target.getAttribute('data-animate'));
                     entry.target.style.opacity = 1;
-    
+
                     observer.unobserve(entry.target);
                 }, delay);
             }
@@ -263,7 +263,7 @@ $(function(){
     }, {
         threshold: 0.1
     });
-    elements.forEach(el => observer.observe(el));    
+    elements.forEach(el => observer.observe(el));
 });
 
 function initSidebar() {
@@ -271,28 +271,28 @@ function initSidebar() {
     const $closeBtn = $('.close-btn');
     const $overlay = $('.sidebar-overlay');
     const $sidebar = $('.sidebar');
-  
-    $menuBtn.click(function() {
-      $overlay.addClass('active');
-      setTimeout(() => {
-        $sidebar.addClass('active');
-      }, 200);
+
+    $menuBtn.click(function () {
+        $overlay.addClass('active');
+        setTimeout(() => {
+            $sidebar.addClass('active');
+        }, 200);
     });
-  
-    $closeBtn.click(function() {
-      $sidebar.removeClass('active');
-      setTimeout(() => {
-        $overlay.removeClass('active');
-      }, 200);
+
+    $closeBtn.click(function () {
+        $sidebar.removeClass('active');
+        setTimeout(() => {
+            $overlay.removeClass('active');
+        }, 200);
     });
-  
-    $overlay.click(function() {
-      $sidebar.removeClass('active');
-      setTimeout(() => {
-        $overlay.removeClass('active');
-      }, 200);
+
+    $overlay.click(function () {
+        $sidebar.removeClass('active');
+        setTimeout(() => {
+            $overlay.removeClass('active');
+        }, 200);
     });
-  }
+}
 
 function initEditSidebar() {
     const $contentBtn = $('.content-edit');
@@ -300,14 +300,14 @@ function initEditSidebar() {
     const $overlay = $('.content-overlay');
     const $sidebar = $('.content-edit-sidebar');
 
-    $contentBtn.click(function() {
+    $contentBtn.click(function () {
         $sidebar.addClass('active');
         setTimeout(() => {
-            $overlay.addClass('active');    
+            $overlay.addClass('active');
         }, 200);
     });
 
-    $closeBtn.click(function() {
+    $closeBtn.click(function () {
         $sidebar.removeClass('active');
         setTimeout(() => {
             $overlay.removeClass('active');
@@ -318,8 +318,8 @@ function initEditSidebar() {
 function initSidebarDropdown() {
     const $dropdownButtons = $(".sidebar-dropdown-btn");
 
-    $dropdownButtons.each(function() {
-        $(this).on("click", function() {
+    $dropdownButtons.each(function () {
+        $(this).on("click", function () {
             const $dropdownMenu = $(this).parent().next(".sidebar-dropdown-menu");
             const isOpen = $dropdownMenu.hasClass("active");
 
@@ -335,33 +335,33 @@ function initSearchBar() {
     const $searchBtn = $(".search-btn");
     const $overlay = $(".search-overlay");
     const $closeBtn = $(".search-close");
-  
+
     if ($overlay.length === 0) return;
-  
+
     $searchBtn.on("click", function () {
-      $overlay.addClass("active");
-      setTimeout(() => {
         $overlay.addClass("active");
-      }, 200);
+        setTimeout(() => {
+            $overlay.addClass("active");
+        }, 200);
     });
-  
+
     $closeBtn.on("click", function () {
-      $overlay.removeClass("active");
-      setTimeout(() => {
         $overlay.removeClass("active");
-      }, 200);
+        setTimeout(() => {
+            $overlay.removeClass("active");
+        }, 200);
     });
-  
+
     $overlay.on("click", function (e) {
-      if ($(e.target).hasClass("search-overlay")) {
-        $overlay.removeClass("active");
-      }
+        if ($(e.target).hasClass("search-overlay")) {
+            $overlay.removeClass("active");
+        }
     });
-  }
-  
+}
 
 
-$(document).ready(function(){
+
+$(document).ready(function () {
     const data = [
         {
             title: "Home",
@@ -482,7 +482,7 @@ function initAnimateData() {
     }, {
         threshold: 0.1
     });
-    $elements.each(function() {
+    $elements.each(function () {
         observer.observe(this);
     });
 }
