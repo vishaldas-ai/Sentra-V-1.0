@@ -1191,56 +1191,82 @@ body.lightmode .form select {
 /* Carousel Styles */
 :root {
     --carousel-desktop-width: 810px;
-    --carousel-desktop-height: 300px;
-    --carousel-bg: #f0f0f0;
+    --carousel-aspect-ratio: 3/2;
     --carousel-accent: #f48120;
 }
 
 #carousel-slider {
     position: relative;
-    width: var(--carousel-desktop-width);
-    height: var(--carousel-desktop-height);
-    max-width: 100%;
+    width: 100%;
+    max-width: var(--carousel-desktop-width);
+    aspect-ratio: var(--carousel-aspect-ratio);
     border-radius: 12px;
-    perspective: 1200px;
-    overflow: visible;
+    perspective: 1000px;
+    overflow: hidden;
     box-sizing: border-box;
     margin: 0 auto 20px auto;
 }
 
-
-@supports (aspect-ratio: 3/2) {
-    #carousel-slider {
-        width: min(var(--carousel-desktop-width), 100%);
-        aspect-ratio: 3 / 2;
-        height: auto;
-    }
+/* Ensure aspect-ratio works consistently across browsers */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-@media (max-width: 640px) {
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
     #carousel-slider {
-        width: calc(100% - 32px);
-        aspect-ratio: 3 / 2;
+        max-width: 100%;
+        border-radius: 8px;
     }
 
     .carousel-slide-content {
-        bottom: 12px;
-        left: 12px;
-        padding: 10px 14px;
-        max-width: 220px;
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        max-width: 200px;
     }
 
     .carousel-slide-content h2 {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .carousel-slide-content p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .carousel-view-btn {
-        padding: 7px 12px;
-        font-size: 0.85rem;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #carousel-slider {
+        aspect-ratio: 16/9;
+        margin-bottom: 15px;
+    }
+
+    .carousel-slide-content {
+        bottom: 8px;
+        left: 8px;
+        padding: 6px 10px;
+        max-width: 180px;
+    }
+
+    .carousel-slide-content h2 {
+        font-size: 0.9rem;
+    }
+
+    .carousel-slide-content p {
+        font-size: 0.7rem;
+    }
+
+    .carousel-view-btn {
+        padding: 5px 8px;
+        font-size: 0.7rem;
     }
 }
 
@@ -3391,8 +3417,8 @@ body.lightmode .card-partner {
 /* tile */
 .swiperPartner .partner-slide {
     background-color: var(--secondary);
-    padding: 14px 14px;
-    margin: 10px;
+    padding: 5px 5px;
+    margin: 5px;
     border-radius: 16px;
     transition: box-shadow .32s ease, transform .28s ease;
     box-shadow: var(--box-shadow-bottom-right-wide);
@@ -3411,7 +3437,7 @@ body.lightmode .card-partner {
 /* logo greyscale -> color */
 .swiperPartner .partner-logo {
     display: block;
-    max-width: 120px;
+    max-width: 100;
     max-height: 100px;
     width: auto;
     height: auto;
@@ -3452,8 +3478,8 @@ body.lightmode .card-partner {
     }
 
     .swiperPartner .partner-logo {
-        max-width: 80px;
-        max-height: 60px;
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 
@@ -3538,6 +3564,8 @@ body.lightmode .card-partner {
 .partnership-item {
     opacity: 0.6;
     transition: all 0.6s;
+    width: 120px;
+    height: 120px;
 }
 
 .partnership-item:hover {
@@ -3829,12 +3857,12 @@ body.lightmode .case-studies-content::before {
 
 
 .case-studies-content.local-business {
-    background-image: url('../image/revolutionary\ IOT.png');
+    background-image: url('../image/revolutionary_IOT.png');
     width: 56.2%;
 }
 
 .case-studies-content.saas-leads {
-    background-image: url('../image/sentra\ makes\ clovetech\ break\ boundaries.png');
+    background-image: url('../image/breaking_boundaries.jpg');
     width: 42%;
 }
 
