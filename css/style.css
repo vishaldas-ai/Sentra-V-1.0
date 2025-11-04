@@ -1381,6 +1381,79 @@ body.lightmode .service-icon img {
     z-index: 2;
 }
 
+
+/* Carousel Navigation Arrows */
+.carousel-prev-btn,
+.carousel-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: #333;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-prev-btn:hover,
+.carousel-next-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev-btn {
+    left: 16px;
+}
+
+.carousel-next-btn {
+    right: 16px;
+}
+
+@media (max-width: 768px) {
+    .carousel-prev-btn,
+    .carousel-next-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .carousel-prev-btn {
+        left: 12px;
+    }
+
+    .carousel-next-btn {
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-prev-btn,
+    .carousel-next-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .carousel-prev-btn {
+        left: 8px;
+    }
+
+    .carousel-next-btn {
+        right: 8px;
+    }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
     .carousel-slide {
         transition: none;

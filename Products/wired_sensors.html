@@ -94,6 +94,13 @@
                                     Details</a>
                             </div>
                         </div>
+                         <!-- Carousel Navigation Arrows -->
+                        <button class="carousel-prev-btn" aria-label="Previous slide">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next-btn" aria-label="Next slide">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -900,7 +907,7 @@
         // Carousel auto-rotation functionality
         const carouselSlides = Array.from(document.querySelectorAll('#carousel-slider .carousel-slide'));
         let carouselIndex = 0;
-        const carouselIntervalMs = 2500;
+        const carouselIntervalMs = 3000;
         let carouselTimer = null;
 
         function showCarouselSlide(i) {
@@ -919,9 +926,35 @@
             showCarouselSlide(carouselIndex + 1);
         }
 
+         function prevCarouselSlide() {
+           showCarouselSlide(carouselIndex - 1);
+       }
+
         // start auto-scroll
         showCarouselSlide(carouselIndex);
         carouselTimer = setInterval(nextCarouselSlide, carouselIntervalMs);
+
+   // Add event listeners for arrow buttons
+        const prevBtn = document.querySelector('.carousel-prev-btn');
+        const nextBtn = document.querySelector('.carousel-next-btn');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevCarouselSlide();
+                // Reset timer on manual navigation
+                clearInterval(carouselTimer);
+                carouselTimer = setInterval(nextCarouselSlide, carouselIntervalMs);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextCarouselSlide();
+                // Reset timer on manual navigation
+                clearInterval(carouselTimer);
+                carouselTimer = setInterval(nextCarouselSlide, carouselIntervalMs);
+            });
+        }
 
         // pause auto-scroll when user focuses any link/button inside the carousel (accessibility)
         const carouselInteractive = document.querySelectorAll('#carousel-slider a, #carousel-slider button');
