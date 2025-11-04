@@ -1588,6 +1588,26 @@ body.lightmode .product-link:hover {
     line-height: 1.4;
 }
 
+
+th.product-table-section-title {
+    padding-top: 20px;
+    font-weight: 600;
+    color: #DFCAA0 !important;
+}
+
+th.product-table-cell {
+    padding: 10px 6px;
+    color: #F5F5F5;
+}
+
+body.lightmode th.product-table-section-title {
+    color: #F48120 !important;
+}
+
+body.lightmode th.product-table-cell {
+    color: #000000;
+}
+
 /* ====== Responsive Product Dropdown ====== */
 
 /* Tablet/Medium Screens (768px - 1200px) */
