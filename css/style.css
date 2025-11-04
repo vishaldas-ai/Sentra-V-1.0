@@ -3867,12 +3867,12 @@ body.lightmode .case-studies-content::before {
 }
 
 .ecommerce {
-    background-image: url('../image/dummy-img-600x400.jpg');
+    background-image: url('../image/innovative_bridge_solutions.jpg');
     width: 42%;
 }
 
 .case-studies-content.startup-branding {
-    background-image: url('../image/Innovative_bridge_solutions.png');
+    background-image: url('../image/feel_the_pace_like_no_where_else.png');
     width: 56.2%;
 }
 
@@ -3931,7 +3931,7 @@ body.lightmode .blog-content::before {
 }
 
 .blog-content.local-business {
-    background-image: url('../image/article_1.png');
+    background-image: url('../image/bridge_inspection_banner.png');
     width: 56.2%;
 }
 
@@ -3941,12 +3941,12 @@ body.lightmode .blog-content::before {
 }
 
 .blog-content.ecommerce {
-    background-image: url('../image/dummy-img-600x400.jpg');
+    background-image: url('../image/innovative_bridge_solutions.jpg');
     width: 42%;
 }
 
 .blog-content.startup-branding {
-    background-image: url('../image/Innovative_bridge_solutions.png');
+    background-image: url('../image/feel_the_pace_like_no_where_else.png');
     width: 56.2%;
 }
 
@@ -4479,7 +4479,7 @@ body.lightmode .blog-content::before {
 /* ================== 35. Guide Components ================== */
 
 .guide-banner {
-    background-image: url('../image/dummy-img-1920x900.jpg');
+    background-image: url('../image/dummy-img-1920x9001.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4506,8 +4506,13 @@ body.lightmode .blog-content::before {
     z-index: 0;
 }
 
+/* Light mode overrides */
+body.lightmode .guide-banner {
+    background-image: url('../image/dummy-img-1920x9003.svg');
+}
+
 body.lightmode .guide-banner::before {
-    background-image: linear-gradient(180deg, var(--accent-color-7) 0%, var(--accent-color-3) 100%);
+    background-image: linear-gradient(90deg, var(--accent-color-7) 50%, var(--accent-color-3) 100%);
 }
 
 .guide-content {
@@ -5684,7 +5689,7 @@ body.lightmode .accordion-button:not(.collapsed)::after {
 /* ================== 53. CTA Service Banner Components ================== */
 
 .cta-service-banner {
-    background-image: url('../image/dummy-img-1920x900.jpg');
+    background-image: url('../image/dummy-img-1920x9001.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -5703,11 +5708,14 @@ body.lightmode .accordion-button:not(.collapsed)::after {
 
 body.lightmode .cta-service-banner {
     border: 1px solid var(--accent-color-3);
+
 }
 
 .cta-service-banner::before {
     content: '';
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: transparent;
     background-image: linear-gradient(180deg, var(--accent-transparent) 0%, var(--secondary) 100%);
     opacity: 1;
@@ -5719,7 +5727,7 @@ body.lightmode .cta-service-banner {
 }
 
 body.lightmode .cta-service-banner::before {
-    background-image: linear-gradient(180deg, var(--accent-color-4) 0%, var(--accent-color-3) 100%);
+    background-image: url('../image/dummy-img-1920x9002.jpg');
 }
 
 .cta-service-banner .spacer {

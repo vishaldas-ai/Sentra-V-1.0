@@ -1,13 +1,4 @@
-@charset "UTF-8";
-/* ------------------------------------------------
 
-Page	: Proland CSS
-Version : 1.0
-Author  : Surjith S M
-URI     : http://themeforest.net/user/surjithctly
-
-Copyright © All rights Reserved
-Surjith S M / @surjithctly
 
 -------------------------------------------------- */
 /*=====================================================================
@@ -4169,6 +4160,21 @@ footer.row {
 
 .pricing--featured {
   border: 0;
+}
+
+/* Dark Mode Styles */
+:root {
+  --product-th-color: #F48120; /* Light mode */
+}
+
+.dark-mode {
+  --product-th-color: #DFCAA0; /* Dark mode */
+}
+
+.responsive-th {
+  padding-top: 20px;
+  font-weight: 600;
+  color: var(--product-th-color);
 }
 
 /*# sourceMappingURL=style.css.map */

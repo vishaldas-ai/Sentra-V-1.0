@@ -3848,7 +3848,7 @@ body.lightmode .case-studies-content::before {
 /* ================== 35. Guide Components ================== */
 
 .guide-banner {
-    background-image: url('../image/dummy-img-1920x900.jpg');
+    background-image: url('../image/dummy-img-1920x9001.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4983,7 +4983,7 @@ body.lightmode .accordion-button:not(.collapsed)::after {
 /* ================== 53. CTA Service Banner Components ================== */
 
 .cta-service-banner {
-    background-image: url('../image/dummy-img-1920x900.jpg');
+    background-image: url('../image/dummy-img-1920x9001.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
