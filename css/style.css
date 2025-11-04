@@ -1188,6 +1188,21 @@ body.lightmode .form select {
     color: var(--accent-color);
 }
 
+
+/* Default (Dark Mode) – icons in full color */
+.process-icon {
+    object-fit: contain;
+    filter: none;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+}
+ 
+/* Light Mode – tint icons to orange */
+body.lightmode .process-icon img {
+    filter: sepia(1) saturate(4) hue-rotate(295deg);
+   
+
+}
+
 /* Default (Dark Mode) – icons in full color */
 .service-icon img {
     width: 60px;
