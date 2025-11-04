@@ -27,6 +27,7 @@ Promise.all([
         initSubmitContact();
         initSubmitNewsletter();
         initAnimateData();
+        initLoadMoreStories();
         // Initialize dropdown handler after header is loaded
         if (typeof initDropdownHandler === 'function') {
             initDropdownHandler();
@@ -505,3 +506,61 @@ function initScrollHeader() {
     window.addEventListener('scroll', toggleScrolled);
     toggleScrolled(); // check on load
 }
+
+
+function initLoadMoreStories() {
+    const $loadMoreBtn = $('#load-more-stories');
+    if ($loadMoreBtn.length === 0) return;
+
+    // Show 4 "cards" per click
+    const cardsPerClick = 4;
+
+    // Select all hidden case-study rows
+    let $hiddenRows = $('.hidden-case-study');
+
+    // Make sure they are hidden initially
+    $hiddenRows.css('display', 'none');
+
+    $loadMoreBtn.off('click').on('click', function () {
+        // Refresh the list of still-hidden rows
+        $hiddenRows = $('.hidden-case-study');
+
+        if ($hiddenRows.length === 0) {
+            $loadMoreBtn.fadeOut();
+            return;
+        }
+
+        // Determine how many cards per row (for grouping)
+        const sampleRow = $hiddenRows.first();
+        const cardsPerRow = sampleRow.find('.case-studies-content, .blog-content, .card').length || 2;
+        const rowsPerClick = Math.ceil(cardsPerClick / cardsPerRow);
+
+        // Reveal that many rows
+        const $toShow = $hiddenRows.slice(0, rowsPerClick);
+        $toShow.each(function (i, row) {
+            const $row = $(row);
+            setTimeout(() => {
+                $row.css('display', 'flex');
+                $row.removeClass('hidden-case-study');
+
+                // Trigger fade-in animations if applicable
+                $row.find('[data-animate]').each(function () {
+                    const $el = $(this);
+                    const delay = $el.data('delay') || 0;
+                    setTimeout(() => {
+                        $el.addClass($el.data('animate'));
+                        $el.css('opacity', 1);
+                    }, delay);
+                });
+            }, i * 100);
+        });
+
+        // If all rows are now visible, hide the button
+        setTimeout(() => {
+            if ($('.hidden-case-study').length === 0) {
+                $loadMoreBtn.fadeOut();
+            }
+        }, 500);
+    });
+}
+
