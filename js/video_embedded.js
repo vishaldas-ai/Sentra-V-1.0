@@ -1,12 +1,18 @@
 $(function () {
     const $openModalButtons = $('.request-loader');
     const $overlay = $('#modal-overlay');
-    const $closeModal = $('.my-close');
-    const $videoFrame = $('#my-video-frame');
+    const $closeModal = $('.my-close, .modal-close');
+    
+    // Support both iframe ID variants
+    let $videoFrame = $('#my-video-frame');
+    if ($videoFrame.length === 0) {
+        $videoFrame = $('#modal-video-frame');
+    }
 
     $openModalButtons.on('click', function () {
         const videoUrl = $(this).attr('data-video');
-        $videoFrame.attr('src', videoUrl + "?rel=0");
+        const separator = videoUrl.includes('?') ? '&' : '?';
+        $videoFrame.attr('src', videoUrl + separator + "rel=0");
         $overlay.css('display', 'flex');
     });
 
