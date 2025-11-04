@@ -6,7 +6,7 @@ $(function () {
 
     $openModalButtons.on('click', function () {
         const videoUrl = $(this).attr('data-video');
-        $videoFrame.attr('src', videoUrl + "?autoplay=1");
+        $videoFrame.attr('src', videoUrl + "?rel=0");
         $overlay.css('display', 'flex');
     });
 

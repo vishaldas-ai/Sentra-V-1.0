@@ -1188,6 +1188,21 @@ body.lightmode .form select {
     color: var(--accent-color);
 }
 
+/* Default (Dark Mode) – icons in full color */
+.service-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: none;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* Light Mode – convert icons to grayscale and darken slightly */
+body.lightmode .service-icon img {
+    filter: grayscale(100%) brightness(0.7) contrast(1.5);
+}
+
+
 
 /* Carousel Styles */
 :root {
@@ -3468,6 +3483,9 @@ body.lightmode .card-partner {
     will-change: filter, transform;
     pointer-events: auto;
 }
+
+
+
 
 /* reveal color on hover/focus of tile or logo */
 .swiperPartner .partner-slide:hover .partner-logo,
