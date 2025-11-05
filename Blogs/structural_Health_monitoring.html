@@ -72,6 +72,9 @@
                                 <h6 id="scrollToPara3" class="blog-contents">Challenges in Implementing SHM Systems</h6>
                                 <h6 id="scrollToConclusion" class="blog-contents">Conclusion</h6>
                             </div>
+                           
+
+
                             <div class="card recent-post">
                                 <h4>Recent Blog</h4>
                                 <div class="d-flex flex-row w-100 gspace-1">
@@ -101,6 +104,8 @@
                                     </div>
                                 </div>
                             </div>
+  
+
 
 
                             <div class="cta-service-banner">
@@ -123,6 +128,8 @@
                                 <img src="../image/shm.jpg" alt="Recent Post" class="img-fluid">
                             </div>
                             <h3>Structural Health Monitoring: How IoT is Reinventing Infrastructure Safety</h3>
+                             <!-- Audio Player -->
+                            <div id="audioPlayerContainer"></div>
                             <div class="underline-muted-full"></div>
                             <div class="d-flex flex-row align-items-center justify-content-between">
                                 <div class="d-flex flex-row align-items-center gspace-2">
@@ -140,6 +147,8 @@
                                     <span class="meta-data">Clove Technologies</span>
                                 </div>
                             </div>
+
+
                             <div>
                                 <p>
                                     The Future of Smart Infrastructure
@@ -343,6 +352,18 @@
     <script src="../js/swiper-script.js"></script>
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
+       <script src="../js/audio_player.js"></script>
+    
+    <script>
+        // Initialize the audio player when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = new SentraAudioPlayer('audioPlayerContainer', {
+                title: 'Hear about - Structural Health Monitoring',
+                audioURL: './audio_book/audio_files/Bridges_That_Talk__How_IoT_and_AI_Use_Structural_Health_Monitor.m4a', // Replace with actual audio URL
+                srtURL: './audio_book/audio_srt_files/Bridges_That_Talk__How_IoT_and_AI_Use_Structural_Health_M....srt'     // Replace with actual SRT URL
+            });
+        });
+    </script>
 </body>
 
 </html>
