@@ -136,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="card service-included">
-                                <h4>Key Features & Specifications</h4>
+                                <h4 class="case-studies-title">Key Features & Specifications</h4>
                                 <div class="underline-accent-short"></div>
                                 <p>Enterprise-grade hardware and software designed for mission-critical monitoring
                                     applications.</p>
@@ -213,7 +213,7 @@
                     <div class="col col-xl-4">
                         <div class="d-flex flex-column flex-md-row flex-xl-column justify-content-between gspace-5">
                             <div class="card service-recent">
-                                <h4>Related Products</h4>
+                                <h4 class="case-studies-title">Related Products</h4>
                                 <div class="underline-accent-short"></div>
                                 <ul class="single-service-list">
                                     <li><a href="/Products/repeater.html">K20 Edge Repeater</a></li>
@@ -931,15 +931,15 @@
             showCarouselSlide(carouselIndex + 1);
         }
 
-         function prevCarouselSlide() {
-           showCarouselSlide(carouselIndex - 1);
-       }
+        function prevCarouselSlide() {
+            showCarouselSlide(carouselIndex - 1);
+        }
 
         // start auto-scroll
         showCarouselSlide(carouselIndex);
         carouselTimer = setInterval(nextCarouselSlide, carouselIntervalMs);
 
-   // Add event listeners for arrow buttons
+        // Add event listeners for arrow buttons
         const prevBtn = document.querySelector('.carousel-prev-btn');
         const nextBtn = document.querySelector('.carousel-next-btn');
 

@@ -8253,3 +8253,55 @@ body.lightmode .copyright {
     background-color: rgba(255, 255, 255, 0.05);
     transition: background-color 0.3s ease;
 }
+
+
+
+/* CONTACT PAGE LIST */
+.contact-page-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-page-list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 8px;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    line-height: var(--line-height-loose);
+}
+
+/* DARK MODE (PRIMARY) */
+body .contact-page-list span {
+    color: #ffffff !important;
+    /* Heading color in dark mode */
+}
+
+body .contact-page-list a h5,
+body .contact-page-list h5 {
+    color: #DFCAA0 !important;
+    /* Link color in dark mode */
+    transition: color 0.2s ease !important;
+}
+
+body .contact-page-list a h5:hover {
+    color: #ffffff !important;
+    /* Hover color in dark mode */
+}
+
+/* LIGHT MODE OVERRIDES */
+body.lightmode .contact-page-list span {
+    color: #000 !important;
+    /* Heading color in light mode */
+}
+
+body.lightmode .contact-page-list a h5,
+body.lightmode .contact-page-list h5 {
+    color: #f48120 !important;
+    /* Link color in light mode */
+}
+
+body.lightmode .contact-page-list a h5:hover {
+    color: #000 !important;
+    /* Hover color in light mode */
+}
