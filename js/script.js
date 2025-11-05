@@ -367,74 +367,74 @@ $(document).ready(function () {
     const data = [
         {
             title: "Home",
-            description: "Amplify Your Brand with Cutting-Edge Digital Marketing Watch our video reviews and see how businesses achieve success with Marko's digital marketing solutions. Marko empowers businesses to grow online with data driven digital marketing, innovative branding, and performance focused strategies trusted by top brands lorem ipsum dolor sit amet consectetur. Get Started 2.7k Positive Reviews Ready [...]",
+            description: "Empowering infrastructure with next-generation Smart Structural Health Monitoring (SHM) systems. SENTRA delivers IoT-based sensing, data analytics, and predictive maintenance solutions for bridges, railways, and industrial structures across India. Explore our technology that ensures safer, smarter, and more reliable assets.",
             url: "index.html"
         },
         {
             title: "About",
-            description: "About Marko Home / About Us 0 + Years of Experience on Digital Marketing Services About Us Who We Are & What Drives Us At Marko, we specialize in crafting innovative digital marketing strategies that drive real business growth. Our expertise ensures your brand stays ahead in the competitive digital landscape. Get to know the [...]",
+            description: "About SENTRA | Hill 2, Plot No. 9, Pedda Rushikonda, Visakhapatnam. SENTRA specializes in Structural Health Monitoring, IoT-driven asset tracking, and predictive maintenance systems for large-scale infrastructure. Our mission is to enhance safety, sustainability, and longevity through advanced sensor technologies and intelligent data analytics.",
             url: "about.html"
         },
         {
             title: "Services",
-            description: "Our Services Home / Services Our Core Services Digital Solutions That Drive Real Results Social Media Marketing Build brand awareness & engage your audience effectively lorem ipsum dolor sit amet consectetur adip. View Details Content Marketing Build brand awareness & engage your audience effectively lorem ipsum dolor sit amet consectetur adip. View Details PPC Advertising […]",
+            description: "Our Core Services | SENTRA offers end-to-end IoT and Monitoring Solutions — including Structural Health Monitoring (SHM), IoT Sensor Deployment, Data Acquisition Systems, Predictive Analytics, and Remote Infrastructure Monitoring. Our solutions are tailored for bridges, buildings, and industrial projects to ensure operational excellence.",
             url: "service.html"
         },
         {
             title: "Single Services",
-            description: "Social Media Marketing Home / Services Details Our Expertise Boost Your Brand with Strategic Social Media Marketing Maximize engagement, build loyal communities, and drive conversions across all major platforms lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Service Overview At Marko, we help brands grow […]",
+            description: "Structural Health Monitoring | SENTRA provides real-time insights into structural performance using advanced sensors, gateways, and analytics platforms. Our technology detects stress, strain, and vibration anomalies early to prevent potential failures and improve asset reliability.",
             url: "single_services.html"
         },
         {
             title: "Case Studies",
-            description: "Case Studies Home / Case Studies Case Studies See How We Help Businesses Thrive We don't just talk about results—we deliver them. Here are some of our most impactful case studies showcasing how our digital marketing strategies drive success. More Case Studies Social Influencer Retargeting Google Video Local Community Local Business Digital Transformation 5x ROI […]",
+            description: "Explore SENTRA Case Studies — Discover how our IoT-driven SHM systems have improved safety and reliability across India’s bridges, railway lines, and industrial plants. See the measurable benefits in data accuracy, cost reduction, and preventive maintenance efficiency.",
             url: "case_studies.html"
         },
         {
             title: "Our Team",
-            description: "Meet Our Team Home / Our Team Case Studies Meet the Minds Behind Your Digital Success Ethan Morales Head of Creative Sophia Zhang Senior SEO Specialist Liam Turner Performance Marketing Lead Olivia Bennett Creative Director Daniel White Client Success Manager Chloe Ramirez Social Media Manager Powering Success for Top Brands Lorem ipsum dolor sit amet, […]",
+            description: "Meet the SENTRA Team — A group of engineers, IoT specialists, and data scientists dedicated to redefining how infrastructure is monitored. Our team combines expertise in electronics, civil engineering, and analytics to deliver reliable SHM solutions for the real world.",
             url: "team.html"
         },
         {
             title: "Partnership",
-            description: "Partnership Home / Partnership Client & Partnership Strong Partnerships, Proven Success See How We Help Brands Grow Transform Your Business with Marko! Take your digital marketing to the next level with data-driven strategies and innovative solutions. Let's create something amazing together! 2.7k Positive Reviews 0 % Improved Project 0 % New Project Social Media Growth […]",
+            description: "Strong Partnerships, Proven Success | SENTRA collaborates with leading research institutes, contractors, and public sector organizations to develop advanced monitoring systems for infrastructure safety. Join hands with us to make data-driven decisions for a more resilient tomorrow.",
             url: "partnership.html"
         },
         {
             title: "Pricing Plan",
-            description: "Pricing Plan Home / Pricing Plan Our Core Services Flexible Pricing Plans for Every Business Let's Find the Right Strategy for You! Book a Free Consultation Starter Perfect for startups & small businesses $99 / Month View Details Basic SEO & Digital Marketing Social Media Management (1 platform) Monthly Performance Report Enterprise Full scale marketing […]",
+            description: "Flexible Pricing Plans | SENTRA offers scalable IoT monitoring packages for projects of all sizes. From single-site bridge monitoring to full-scale multi-structure SHM solutions, our plans are designed to deliver maximum insights with minimal complexity.",
             url: "pricing.html"
         },
         {
             title: "Testimonial",
-            description: "Testimonials Home / Testimonials 2.7k Positive Reviews 0 % Improved Project 0 % New Project Social Media Growth Performance Marketing What Our Client Says Hear from Our Satisfied Clients, Real Success Stories Discover how businesses like yours achieved outstanding growth with Marko's expert digital marketing solutions. Emma Richard CEO Nexatech 'Marko completely transformed our online [...]',",
+            description: "What Our Clients Say | SENTRA’s SHM systems have transformed maintenance practices across railways, bridges, and smart city infrastructures. Clients appreciate the precision, stability, and reliability of our real-time IoT monitoring solutions that enhance safety and reduce downtime.",
             url: "testimonial.html"
         },
         {
             title: "FAQs",
-            description: "Simple, Direct, and Friendly Home / FAQ Frequently Asked Questions Got Questions? We've Got Answers. What services does Marko offer? We specialize in digital marketing, including branding, social media management, content strategy, paid ads, and analytics-driven campaigns. How long does it take to see results? While some channels like paid ads offer quicker results, most […]",
+            description: "Frequently Asked Questions | Have questions about SENTRA’s IoT and SHM systems? Learn how our sensors work, what data they capture, and how predictive analytics can prevent structural failures. Contact our team at +91 88857 30066 for personalized guidance.",
             url: "faq.html"
         },
         {
             title: "Error 404",
-            description: "404 Oops! Page Not Found We couldn't find the page you're looking for. It might have been removed, renamed, or never existed. Back to Home",
+            description: "404 — Oops! Page Not Found. The page you’re looking for might have been moved or temporarily unavailable. Return to SENTRA Home to explore our Smart Monitoring Solutions for infrastructure and industrial applications.",
             url: "404_page.html"
         },
         {
             title: "Blog",
-            description: "Our Blog Home / Blog Insights & Trends Latest Digital Marketing Strategies & Tips Explore our latest blog articles covering industry trends, expert insights, and actionable strategies to elevate your digital marketing game. View All Articles April 14, 2025 Social Media Mastering Instagram and Facebook Ads Lorem ipsum dolor si consectetur adipiscing elit ut elit […]",
+            description: "Our Blog | Explore insights on Structural Health Monitoring, IoT innovations, data analytics, and smart infrastructure development. Learn how SENTRA is driving digital transformation in the monitoring of critical assets across India.",
             url: "blog.html"
         },
         {
             title: "Single Post",
-            description: "Growth Strategies for Digital Businesses Home / Single Post Recent Blog April 14, 2025 Mastering Instagram and Facebook Ads April 14, 2025 Growth Strategies for Digital Business Transform Your Business with Marko! Take your digital marketing to the next level with data-driven strategies and innovative solutions. Let's create something amazing together! Read More How to […]",
+            description: "Enhancing Infrastructure Reliability with IoT | SENTRA’s case-based insights highlight how real-time data from vibration, strain, and tilt sensors can prevent catastrophic failures. Learn from our field studies and see how SHM is shaping modern engineering.",
             url: "single_post.html"
         },
         {
             title: "Contact Us",
-            description: "Contact Us Home / Contact Us Reach out to us Get in Touch Reach out to us for tailored digital solutions that drive results sollicitudin nec. Phone Number +1 (62) 987 7543 Email Address hello@markoagency.com Office Address Marko HQ - 902 Digital Lane, San Francisco, CA 94110, USA",
+            description: "Contact SENTRA | Reach out to us for end-to-end IoT monitoring solutions, structural safety assessments, and system integrations. Address: Hill 2, Plot No. 9, Pedda Rushikonda, Rushikonda, Visakhapatnam, Andhra Pradesh 530045. Phone: +91 88857 30066. Email: info@sentra.com",
             url: "contact.html"
-        },
+        }
     ];
 
     const params = new URLSearchParams(window.location.search);
@@ -444,7 +444,7 @@ $(document).ready(function () {
     const $resultTitle = $("#result-title");
 
     if (keyword) {
-        $resultTitle.text(`Search Result for "${keyword}" Digital Marketing Agency`);
+        $resultTitle.text(`Search Result for "${keyword}" SENTRA - SMART IOT SOLUTIONS`);
 
         const result = data.filter(item =>
             item.title.toLowerCase().includes(keyword.toLowerCase()) ||

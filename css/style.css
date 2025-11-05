@@ -8212,3 +8212,44 @@ body.lightmode .copyright {
 .audio-player-container.transitioning {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+/* case study table design */
+
+.monitoring-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid var(--accent-color-3);
+    /* outer border */
+    background-color: transparent;
+}
+
+.monitoring-table th,
+.monitoring-table td {
+    border: 1px solid var(--accent-color-3);
+    /* internal borders visible */
+    padding: 14px 18px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.monitoring-table th.case-studies-title {
+    background-color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--accent-color-3);
+}
+
+.monitoring-table p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Hover highlight for readability */
+.monitoring-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
