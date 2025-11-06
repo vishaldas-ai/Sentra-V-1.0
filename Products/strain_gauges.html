@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +13,28 @@
             justify-content: center;
             margin: 3rem 0;
         }
+
         .hotspot-section .hotspot-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
         }
+
         .hotspot-section .image-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
-           
+
         }
+
         .hotspot-section .image-container img {
             width: 100%;
             display: block;
             border-radius: 12px;
-    
+
         }
 
-        
+
 
         .hotspot-section .hotspot {
             position: absolute;
@@ -49,10 +53,12 @@
             transition: all 0.3s ease;
             z-index: 3;
         }
+
         .hotspot-section .hotspot:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
+
         .hotspot-section .connector-vertical,
         .hotspot-section .connector-horizontal {
             position: absolute;
@@ -60,6 +66,7 @@
             opacity: 0;
             transition: all 0.4s ease;
         }
+
         .hotspot-section .connector-vertical {
             width: 2px;
             height: 0;
@@ -67,6 +74,7 @@
             left: 12px;
             transform-origin: top;
         }
+
         .hotspot-section .connector-horizontal {
             height: 2px;
             width: 0;
@@ -74,6 +82,7 @@
             left: 12px;
             transform-origin: left;
         }
+
         .hotspot-section .hotspot-content {
             position: absolute;
             background: rgba(0, 0, 0, 0.85);
@@ -91,11 +100,13 @@
             top: 60px;
             left: 80px;
         }
+
         .hotspot-section .hotspot.active .connector-vertical {
             height: 40px;
             opacity: 1;
             background-color: #f48120;
         }
+
         .hotspot-section .hotspot.active .connector-horizontal {
             width: 60px;
             opacity: 1;
@@ -103,78 +114,95 @@
             background-color: #f48120;
 
         }
+
         .hotspot-section .hotspot.active .hotspot-content {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
             transition-delay: 0.3s;
         }
+
         .hotspot-section .hotspot.one {
             top: 31%;
             left: 25%;
         }
+
         .hotspot-section .hotspot.two {
             top: 35%;
             left: 73%;
         }
+
         .hotspot-section .hotspot.three {
             top: 60%;
             left: 30%;
         }
+
         .hotspot-section .hotspot.four {
             top: 58%;
             left: 72%;
         }
+
         .hotspot-section .hotspot.two .connector-horizontal,
         .hotspot-section .hotspot.four .connector-horizontal {
             left: auto;
             right: 12px;
             transform-origin: right;
         }
+
         .hotspot-section .hotspot.two .hotspot-content,
         .hotspot-section .hotspot.four .hotspot-content {
             left: auto;
             right: 80px;
         }
+
         .hotspot-section .hotspot.two.active .connector-horizontal,
         .hotspot-section .hotspot.four.active .connector-horizontal {
             width: 60px;
         }
+
         @media (max-width: 600px) {
             .hotspot-section .hotspot-content {
                 font-size: 0.8rem;
                 max-width: 180px;
             }
         }
+
         .specs-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
         }
+
         .specs-container h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 28px;
         }
+
         .specs-container table {
             width: 100%;
             border-collapse: collapse;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-        .specs-container th, .specs-container td {
+
+        .specs-container th,
+        .specs-container td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
+
         .specs-container th {
             font-weight: 500;
             width: 40%;
             color: #fff;
         }
+
         .specs-container td {
             color: #fff;
         }
+
         .specs-container .hidden-section {
             display: none;
             opacity: 0;
@@ -182,11 +210,13 @@
             overflow: hidden;
             transition: all 0.6s ease;
         }
+
         .specs-container .hidden-section.show {
             display: table-row-group;
             opacity: 1;
             max-height: 9999px;
         }
+
         .specs-container .toggle-btn {
 
             background: transparent;
@@ -216,44 +246,60 @@
             color: #000000;
 
         }
-        
+
         .specs-container .footer-note a {
             color: #00bfff;
             text-decoration: none;
         }
+
         .specs-container .footer-note a:hover {
             text-decoration: underline;
         }
+
         body.dark-mode .specs-container th {
             color: #fff;
         }
+
         body.dark-mode .specs-container td {
             color: #fff;
         }
+
         body.dark-mode .specs-container th,
         body.dark-mode .specs-container td {
             border-bottom-color: #333;
         }
+
         body:not(.dark-mode) .specs-container th {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container td {
             color: #fff;
         }
+
         body:not(.dark-mode) .specs-container th,
         body:not(.dark-mode) .specs-container td {
             border-bottom-color: #ddd;
         }
+
         body.lightmode .specs-container th,
-body.lightmode .specs-container td {
-    color: #000000; /* black text for light background */
-    border-bottom-color: #ddd; /* light border */
-}
+        body.lightmode .specs-container td {
+            color: #000000;
+            /* black text for light background */
+            border-bottom-color: #ddd;
+            /* light border */
+        }
 
         @media (max-width: 640px) {
-            .specs-container table { font-size: 0.9rem; }
-            .specs-container h2 { font-size: 1.5rem; }
+            .specs-container table {
+                font-size: 0.9rem;
+            }
+
+            .specs-container h2 {
+                font-size: 1.5rem;
+            }
         }
+
         .product-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -261,22 +307,26 @@ body.lightmode .specs-container td {
             align-items: center;
             margin: 4rem 0;
         }
+
         @media (max-width: 768px) {
             .product-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
+
         .product-info-left {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
+
         .product-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .tag {
             background: #f48120;
             color: #fff;
@@ -284,12 +334,14 @@ body.lightmode .specs-container td {
             border-radius: 99px;
             font-size: 12px;
         }
+
         .product-info-left h2 {
             font-size: 3rem;
             line-height: 1.1;
             margin: 0;
             font-weight: 600;
         }
+
         .product-bullets {
             display: flex;
             flex-direction: column;
@@ -297,11 +349,13 @@ body.lightmode .specs-container td {
             color: #6b7280;
             font-size: 1rem;
         }
+
         .product-bullet {
             display: flex;
             gap: 1rem;
             align-items: flex-start;
         }
+
         .product-bullet .dot {
             min-width: 26px;
             height: 26px;
@@ -315,14 +369,15 @@ body.lightmode .specs-container td {
             margin-top: 2px;
             font-weight: 600;
         }
-      
+
         .product-image-right {
             position: relative;
         }
     </style>
 </head>
+
 <body class="product-page">
-    
+
     <!-- Section Header -->
     <header>
         <!-- Section Navbar -->
@@ -351,20 +406,21 @@ body.lightmode .specs-container td {
             <div class="banner-layout-wrapper">
                 <div class="banner-layout">
                     <div class="d-flex flex-column text-center align-items-center gspace-2">
-                        <h2 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Strain Gauges</h2>
+                        <h2 class="title-heading animate-box animated animate__animated"
+                            data-animate="animate__fadeInRight">Strain Gauges</h2>
                         <nav class="breadcrumb">
                             <a href="../index.html" class="gspace-2">Home</a>
                             <span class="separator-link">/</span>
                             <a href="../products.html" class="gspace-2">Wired Sensors</a>
                             <span class="separator-link">/</span>
                             <p class="current-page">Strain Gauges</p>
-                        </nav>    
+                        </nav>
                     </div>
                     <div class="spacer"></div>
                 </div>
             </div>
         </div>
-        
+
 
 
         <div class="section pb-0">
@@ -377,12 +433,20 @@ body.lightmode .specs-container td {
                                 <div class="single-service-spacer"></div>
                                 <div class="single-service-title-wrapper">
                                     <div class="single-service-title">
-                                        <div class="sub-heading animate-box animated slow animate__animated" data-animate="animate__fadeInRight">
+                                        <div class="sub-heading animate-box animated slow animate__animated"
+                                            data-animate="animate__fadeInRight">
                                             <i class="fa-regular fa-circle-dot"></i>
                                             <span>Our Expertise</span>
                                         </div>
-                                        <h3 class="title-heading animate-box animated animate__animated" data-animate="animate__fadeInRight">Boost Structural Insights with High-Accuracy Strain Monitoring</h3>
-                                        <p> Sentra’s strain gauge series delivers precise strain measurements across pipelines, bridges, tunnels, and reinforced structures. Designed for long-term performance, the 4100 and 4150 series combine robust stainless-steel construction, waterproof sealing, and high-fidelity vibrating wire technology for exceptional stability in all field conditions.</p>
+                                        <h3 class="title-heading animate-box animated animate__animated"
+                                            data-animate="animate__fadeInRight">Boost Structural Insights with
+                                            High-Accuracy Strain Monitoring</h3>
+                                        <p> Sentra’s strain gauge series delivers precise strain measurements across
+                                            pipelines, bridges, tunnels, and reinforced structures. Designed for
+                                            long-term performance, the 4100 and 4150 series combine robust
+                                            stainless-steel construction, waterproof sealing, and high-fidelity
+                                            vibrating wire technology for exceptional stability in all field conditions.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -390,87 +454,92 @@ body.lightmode .specs-container td {
                         </div>
                     </div>
 
-                     <!-- Section Services -->
-            <div class="section1">
-            <div class="hero-container">
-                <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
-                    <div class="product-info-left">
-                        <div class="product-tags" aria-hidden="true">
-                            <span class="tag">Model 4100</span>
-                            <span class="tag">Model 4150</span>
-                        </div>
-                        <h2>Strain Gauges</h2>
-                        <div class="product-bullets">
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Spot-Weldable or Epoxy Mountable Design</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Exceptional Durability</div>
-                            </div>
-                            <div class="product-bullet">
-                                <div class="dot">✔</div>
-                                <div class="text-product">Integrated Temperature Measurement</div>
-                            </div>
-                        </div>
-                        <a class="product-cta" href="#" id="scrollToSpecs" aria-label="Access full specs">Access full specs</a>
-                    </div>
-                    <div class="product-image-right">
-                        <section class="hotspot-section">
-                            <div class="hotspot-wrapper">
-                                <div class="image-container"  >
-                                    <img src="../image/staingauge_02.png" alt="Strain Gauge Product">
-                                    <div class="hotspot one" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Wireless Module</strong><br>
-                                            LoRa communication for 15 km range.
+                    <!-- Section Services -->
+                    <div class="section1">
+                        <div class="hero-container">
+                            <div class="product-section" style="margin-top: 5px;    margin-bottom: 5px;">
+                                <div class="product-info-left">
+                                    <div class="product-tags" aria-hidden="true">
+                                        <span class="tag">Model 4100</span>
+                                        <span class="tag">Model 4150</span>
+                                    </div>
+                                    <h2>Strain Gauges</h2>
+                                    <div class="product-bullets">
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Spot-Weldable or Epoxy Mountable Design</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Exceptional Durability</div>
+                                        </div>
+                                        <div class="product-bullet">
+                                            <div class="dot">✔</div>
+                                            <div class="text-product">Integrated Temperature Measurement</div>
                                         </div>
                                     </div>
-                                    <div class="hotspot two" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Sensor Interface</strong><br>
-                                            Compatible with all leading manufacturers.
+                                    <a class="product-cta" href="#" id="scrollToSpecs"
+                                        aria-label="Access full specs">Access full specs</a>
+                                </div>
+                                <div class="product-image-right">
+                                    <section class="hotspot-section">
+                                        <div class="hotspot-wrapper">
+                                            <div class="image-container">
+                                                <img src="../image/staingauge_02.png" alt="Strain Gauge Product">
+                                                <div class="hotspot one" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Wireless Module</strong><br>
+                                                        LoRa communication for 15 km range.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot two" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Sensor Interface</strong><br>
+                                                        Compatible with all leading manufacturers.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot three" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Long-Life Battery</strong><br>
+                                                        25 years of unattended operations.
+                                                    </div>
+                                                </div>
+                                                <div class="hotspot four" style="background-color: #f48120;">
+                                                    +
+                                                    <div class="connector-vertical"></div>
+                                                    <div class="connector-horizontal"></div>
+                                                    <div class="hotspot-content">
+                                                        <strong>Data Logger</strong><br>
+                                                        Secure on-board storage.
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hotspot three" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Long-Life Battery</strong><br>
-                                            25 years of unattended operations.
-                                        </div>
-                                    </div>
-                                    <div class="hotspot four" style="background-color: #f48120;">
-                                        +
-                                        <div class="connector-vertical"></div>
-                                        <div class="connector-horizontal"></div>
-                                        <div class="hotspot-content">
-                                            <strong>Data Logger</strong><br>
-                                            Secure on-board storage.
-                                        </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                     <div class="row row-cols-xl-2 row-cols-1 grid-spacer-5">
                         <div class="col col-xl-8">
                             <div class="d-flex flex-column gspace-2">
                                 <h4>Overview</h4>
                                 <p>
-                                   The Model 4100 and 4150 Vibrating Wire Strain Gauges are designed for measuring strains on steel surfaces or structural components where arc welding is restricted or impractical. The gauges utilize a vibrating wire element tensioned between two mounting blocks, converting even minute deformations into reliable frequency-based digital readings.
+                                    The Model 4100 and 4150 Vibrating Wire Strain Gauges are designed for measuring
+                                    strains on steel surfaces or structural components where arc welding is restricted
+                                    or impractical. The gauges utilize a vibrating wire element tensioned between two
+                                    mounting blocks, converting even minute deformations into reliable frequency-based
+                                    digital readings.
                                 </p>
                                 <div class="row row-cols-md-2 row-cols-1 grid-spacer-2 grid-spacer-md-3">
                                     <div class="col">
@@ -487,60 +556,78 @@ body.lightmode .specs-container td {
                                 <div class="card service-included">
                                     <h4 class="product-headings">What's Included</h4>
                                     <div class="underline-accent-short"></div>
-                                    <p>Practical, deployment-ready components and services that make strain monitoring useful from day one</p>
+                                    <p>Practical, deployment-ready components and services that make strain monitoring
+                                        useful from day one</p>
                                     <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>Spot-weldable or groutable vibrating wire strain gauges for steel, concrete, or rock</li>
+                                                <li>Spot-weldable or groutable vibrating wire strain gauges for steel,
+                                                    concrete, or rock</li>
                                                 <li>Integrated thermistor for temperature-compensated measurements</li>
-                                                <li>Stainless steel, waterproof construction for long-term field durability</li>
+                                                <li>Stainless steel, waterproof construction for long-term field
+                                                    durability</li>
                                                 <li>Extended measurement ranges: 3,000 µε, 5,000 µε, 10,000 µε</li>
                                             </ul>
                                         </div>
                                         <div class="col">
                                             <ul class="check-list">
-                                                <li>Detachable or integrated coil housings with simplified setup and calibration</li>
-                                                <li>Compatible with GeoNet LoRa®, Cellular, Wi-Fi, and multi-channel data loggers</li>
-                                                <li>Accessories: mounting kits, spot welders, epoxy bonding kits, and protection plates</li>
+                                                <li>Detachable or integrated coil housings with simplified setup and
+                                                    calibration</li>
+                                                <li>Compatible with GeoNet LoRa®, Cellular, Wi-Fi, and multi-channel
+                                                    data loggers</li>
+                                                <li>Accessories: mounting kits, spot welders, epoxy bonding kits, and
+                                                    protection plates</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <h4>Maximizing Structural Integrity with Sentra’s Strain Gauge Monitoring</h4>
-                                <p>Reliable, precise, and built to meet the demands of modern infrastructure monitoring.</p>
+                                <p>Reliable, precise, and built to meet the demands of modern infrastructure monitoring.
+                                </p>
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Proactive Structural Insight</h5>
-                                                    <p>Detect early-stage stress, deformation, and load variations across steel, concrete, and composite structures for timely interventions.</p>
+                                                    <p>Detect early-stage stress, deformation, and load variations
+                                                        across steel, concrete, and composite structures for timely
+                                                        interventions.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Precision Strain Measurement</h5>
-                                                    <p>High-accuracy vibrating wire and MEMS strain gauges deliver stable, temperature-compensated readings across pipelines, bridges, tunnels, and rebar systems.</p>
+                                                    <p>High-accuracy vibrating wire and MEMS strain gauges deliver
+                                                        stable, temperature-compensated readings across pipelines,
+                                                        bridges, tunnels, and rebar systems.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-flex flex-column gspace-2">
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Intelligent Edge Analytics</h5>
-                                                    <p>On-device processing filters noise, interprets patterns, and transmits real-time data for immediate decision support.</p>
+                                                    <p>On-device processing filters noise, interprets patterns, and
+                                                        transmits real-time data for immediate decision support.</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
+                                            <div
+                                                class="d-flex flex-column flex-md-row align-items-center text-center text-md-start gspace-1">
                                                 <i class="fa-regular fa-2x fa-circle-check accent-color"></i>
                                                 <div class="d-flex flex-column gspace-0">
                                                     <h5>Seamless Integration & Reporting</h5>
-                                                    <p>Fully compatible with Sentra’s GeoNet data loggers and digital dashboards for unified strain, vibration, and pressure analysis.</p>
+                                                    <p>Fully compatible with Sentra’s GeoNet data loggers and digital
+                                                        dashboards for unified strain, vibration, and pressure analysis.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -554,19 +641,26 @@ body.lightmode .specs-container td {
                                     <h4 class="product-headings">Recent Services</h4>
                                     <div class="underline-accent-short"></div>
                                     <ul class="single-service-list">
-                                        <li><a href="../single_services.html">Bridge & Structural Strain Assessment</a></li>
-                                        <li><a href="../single_services.html">Pipeline & Pressure Vessel Stress Monitoring</a></li>
-                                        <li><a href="../single_services.html">Reinforced Concrete & Rebar Strain Tracking</a></li>
-                                        <li><a href="../single_services.html">Rock Bolt, Soil Nail & Slope Stability Monitoring</a></li>
-                                        <li><a href="../single_services.html">Edge Intelligence & Real-Time Strain Analytics</a></li>
-                                        <li><a href="../single_services.html">Wireless & Wired Data Logger Network Deployment</a></li>
+                                        <li><a href="../single_services.html">Bridge & Structural Strain Assessment</a>
+                                        </li>
+                                        <li><a href="../single_services.html">Pipeline & Pressure Vessel Stress
+                                                Monitoring</a></li>
+                                        <li><a href="../single_services.html">Reinforced Concrete & Rebar Strain
+                                                Tracking</a></li>
+                                        <li><a href="../single_services.html">Rock Bolt, Soil Nail & Slope Stability
+                                                Monitoring</a></li>
+                                        <li><a href="../single_services.html">Edge Intelligence & Real-Time Strain
+                                                Analytics</a></li>
+                                        <li><a href="../single_services.html">Wireless & Wired Data Logger Network
+                                                Deployment</a></li>
                                     </ul>
                                 </div>
                                 <div class="cta-service-banner">
                                     <div class="spacer"></div>
                                     <h3 class="title-heading">Reimagine What’s Possible</h3>
                                     <p>
-                                        Empowering businesses with IoT-driven insights and innovative solutions. Together, let’s shape a smarter future!
+                                        Empowering businesses with IoT-driven insights and innovative solutions.
+                                        Together, let’s shape a smarter future!
                                     </p>
                                     <div class="link-wrapper">
                                         <a href="about.html">Read More</a>
@@ -686,11 +780,14 @@ body.lightmode .specs-container td {
                     <button class="toggle-btn" id="toggleBtn">Show full table +</button>
 
                     <p class="footer-note">
-                        See detailed information about sensor capabilities and battery life estimations in the 
+                        See detailed information about sensor capabilities and battery life estimations in the
                         <br>
-                        <a style="color: #f48120;" href="../Products/Datasheets/4100_Series_Strain_Gages.pdf">4100 Series Strain Gauge Product Datasheet</a>
+                        <a style="color: #f48120;" href="../Products/Datasheets/4100_Series_Strain_Gages.pdf">4100
+                            Series Strain Gauge Product Datasheet</a>
                         <br>
-                        <a style="color: #f48120;" href="../Products/Datasheets/GV-2411-VW-Spot-Weldable-Strain-Gage.pdf">Spot Weldable Strain Gauge Product Datasheet</a>
+                        <a style="color: #f48120;"
+                            href="../Products/Datasheets/GV-2411-VW-Spot-Weldable-Strain-Gage.pdf">Spot Weldable Strain
+                            Gauge Product Datasheet</a>
                     </p>
                 </div>
             </div>
@@ -703,29 +800,34 @@ body.lightmode .specs-container td {
                     <div class="newsletter-layout">
                         <div class="spacer"></div>
                         <div class="d-flex flex-column gspace-5 position-relative z-2">
-                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated" data-animate="animate__fadeInLeft">
+                            <div class="d-flex flex-column gspace-2 animate-box animated animate__animated"
+                                data-animate="animate__fadeInLeft">
                                 <h3 class="title-heading">Stay Ahead with Precision Strain Insights</h3>
-                                <p>Get detailed specifications, features, and application guidelines for Sentra’s Strain Gauge Monitoring solutions.
-Simply enter your email to receive the complete data sheet instantly.</p>
+                                <p>Get detailed specifications, features, and application guidelines for Sentra’s Strain
+                                    Gauge Monitoring solutions.
+                                    Simply enter your email to receive the complete data sheet instantly.</p>
                             </div>
                             <div id="newsletter-success" class="alert success hidden">
                                 <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
                                 <p class="text-center">Thank you! Form submitted successfully.</p>
                             </div>
-                        
+
                             <div id="newsletter-error" class="alert error hidden">
                                 <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form action="./php/newsletter_process.php" method="POST" id="newsletterForm"
+                                class="needs-validation animate-box animated animate__animated"
+                                data-animate="animate__fadeInRight">
                                 <div class="input-container">
-                                    <input type="email" name="newsletter-email" id="newsletter-email" placeholder="Give your best email" required>
+                                    <input type="email" name="newsletter-email" id="newsletter-email"
+                                        placeholder="Give your best email" required>
                                     <p class="error-text hidden"></p>
                                 </div>
                                 <button class="btn btn-accent" type="submit">
                                     <span class="btn-title">
-                                         <span>Subscribe</span>
+                                        <span>Subscribe</span>
                                     </span>
                                     <span class="icon-circle">
                                         <i class="fa-solid fa-arrow-right"></i>
@@ -758,7 +860,7 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                          What role do strain gauges play in structural monitoring?   
+                                            What role do strain gauges play in structural monitoring?
                                         </button>
                                     </h2>
                                     <div id="faq1" class="accordion-collapse collapse show"
@@ -766,7 +868,9 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                They serve as the backbone of precision stress measurement—capturing minute deformations in steel, concrete, or rock to reveal how structures truly behave under load, temperature shifts, or external forces.
+                                                They serve as the backbone of precision stress measurement—capturing
+                                                minute deformations in steel, concrete, or rock to reveal how structures
+                                                truly behave under load, temperature shifts, or external forces.
                                             </p>
                                         </div>
                                     </div>
@@ -784,7 +888,10 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Sentra strain gauges rely on vibrating wire and MEMS technology, translating tiny material deformations into stable frequency signals. Each unit includes temperature compensation to maintain accuracy even in fluctuating field environments.
+                                                Sentra strain gauges rely on vibrating wire and MEMS technology,
+                                                translating tiny material deformations into stable frequency signals.
+                                                Each unit includes temperature compensation to maintain accuracy even in
+                                                fluctuating field environments.
                                             </p>
                                         </div>
                                     </div>
@@ -794,14 +901,16 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                             aria-controls="faq3">
-                                           How does the data get from the gauge to the cloud?
+                                            How does the data get from the gauge to the cloud?
                                         </button>
                                     </h2>
                                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Through Sentra’s GeoNet platform. The gauges connect to LoRa®, Cellular, Wi-Fi, or Satellite data loggers, streaming clean, noise-free data directly to your dashboard or digital twin environment.
+                                                Through Sentra’s GeoNet platform. The gauges connect to LoRa®, Cellular,
+                                                Wi-Fi, or Satellite data loggers, streaming clean, noise-free data
+                                                directly to your dashboard or digital twin environment.
                                             </p>
                                         </div>
                                     </div>
@@ -818,7 +927,9 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                               The system is engineered for endurance. When paired with Sentra’s low-power data loggers, strain monitoring nodes can run for multiple years in the field with minimal maintenance.
+                                                The system is engineered for endurance. When paired with Sentra’s
+                                                low-power data loggers, strain monitoring nodes can run for multiple
+                                                years in the field with minimal maintenance.
                                             </p>
                                         </div>
                                     </div>
@@ -835,7 +946,9 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Absolutely. Sentra systems are designed for integrated structural intelligence—combining strain, vibration, tilt, pressure, and displacement data for a single, unified view of asset health.
+                                                Absolutely. Sentra systems are designed for integrated structural
+                                                intelligence—combining strain, vibration, tilt, pressure, and
+                                                displacement data for a single, unified view of asset health.
                                             </p>
                                         </div>
                                     </div>
@@ -845,19 +958,22 @@ Simply enter your email to receive the complete data sheet instantly.</p>
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
                                             aria-controls="faq6">
-                                           Where are strain gauges typically installed?
+                                            Where are strain gauges typically installed?
                                         </button>
                                     </h2>
                                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
                                         <div class="accordion-body">
                                             <div class="accordion-spacer"></div>
                                             <p>
-                                                Anywhere structural stress matters: welded to steel members, bonded to rebar, embedded in concrete, or anchored into rock. Common deployments include bridges, tunnels, piles, retaining walls, and industrial foundations.
+                                                Anywhere structural stress matters: welded to steel members, bonded to
+                                                rebar, embedded in concrete, or anchored into rock. Common deployments
+                                                include bridges, tunnels, piles, retaining walls, and industrial
+                                                foundations.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -871,32 +987,32 @@ Simply enter your email to receive the complete data sheet instantly.</p>
     </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToSpecs");
-  const specsSection = document.getElementById("specsSection");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollBtn = document.getElementById("scrollToSpecs");
+            const specsSection = document.getElementById("specsSection");
 
-  if (!scrollBtn || !specsSection) return;
+            if (!scrollBtn || !specsSection) return;
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+            scrollBtn.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    // Try common header selectors — add your header selector if different
-    const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                // Try common header selectors — add your header selector if different
+                const header = document.querySelector('header') || document.querySelector('.site-header') || document.querySelector('.navbar') || null;
+                const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Extra gap so content doesn't touch the header (adjust px as needed)
-    const extraGap = 80;
+                // Extra gap so content doesn't touch the header (adjust px as needed)
+                const extraGap = 80;
 
-    const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+                const targetY = specsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
 
-    window.scrollTo({
-      top: Math.max(targetY, 0),
-      behavior: "smooth"
-    });
-  });
-});
-</script>
+                window.scrollTo({
+                    top: Math.max(targetY, 0),
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <script>
         (function () {
@@ -940,5 +1056,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="../js/swiper-script.js"></script>
     <script src="../js/submit-form.js"></script>
     <script src="../js/video_embedded.js"></script>
+ 
 </body>
+
 </html>
