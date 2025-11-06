@@ -3928,7 +3928,7 @@ body.lightmode .card-partner {
     display: flex;
     flex-direction: column;
     padding: 2px 2px 0px 2px;
-    border-radius: 25px 25px 0px 0px;
+    border-radius: 25px 25px 25px 25px;
     overflow: hidden;
     position: relative;
     z-index: 1;

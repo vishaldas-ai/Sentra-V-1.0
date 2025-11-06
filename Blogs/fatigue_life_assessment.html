@@ -7,7 +7,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Fatigue Life Assessment</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="icon" href="https://clovetech.com/wp-content/uploads/2025/04/favicon.png" type="image/png" sizes="16x16">
+
+    <style>
+        #ttsPlayBtn {
+            background-color: #f48120;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 16px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        #ttsPlayBtn:hover {
+            background-color: #000000;
+        }
+
+
+        .word {
+            transition: background-color 0.12s ease;
+            padding: 0 1px;
+            border-radius: 2px;
+        }
+
+        /* Default highlight (for dark mode or general) */
+        .highlight {
+            background-color: #f48120;
+            /* orange */
+            transition: background-color 0.15s ease;
+        }
+
+        /* When the page is in light mode */
+        body.lightmode .highlight {
+            background-color: #ffe082;
+            /* soft yellow */
+        }
+
+        .tts-controls {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tts-controls button {
+            padding: 10px 16px;
+            font-size: 1rem;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            background: #f48120;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tts-controls button:hover {
+            background: #dfcaa0;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #f48120;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -146,7 +226,13 @@
                                     <span class="meta-data">Clove Technologies</span>
                                 </div>
                             </div>
-                            <div>
+                            <div class="tts-controls">
+                                <button id="ttsPlayBtn"><i class="fas fa-play"></i></button>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                            <div id="ttsContent">
                                 <p id="specsSection">
                                     Understanding Fatigue Life in Structural Engineering
                                     In the life of any engineered structure, whether a bridge, building, offshore
@@ -167,7 +253,7 @@
                                     by IoT technology.
                                 </p>
 
-                                <h4 id="DescSection">The Role of IoT in Fatigue Life Assessment</h4>
+                                <h4 id="DescSection" data-voice="male">The Role of IoT in Fatigue Life Assessment</h4>
                                 <p>
                                     With the integration of IoT sensors, engineers can continuously monitor the
                                     stresses, strains, and vibration signatures that influence fatigue behavior.
@@ -177,7 +263,7 @@
                                 </p>
 
                                 </p>
-                                <h4>Key IoT technologies supporting fatigue monitoring include:</h4>
+                                <h4 data-voice="male">Key IoT technologies supporting fatigue monitoring include:</h4>
                                 <p>
                                     IoT has completely redefined how SHM systems function. By integrating wireless
                                     sensor networks, edge computing, and AI-driven analytics, IoT enables infrastructure
@@ -199,7 +285,7 @@
                                         width="371" height="182"
                                         srcset="../image/Fatigue_Residual_Life_Assessment.png 300w, ../image/Fatigue_Residual_Life_Assessment.png 512w"
                                         sizes="(max-width: 371px) 100vw, 371px"></p>
-                                <h4 id="Para1Section">Applications Across Industries</h4>
+                                <h4 id="Para1Section" data-voice="male">Applications Across Industries</h4>
                                 <p>
                                     This solution not only identifies surface level and subsurface structural issues
                                     such as cracks and rust but also provides accurate metrics like crack depth, width,
@@ -229,7 +315,8 @@
                                     <br>
                                 </p>
 
-                                <h4 id="Para2Section">Advantages of IoT-Enabled Fatigue Life Assessment</h4>
+                                <h4 id="Para2Section" data-voice="male">Advantages of IoT-Enabled Fatigue Life
+                                    Assessment</h4>
                                 <p>
                                 <ul class="blog-bullets">
                                     <li> Data Accuracy – Real-time sensor data reflects true loading conditions,
@@ -248,7 +335,7 @@
                                     </li>
                                 </ul>
                                 </p>
-                                <h4 id="Para3Section">Real-World Example</h4>
+                                <h4 id="Para3Section" data-voice="male">Real-World Example</h4>
                                 <p>
                                 <ul class="blog-bullets">
                                     <li>Consider a steel arch bridge subjected to variable traffic and temperature
@@ -268,7 +355,8 @@
                             </div>
                             <div class="conclusion-div">
 
-                                <h4 id="ConclusionSection">Conclusion - Looking Ahead: The Future of Fatigue Monitoring
+                                <h4 id="ConclusionSection" data-voice="male">Conclusion - Looking Ahead: The Future of
+                                    Fatigue Monitoring
                                 </h4>
                                 <p>
                                     As IoT ecosystems mature, every structural component can become a self-reporting
@@ -279,14 +367,14 @@
                                     <a class="conclusion-btn" href="/contact.html" role="button">Contact us</a>
                                 </div>
                             </div>
-
-
-
-
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
@@ -296,6 +384,301 @@
         <div id="footer"></div>
     </footer>
 
+    <script>
+        (function () {
+            const synth = window.speechSynthesis;
+            let voices = [];
+            let isPlaying = false;
+            let isPaused = false;
+            let totalWords = 0;
+            let currentWordIndex = 0;
+            let wordSpans = [];
+            let paragraphs = [];
+            let currentParagraphIndex = 0;
+            let activeUtterance = null;
+            let fallbackTimer = null;
+            let boundarySupported = false;
+            let autoScrollEnabled = true;
+            let mouseIdleTimer;
+
+            const ttsContent = document.getElementById('ttsContent');
+            const playBtn = document.getElementById('ttsPlayBtn');
+            const progressFill = document.getElementById('progressFill');
+            const progressBar = document.querySelector('.progress-bar');
+
+            function loadVoices() {
+                voices = synth.getVoices() || [];
+            }
+            loadVoices();
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+                speechSynthesis.onvoiceschanged = loadVoices;
+            }
+
+            function pickFemaleVoice() {
+                const femaleCandidates = voices.filter(v => /Deepa|Joanna|Google Translate|female|woman|Google US English|Samantha|Alloy|Amy|Emma|en-US/i.test(v.name + ' ' + v.lang));
+                return femaleCandidates[0] || voices.find(v => /en-?us|en-?gb/i.test(v.lang)) || voices[0];
+            }
+
+            function pickMaleVoice() {
+                const maleCandidates = voices.filter(v => /Sundar|Google Translate|male|man|Google UK English|Daniel|Alex|en-?gb|en-?au/i.test(v.name + ' ' + v.lang));
+                return maleCandidates[0] || voices.find(v => /en-?us|en-?gb/i.test(v.lang)) || voices[0];
+            }
+
+            document.addEventListener('mousemove', () => {
+                autoScrollEnabled = false;
+                clearTimeout(mouseIdleTimer);
+                mouseIdleTimer = setTimeout(() => {
+                    autoScrollEnabled = true;
+                }, 5000);
+            });
+
+            function wrapWords() {
+                const elements = ttsContent.querySelectorAll('p, h4, li');
+                elements.forEach(el => {
+                    if (el.querySelector('.word')) return;
+                    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+                    const textNodes = [];
+                    let node;
+                    while (node = walker.nextNode()) {
+                        if (node.textContent.trim()) textNodes.push(node);
+                    }
+                    textNodes.forEach(textNode => {
+                        const tokens = textNode.textContent.split(/(\s+)/);
+                        const fragment = document.createDocumentFragment();
+                        tokens.forEach(tok => {
+                            if (/\s+/.test(tok)) {
+                                fragment.appendChild(document.createTextNode(tok));
+                            } else if (tok) {
+                                const span = document.createElement('span');
+                                span.className = 'word';
+                                span.textContent = tok;
+                                fragment.appendChild(span);
+                                totalWords++;
+                            }
+                        });
+                        textNode.parentNode.replaceChild(fragment, textNode);
+                    });
+                });
+                wordSpans = Array.from(ttsContent.querySelectorAll('.word'));
+            }
+            wrapWords();
+
+            function getParagraphs() {
+                const elements = ttsContent.querySelectorAll('p, h4, li');
+                paragraphs = Array.from(elements).filter(el => el.textContent.trim() !== '');
+            }
+            getParagraphs();
+
+            function computeWordBoundaries(text) {
+                const words = text.split(/\s+/).filter(Boolean);
+                const boundaries = [];
+                let cursor = 0;
+                for (let i = 0; i < words.length; i++) {
+                    const w = words[i];
+                    const found = text.indexOf(w, cursor);
+                    if (found === -1) {
+                        boundaries.push(cursor);
+                        cursor += w.length;
+                    } else {
+                        boundaries.push(found);
+                        cursor = found + w.length;
+                    }
+                }
+                return boundaries;
+            }
+
+            function clearAllHighlights() {
+                wordSpans.forEach(w => w.classList.remove('highlight'));
+            }
+
+            function scrollIntoCenter(el) {
+                if (!el) return;
+                if (autoScrollEnabled) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            function clearFallbackTimer() {
+                if (fallbackTimer) {
+                    clearInterval(fallbackTimer);
+                    fallbackTimer = null;
+                }
+            }
+
+            function speakFrom(index) {
+                clearFallbackTimer();
+                boundarySupported = false;
+
+                // End of text reached
+                if (index >= paragraphs.length) {
+                    isPlaying = false;
+                    isPaused = false;
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    currentParagraphIndex = 0;
+                    currentWordIndex = 0;
+                    return;
+                }
+
+                currentParagraphIndex = index;
+                const p = paragraphs[index];
+                const role = (p.getAttribute('data-voice') || 'female').toLowerCase();
+                const voice = role === 'male' ? pickMaleVoice() : pickFemaleVoice();
+                const utterText = p.textContent.trim();
+                if (!utterText) {
+                    speakFrom(index + 1);
+                    return;
+                }
+
+                const boundaries = computeWordBoundaries(utterText);
+                const wordSpansInP = Array.from(p.querySelectorAll('.word')).filter(s => s.textContent.trim() !== '');
+                wordSpansInP.forEach(w => w.classList.remove('highlight'));
+
+                const u = new SpeechSynthesisUtterance(utterText);
+                activeUtterance = u;
+                u.lang = 'en-US';
+                u.rate = role === 'male' ? 0.9 : 1.3;
+                u.pitch = 1.2;
+                if (voice) u.voice = voice;
+
+                // Approximate fallback interval
+                const wordsPerSecondBase = 3.0 * u.rate;
+                const fallbackIntervalMs = Math.max(120, Math.round(1000 / wordsPerSecondBase));
+
+                // ====== onstart ======
+                u.onstart = () => {
+                    isPlaying = true;
+                    isPaused = false;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+
+                    currentWordIndex = 0;
+                    if (wordSpansInP.length > 0) {
+                        wordSpansInP.forEach(w => w.classList.remove('highlight'));
+                        const first = wordSpansInP[0];
+                        first.classList.add('highlight');
+                        scrollIntoCenter(first);
+                    }
+
+                    // fallback timer for browsers that don't emit boundary events
+                    fallbackTimer = setInterval(() => {
+                        if (boundarySupported) return;
+                        if (!isPlaying || isPaused) { clearFallbackTimer(); return; }
+
+                        if (currentWordIndex < wordSpansInP.length - 1) {
+                            wordSpansInP[currentWordIndex].classList.remove('highlight');
+                            currentWordIndex++;
+                            wordSpansInP[currentWordIndex].classList.add('highlight');
+                            scrollIntoCenter(wordSpansInP[currentWordIndex]);
+                        }
+                    }, fallbackIntervalMs);
+                };
+
+                // ====== onboundary ======
+                u.onboundary = (ev) => {
+                    boundarySupported = true;
+                    clearFallbackTimer();
+
+                    const charIndex = ev.charIndex || 0;
+                    let wi = 0;
+                    for (let i = 0; i < boundaries.length; i++) {
+                        const start = boundaries[i];
+                        const end = (i < boundaries.length - 1) ? boundaries[i + 1] : utterText.length;
+                        if (charIndex >= start && charIndex < end) {
+                            wi = i;
+                            break;
+                        }
+                        if (i === boundaries.length - 1) wi = boundaries.length - 1;
+                    }
+
+                    wi = Math.min(wi, wordSpansInP.length - 1);
+                    if (wi < 0) wi = 0;
+
+                    if (wi !== currentWordIndex) {
+                        if (wordSpansInP[currentWordIndex]) wordSpansInP[currentWordIndex].classList.remove('highlight');
+                        if (wordSpansInP[wi]) {
+                            wordSpansInP[wi].classList.add('highlight');
+                            scrollIntoCenter(wordSpansInP[wi]);
+                        }
+                        currentWordIndex = wi;
+                    }
+                };
+
+                // ====== onend ======
+                u.onend = () => {
+                    p.querySelectorAll('.word.highlight').forEach(w => w.classList.remove('highlight'));
+                    activeUtterance = null;
+                    clearFallbackTimer();
+
+                    if (isPlaying && !isPaused) {
+                        speakFrom(index + 1);
+                    } else {
+                        isPlaying = false;
+                        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                };
+
+                // ====== onerror ======
+                u.onerror = (err) => {
+                    console.error('Speech error', err);
+                    activeUtterance = null;
+                    isPlaying = false;
+                    clearFallbackTimer();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                };
+
+                // speak now
+                try {
+                    synth.speak(u);
+                } catch (e) {
+                    console.error('synth.speak error:', e);
+                }
+
+                // ====== Progress bar update ======
+                const progress = ((index + 1) / paragraphs.length) * 100;
+                progressFill.style.width = progress + '%';
+            }
+
+
+            playBtn.addEventListener('click', () => {
+                if (!voices || voices.length === 0) loadVoices();
+
+                if (isPlaying) {
+                    synth.cancel();
+                    isPlaying = false;
+                    isPaused = true;
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    playBtn.textContent = "";
+                    clearAllHighlights();
+                    clearFallbackTimer();
+                } else {
+                    if (currentParagraphIndex >= paragraphs.length) currentParagraphIndex = 0;
+                    isPlaying = true;
+                    isPaused = false;
+                    speakFrom(currentParagraphIndex);
+                }
+            });
+
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const percentage = clickX / rect.width;
+                const targetIndex = Math.floor(percentage * paragraphs.length);
+                if (isPlaying) {
+                    synth.cancel();
+                    isPlaying = false;
+                    isPaused = true;
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    clearAllHighlights();
+                    clearFallbackTimer();
+                }
+                currentParagraphIndex = targetIndex;
+                speakFrom(targetIndex);
+            });
+
+            window.addEventListener('beforeunload', () => {
+                if (synth && synth.speaking) synth.cancel();
+            });
+        })();
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Button → Section mapping
@@ -340,8 +723,18 @@
                 }
             });
         });
-    </script>
 
+
+        const ttsPlayBtn = document.getElementById('ttsPlayBtn');
+
+        function setPlayIcon() {
+            ttsPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+
+        function setPauseIcon() {
+            ttsPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+    </script>
 
 
     <script src="../js/vendor/jquery.min.js"></script>
