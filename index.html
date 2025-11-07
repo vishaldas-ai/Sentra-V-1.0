@@ -7,6 +7,8 @@
     <title>Sentra - Smart. Secure. Scalable.</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <link rel="icon" href="https://clovetech.com/wp-content/uploads/2025/04/favicon.png" type="image/png" sizes="16x16">
 </head>
 
@@ -1502,62 +1504,14 @@
     <script src="js/submit-form.js"></script>
     <script src="js/vendor/isotope.pkgd.min.js"></script>
     <script src="js/video_embedded.js"></script>
-    <script src="js/chatbot.js"></script>
 
-
+    <!-- Linking Emoji Mart script for emoji picker -->
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
 
     <!-- Chatbot Widget -->
-    <div id="chatbot-widget" class="chatbot-widget">
-        <div id="chatbot-toggle" class="chatbot-toggle">
-            <i class="fas fa-comments"></i>
-        </div>
+    <script src="js/chatbot-widget.js"></script>
 
-        <div id="chatbot-container" class="chatbot-container">
-            <div class="chatbot-header">
-                <div class="chatbot-header-content">
-                    <div class="chatbot-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="chatbot-info">
-                        <h4>Sentra Assistant</h4>
-                        <span class="chatbot-status">Online</span>
-                    </div>
-                </div>
-                <button id="chatbot-close" class="chatbot-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
 
-            <div id="chatbot-messages" class="chatbot-messages">
-                <div class="message bot-message">
-                    <div class="message-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="message-content">
-                        <p>Hello! I'm your Sentra assistant. I can help you learn about our structural health monitoring
-                            solutions, products, and services. What would you like to know?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="chatbot-input-container">
-                <div class="chatbot-input-wrapper">
-                    <input type="text" id="chatbot-input" class="chatbot-input"
-                        placeholder="Ask me anything about Sentra...">
-                    <button id="chatbot-send" class="chatbot-send">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-                <div id="chatbot-typing" class="chatbot-typing" style="display: none;">
-                    <div class="typing-indicator">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 

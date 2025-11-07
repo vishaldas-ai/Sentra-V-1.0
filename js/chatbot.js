@@ -1,222 +1,324 @@
-// Chatbot functionality
-class SentraChatbot {
-    constructor() {
-        this.isOpen = false;
-        this.isTyping = false;
-        // Start the process: load HTML, then initialize.
-        this.createChatbotHTML();
+const chatBody = document.querySelector(".chat-body");
+const messageInput = document.querySelector(".message-input");
+const sendMessage = document.querySelector("#send-message");
+const fileInput = document.querySelector("#file-input");
+const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
+const fileCancelButton = fileUploadWrapper.querySelector("#file-cancel");
+const chatbotToggler = document.querySelector("#chatbot-toggler");
+const closeChatbot = document.querySelector("#close-chatbot");
+
+// -----------------------------------------------------------------
+// 🚨 CRITICAL SECURITY WARNING
+// -----------------------------------------------------------------
+// DO NOT put your API key in client-side JavaScript.
+// Anyone visiting your site can steal it and use your quota.
+// This key should be in a backend server.
+//
+// For testing, you can use it here, but replace it before deploying.
+// -----------------------------------------------------------------
+const API_KEY = "AIzaSyBRDrLF5BZuAOazd5vhZnYtEDAGTlDMlB0"; // ⚠️ Replace this
+
+// API setup - Changed to v1beta, which works with gemini-1.5-flash-latest
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
+
+// Initialize user message and file data
+const userData = {
+  message: null,
+  file: {
+    data: null,
+    mimeType: null, // <-- FIX: Changed from mime_type
+  },
+};
+
+// Store chat history - Now starts empty.
+const chatHistory = [];
+
+// System instruction with company context
+const systemInstruction = {
+  parts: [
+    {
+      text: `Company Name: Sentra
+Sentra is a structural health monitoring and digital engineering company specializing in real-time infrastructure intelligence.
+We integrate smart sensor networks, digital twins, and edge AI for predictive maintenance, fatigue analysis, and geotechnical monitoring.
+Our solutions help detect early signs of stress, displacement, vibration, and material degradation across bridges, tunnels, buildings, and other critical assets.
+Sentra also provides consulting and advisory services, foundation and geotechnical monitoring, fatigue and residual life assessment, and digital documentation of infrastructure assets.
+Use this company context to answer all upcoming user queries accurately and in alignment with Sentra's expertise.`,
+    },
+  ],
+};
+
+const initialInputHeight = messageInput.scrollHeight;
+
+// Simple markdown parser for basic formatting
+const parseMarkdown = (text) => {
+  let parsed = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+    .replace(/`(.*?)`/g, '<code>$1</code>') // Inline code
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>') // H3
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>') // H2
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>') // H1
+    .replace(/^- (.*$)/gim, '• $1') // Bullet points with -
+    .replace(/^\* (.*$)/gim, '• $1') // Bullet points with *
+    .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic (after bullets)
+    .replace(/^---$/gm, '<hr>'); // Horizontal rules
+
+  // Basic table parsing
+  const lines = parsed.split('\n');
+  let inTable = false;
+  let tableRows = [];
+  let newLines = [];
+
+  for (let line of lines) {
+    if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+      if (!inTable) {
+        inTable = true;
+        tableRows = [];
+      }
+      const cells = line.split('|').slice(1, -1).map(cell => cell.trim());
+      tableRows.push(cells);
+    } else {
+      if (inTable) {
+        // End table
+        let tableHtml = '<table border="1" style="border-collapse: collapse; width: 100%;">';
+        tableRows.forEach((row, index) => {
+          const tag = index === 1 ? 'th' : 'td';
+          tableHtml += '<tr>';
+          row.forEach(cell => {
+            tableHtml += `<${tag} style="padding: 8px; text-align: left;">${cell}</${tag}>`;
+          });
+          tableHtml += '</tr>';
+        });
+        tableHtml += '</table>';
+        newLines.push(tableHtml);
+        inTable = false;
+      }
+      newLines.push(line);
+    }
+  }
+  if (inTable) {
+    let tableHtml = '<table border="1" style="border-collapse: collapse; width: 100%;">';
+    tableRows.forEach((row, index) => {
+      const tag = index === 1 ? 'th' : 'td';
+      tableHtml += '<tr>';
+      row.forEach(cell => {
+        tableHtml += `<${tag} style="padding: 8px; text-align: left;">${cell}</${tag}>`;
+      });
+      tableHtml += '</tr>';
+    });
+    tableHtml += '</table>';
+    newLines.push(tableHtml);
+  }
+
+  return newLines.join('<br>');
+};
+
+// Create message element with dynamic classes and return it
+const createMessageElement = (content, ...classes) => {
+  const div = document.createElement("div");
+  div.classList.add("message", ...classes);
+  div.innerHTML = content;
+  return div;
+};
+
+// Generate bot response using API
+const generateBotResponse = async (incomingMessageDiv) => {
+  const messageElement = incomingMessageDiv.querySelector(".message-text");
+
+  // Create the parts for the user's message
+  const userParts = [{ text: userData.message }];
+  if (userData.file.data) {
+    // Add file data if it exists
+    userParts.push({
+      inline_data: userData.file, // This now correctly has { data: "...", mimeType: "..." }
+    });
+  }
+
+  // Add user message to chat history
+  chatHistory.push({
+    role: "user",
+    parts: userParts,
+  });
+
+  // API request options
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: chatHistory,
+      systemInstruction: systemInstruction, // <-- ADDED: Send system context
+    }),
+  };
+
+  try {
+    // Fetch bot response from API
+    const response = await fetch(API_URL, requestOptions);
+    const data = await response.json();
+
+    // Handle errors
+    if (!response.ok) {
+      // Check for specific error message from Google
+      if (data.error && data.error.message) {
+        throw new Error(data.error.message);
+      }
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    // Check for valid response structure
+    if (!data.candidates || !data.candidates[0].content || !data.candidates[0].content.parts) {
+      throw new Error("Invalid API response structure.");
     }
 
-    /**
-     * Initializes DOM elements and binds events.
-     * This is ONLY called *after* the HTML is guaranteed to be in the DOM.
-     */
-    init() {
-        // Get DOM elements
-        this.toggle = document.getElementById('chatbot-toggle');
-        this.container = document.getElementById('chatbot-container');
-        this.closeBtn = document.getElementById('chatbot-close');
-        this.input = document.getElementById('chatbot-input');
-        this.sendBtn = document.getElementById('chatbot-send');
-        this.messages = document.getElementById('chatbot-messages');
-        this.typing = document.getElementById('chatbot-typing');
+    // Extract and display bot's response text
+    const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    messageElement.innerHTML = parseMarkdown(apiResponseText);
 
-        // Check if all required elements exist
-        if (!this.toggle || !this.container || !this.closeBtn || !this.input || !this.sendBtn || !this.messages || !this.typing) {
-            console.error('Chatbot initialization failed: Some required DOM elements are missing. Ensure chatbot.html content is correct.');
-            return;
-        }
+    // Add bot response to chat history
+    chatHistory.push({
+      role: "model",
+      parts: [{ text: apiResponseText }],
+    });
+  } catch (error) {
+    // Handle error in API response
+    console.error(error); // Log the full error to the console
+    messageElement.innerText = `Error: ${error.message}`;
+    messageElement.style.color = "#ff0000";
+  } finally {
+    // Reset user's file data, removing thinking indicator and scroll chat to bottom
+    userData.file = { data: null, mimeType: null }; // Reset file data
+    incomingMessageDiv.classList.remove("thinking");
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+  }
+};
 
-        // Bind events
-        this.bindEvents();
+// Handle outgoing user messages
+const handleOutgoingMessage = (e) => {
+  e.preventDefault();
+  userData.message = messageInput.value.trim();
+  
+  // Do nothing if message and file are empty
+  if (!userData.message && !userData.file.data) {
+    messageInput.value = "";
+    return;
+  }
 
-        // Add an initial welcome message (optional, but good UX)
-        this.addMessage("Hello! I'm Sentra's AI assistant. Ask me about our structural monitoring products and solutions!", 'bot');
-    }
+  messageInput.value = "";
+  messageInput.dispatchEvent(new Event("input"));
+  fileUploadWrapper.classList.remove("file-uploaded");
 
-    /**
-     * Loads the chatbot HTML structure asynchronously.
-     */
-    createChatbotHTML() {
-        const widgetElement = document.getElementById('chatbot-widget');
+  // Create and display user message
+  const messageContent = `<div class="message-text"></div>
+                          ${
+                            userData.file.data
+                              ? `<img src="data:${userData.file.mimeType};base64,${userData.file.data}" class="attachment" />`
+                              : ""
+                          }`;
+  const outgoingMessageDiv = createMessageElement(messageContent, "user-message");
+  outgoingMessageDiv.querySelector(".message-text").innerText = userData.message;
+  chatBody.appendChild(outgoingMessageDiv);
+  chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
 
-        // Check if chatbot HTML already exists
-        if (widgetElement) {
-            // If it exists (e.g., loaded directly in index.html), proceed to init
-            this.init();
-            return;
-        }
+  // Simulate bot response with thinking indicator after a delay
+  setTimeout(() => {
+    const messageContent = `<svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
+            <path
+              d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"
+            />
+          </svg>
+          <div class="message-text">
+            <div class="thinking-indicator">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>`;
+    const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
+    chatBody.appendChild(incomingMessageDiv);
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+    generateBotResponse(incomingMessageDiv);
+  }, 600);
+};
 
-        // If it doesn't exist, fetch it
-        fetch('./chatbot.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(html => {
-                // Inject the HTML into the body
-                document.body.insertAdjacentHTML('beforeend', html);
-                // 🔑 CRITICAL FIX: Now that the HTML is in the DOM, call init()
-                this.init();
-            })
-            .catch(error => {
-                console.error('Error loading chatbot HTML:', error);
-            });
-    }
-
-    bindEvents() {
-        try {
-            this.toggle.addEventListener('click', () => this.toggleChat());
-            this.closeBtn.addEventListener('click', () => this.closeChat());
-            this.sendBtn.addEventListener('click', () => this.sendMessage());
-            this.input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    this.sendMessage();
-                }
-            });
-        } catch (error) {
-            // Note: This block is less likely to hit now that init() is protected
-            console.error('Error binding chatbot events:', error);
-        }
-    }
-
-    toggleChat() {
-        this.isOpen = !this.isOpen;
-        if (this.isOpen) {
-            this.container.classList.add('open');
-            this.input.focus();
-        } else {
-            this.container.classList.remove('open');
-        }
-    }
-
-    closeChat() {
-        this.isOpen = false;
-        this.container.classList.remove('open');
-    }
-
-    async sendMessage() {
-        const message = this.input.value.trim();
-        if (!message || this.isTyping) return;
-
-        // Add user message
-        this.addMessage(message, 'user');
-        this.input.value = '';
-
-        // Show typing indicator
-        this.showTyping();
-
-        try {
-            // Send to Netlify function
-            const response = await fetch('/.netlify/functions/chatbot', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ question: message })
-            });
-
-            let data;
-            try {
-                data = await response.json();
-            } catch (jsonError) {
-                console.error('Failed to parse JSON response:', jsonError);
-                this.hideTyping();
-                this.addMessage('Sorry, I received an invalid response. Please try again.', 'bot');
-                return;
-            }
-
-            // Hide typing indicator
-            this.hideTyping();
-
-            if (response.ok) {
-                if (data.answer) {
-                    this.addMessage(data.answer, 'bot');
-                } else {
-                    this.addMessage('Sorry, I couldn\'t generate a response. Please try again.', 'bot');
-                }
-            } else {
-                // Handle specific error messages
-                if (data.error) {
-                    this.addMessage(`Sorry, there was an error: ${data.error}`, 'bot');
-                } else {
-                    this.addMessage('Sorry, I encountered an error. Please try again.', 'bot');
-                }
-            }
-
-        } catch (error) {
-            console.error('Error sending message:', error);
-            this.hideTyping();
-            this.addMessage('Sorry, I\'m having trouble connecting. Please try again later.', 'bot');
-        }
-    }
-
-    addMessage(content, type) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${type}-message`;
-
-        const avatarDiv = document.createElement('div');
-        avatarDiv.className = 'message-avatar';
-
-        const icon = document.createElement('i');
-        // IMPORTANT: Ensure you have Font Awesome loaded for these icons (fas fa-robot/fas fa-user)
-        icon.className = type === 'bot' ? 'fas fa-robot' : 'fas fa-user';
-        avatarDiv.appendChild(icon);
-
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'message-content';
-
-        const paragraph = document.createElement('p');
-        paragraph.textContent = content;
-        contentDiv.appendChild(paragraph);
-
-        messageDiv.appendChild(avatarDiv);
-        messageDiv.appendChild(contentDiv);
-
-        this.messages.appendChild(messageDiv);
-        this.scrollToBottom();
-    }
-
-    showTyping() {
-        this.isTyping = true;
-        this.typing.style.display = 'block';
-        this.sendBtn.disabled = true;
-        this.scrollToBottom();
-    }
-
-    hideTyping() {
-        this.isTyping = false;
-        this.typing.style.display = 'none';
-        this.input.focus();
-        this.sendBtn.disabled = false;
-    }
-
-    scrollToBottom() {
-        // Use a slight delay to ensure the DOM has rendered the new message height
-        setTimeout(() => {
-            this.messages.scrollTop = this.messages.scrollHeight;
-        }, 100);
-    }
-}
-
-// Initialize chatbot when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-        new SentraChatbot();
-    } catch (error) {
-        console.error('Error initializing chatbot from DOMContentLoaded:', error);
-    }
+// Adjust input field height dynamically
+messageInput.addEventListener("input", () => {
+  messageInput.style.height = `${initialInputHeight}px`;
+  messageInput.style.height = `${messageInput.scrollHeight}px`;
+  document.querySelector(".chat-form").style.borderRadius =
+    messageInput.scrollHeight > initialInputHeight ? "15px" : "32px";
 });
 
-/*
-// Remove this redundant block, as DOMContentLoaded is the standard and sufficient event.
-if (document.readyState !== 'loading') {
-    try {
-        new SentraChatbot();
-    } catch (error) {
-        console.error('Error initializing chatbot:', error);
+// Handle Enter key press for sending messages
+messageInput.addEventListener("keydown", (e) => {
+  const userMessage = e.target.value.trim();
+  const fileUploaded = userData.file.data;
+  
+  if (e.key === "Enter" && !e.shiftKey && (userMessage || fileUploaded) && window.innerWidth > 768) {
+    handleOutgoingMessage(e);
+  }
+});
+
+// Handle file input change and preview the selected file
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  // Simple validation for image types (optional but recommended)
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image file (e.g., JPEG, PNG, WEBP).");
+    fileInput.value = ""; // Clear the input
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    fileInput.value = "";
+    fileUploadWrapper.querySelector("img").src = e.target.result;
+    fileUploadWrapper.classList.add("file-uploaded");
+    const base64String = e.target.result.split(",")[1];
+    
+    // Store file data in userData
+    userData.file = {
+      data: base64String,
+      mimeType: file.type, // <-- FIX: Use mimeType
+    };
+  };
+  reader.readAsDataURL(file);
+});
+
+// Cancel file upload
+fileCancelButton.addEventListener("click", () => {
+  userData.file = { data: null, mimeType: null };
+  fileUploadWrapper.classList.remove("file-uploaded");
+});
+
+// Assume EmojiMart is loaded correctly in your HTML
+// Initialize emoji picker and handle emoji selection
+const picker = new EmojiMart.Picker({
+  theme: "light",
+  skinTonePosition: "none",
+  previewPosition: "none",
+  onEmojiSelect: (emoji) => {
+    const { selectionStart: start, selectionEnd: end } = messageInput;
+    messageInput.setRangeText(emoji.native, start, end, "end");
+    messageInput.focus();
+  },
+  onClickOutside: (e) => {
+    if (e.target.id === "emoji-picker") {
+      document.body.classList.toggle("show-emoji-picker");
+    } else {
+      document.body.classList.remove("show-emoji-picker");
     }
-}
-*/
+  },
+});
+document.querySelector(".chat-form").appendChild(picker);
+
+// --- Event Listeners ---
+sendMessage.addEventListener("click", (e) => {
+  const userMessage = messageInput.value.trim();
+  const fileUploaded = userData.file.data;
+  if (userMessage || fileUploaded) {
+    handleOutgoingMessage(e);
+  }
+});
+document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
+closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
