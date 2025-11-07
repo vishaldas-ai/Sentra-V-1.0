@@ -137,14 +137,28 @@ function initThemeSwitch() {
     }
 
     const updateLogos = () => {
-        const siteLogos = $('.site-logo');
+        const sidebarLogos = $('.sidebar .site-logo');
+        const headerLogos = $('.navbar-brand .site-logo');
         const partnerLogos = $('.partner-logo');
+        const navbarToggler = $('.navbar-toggler.nav-btn .fa-solid.fa-bars');
+        const closeBtn = $('.close-btn');
+
+        // Specific icons to apply greyscale in light mode
+        const chooseUsIcons = $('img[src*="iot_icon.png"], img[src*="Digital_Solutions_icon.png"], img[src*="Transparent_icon.png"]');
 
         if (lightMode) {
             $('body').addClass('lightmode');
             localStorage.setItem('lightmode', 'active');
 
-            siteLogos.attr('src', pathPrefix + 'image/sentra_white.svg');
+            sidebarLogos.attr('src', pathPrefix + 'image/sentra_black_1.svg');
+            headerLogos.attr('src', pathPrefix + 'image/sentra_white_1.svg');
+
+            // Change navbar toggle and close button colors to black in light mode
+            navbarToggler.css('color', '#000000');
+            closeBtn.css('color', '#000000');
+
+            // Apply dark greyscale filter to specific choose us icons in light mode
+            chooseUsIcons.css('filter', 'grayscale(100%) brightness(0.3)');
 
             partnerLogos.each(function () {
                 const $img = $(this);
@@ -157,7 +171,15 @@ function initThemeSwitch() {
             $('body').removeClass('lightmode');
             localStorage.removeItem('lightmode');
 
-            siteLogos.attr('src', pathPrefix + 'image/sentra_white.svg');
+            sidebarLogos.attr('src', pathPrefix + 'image/sentra_white_1.svg');
+            headerLogos.attr('src', pathPrefix + 'image/sentra_white_1.svg');
+
+            // Reset navbar toggle and close button colors in dark mode (remove inline styles)
+            navbarToggler.css('color', '');
+            closeBtn.css('color', '');
+
+            // Remove greyscale filter from choose us icons in dark mode
+            chooseUsIcons.css('filter', '');
 
             partnerLogos.each(function () {
                 const $img = $(this);

@@ -4,7 +4,7 @@
 (function() {
     // Function to load chatbot HTML
     function loadChatbot() {
-        fetch('./chatbot.html')
+        fetch('../chatbot.html')
             .then(response => response.text())
             .then(html => {
                 // Insert the chatbot HTML into the body
@@ -12,7 +12,7 @@
 
                 // Load the chatbot script after inserting HTML
                 const script = document.createElement('script');
-                script.src = './js/chatbot.js';
+                script.src = '../js/chatbot.js';
                 document.body.appendChild(script);
             })
             .catch(error => {

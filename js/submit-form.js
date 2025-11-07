@@ -43,9 +43,23 @@ function initSubmitNewsletter() {
 
         var isValid = true;
 
+        // List of common public email domains to reject
+        var publicDomains = [
+            'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
+            'icloud.com', 'live.com', 'msn.com', 'yahoo.co.uk', 'googlemail.com',
+            'me.com', 'mac.com', 'comcast.net', 'verizon.net', 'att.net',
+            'sbcglobal.net', 'bellsouth.net', 'cox.net', 'earthlink.net',
+            'protonmail.com', 'mail.com', 'yandex.com', 'zoho.com', 'gmx.com'
+        ];
+
         function validateEmail(email) {
             var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return pattern.test(email);
+        }
+
+        function isBusinessEmail(email) {
+            var domain = email.split('@')[1].toLowerCase();
+            return !publicDomains.includes(domain);
         }
 
         if (!$email.val().trim()) {
@@ -55,6 +69,10 @@ function initSubmitNewsletter() {
         } else if (!validateEmail($email.val())) {
             $email.addClass('error-border');
             $errorText.text('Invalid email format').removeClass('hidden');
+            isValid = false;
+        } else if (!isBusinessEmail($email.val())) {
+            $email.addClass('error-border');
+            $errorText.text('Please use a business email address').removeClass('hidden');
             isValid = false;
         } else {
             $email.removeClass('error-border');

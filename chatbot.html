@@ -2,7 +2,7 @@
 <div id="chatbot-container">
 <!-- Chatbot Toggler -->
 <button id="chatbot-toggler">
-  <span class="material-symbols-rounded">mode_comment</span>
+  <span class="material-symbols-rounded">Chat</span>
   <span class="material-symbols-rounded">close</span>
 </button>
 <div class="chatbot-popup">
@@ -14,8 +14,28 @@
     </div>
     <button id="close-chatbot" class="material-symbols-rounded">keyboard_arrow_down</button>
   </div>
-  <!-- Chatbot Body -->
-  <div class="chat-body">
+
+  <!-- User Info Form (shown initially) -->
+  <div id="user-info-form" class="user-info-form">
+    <div class="form-header">
+      <h3>Welcome to Sentra!</h3>
+      <p>Please provide your details to get started.</p>
+    </div>
+    <form id="info-form" class="info-form">
+      <div class="form-group">
+        <input type="text" id="user-name" placeholder="Your Name" required>
+        <div class="error-message" id="name-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" id="user-email" placeholder="Business Email" required>
+        <div class="error-message" id="email-error"></div>
+      </div>
+      <button type="submit" id="submit-info" class="submit-btn">Start Chat</button>
+    </form>
+  </div>
+
+  <!-- Chatbot Body (shown after form submission) -->
+  <div class="chat-body" id="chat-body" style="display: none;">
     <div class="message bot-message">
       <svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
         <path
@@ -23,11 +43,12 @@
         />
       </svg>
       <!-- prettier-ignore -->
-      <div class="message-text"> Hey there  <br /> How can I help you today? </div>
+      <div class="message-text" id="welcome-message">Hey there! How can I help you today?</div>
     </div>
   </div>
-  <!-- Chatbot Footer -->
-  <div class="chat-footer">
+
+  <!-- Chatbot Footer (shown after form submission) -->
+  <div class="chat-footer" id="chat-footer" style="display: none;">
     <form action="#" class="chat-form">
       <textarea placeholder="Message..." class="message-input" required></textarea>
       <div class="chat-controls">
