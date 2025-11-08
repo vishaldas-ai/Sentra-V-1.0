@@ -1,66 +1,135 @@
-const chatBody = document.querySelector("#chat-body");
-const messageInput = document.querySelector(".message-input");
-const sendMessage = document.querySelector("#send-message");
-const fileInput = document.querySelector("#file-input");
-const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
-const fileCancelButton = fileUploadWrapper.querySelector("#file-cancel");
-const chatbotToggler = document.querySelector("#chatbot-toggler");
-const closeChatbot = document.querySelector("#close-chatbot");
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import fetch from 'node-fetch';
 
-// User info form elements
-const userInfoForm = document.querySelector("#user-info-form");
-const infoForm = document.querySelector("#info-form");
-const userNameInput = document.querySelector("#user-name");
-const userEmailInput = document.querySelector("#user-email");
-const submitInfoBtn = document.querySelector("#submit-info");
-const nameError = document.querySelector("#name-error");
-const emailError = document.querySelector("#email-error");
-const chatFooter = document.querySelector("#chat-footer");
-const welcomeMessage = document.querySelector("#welcome-message");
+dotenv.config();
 
-// -----------------------------------------------------------------
-// 🚨 CRITICAL SECURITY WARNING
-// -----------------------------------------------------------------
-// DO NOT put your API key in client-side JavaScript.
-// Anyone visiting your site can steal it and use your quota.
-// This key should be in a backend server.
-//
-// For testing, you can use it here, but replace it before deploying.
-// -----------------------------------------------------------------
-const API_KEY = "AIzaSyBRDrLF5BZuAOazd5vhZnYtEDAGTlDMlB0"; // ⚠️ Replace this
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// API setup - Changed to v1beta, which works with gemini-1.5-flash-latest
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
+// Middleware
+app.use(cors());
+app.use(express.json({ limit: '10mb' }));
 
-// Initialize user message and file data
-const userData = {
-  message: null,
-  file: {
-    data: null,
-    mimeType: null, // <-- FIX: Changed from mime_type
-  },
-};
+// Initialize Gemini AI
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "AIzaSyBRDrLF5BZuAOazd5vhZnYtEDAGTlDMlB0");
 
-// User profile data
-let userProfile = {
-  name: null,
-  email: null,
-  isFormSubmitted: false
-};
+// Function to validate and sanitize URL
+function validateAndSanitizeUrl(url) {
+  try {
+    // Remove any extra characters that might be appended by AI
+    let cleanUrl = url.trim();
 
-// Store chat history - Now starts empty.
-const chatHistory = [];
+    // Remove trailing asterisks, dots, or other unwanted characters
+    cleanUrl = cleanUrl.replace(/[*]+$/, ''); // Remove trailing asterisks
+    cleanUrl = cleanUrl.replace(/[.]+$/, ''); // Remove trailing dots
+    cleanUrl = cleanUrl.replace(/[!?]+$/, ''); // Remove trailing punctuation
 
-// System instruction with company context
-const systemInstruction = {
-  parts: [
-    {
-      text: `Company Name: Sentra
+    // Ensure it starts with http:// or https://
+    if (!cleanUrl.match(/^https?:\/\//i)) {
+      cleanUrl = 'https://' + cleanUrl;
+    }
+
+    // Basic URL validation
+    const urlObj = new URL(cleanUrl);
+
+    // Only allow http and https protocols
+    if (!['http:', 'https:'].includes(urlObj.protocol)) {
+      throw new Error('Invalid protocol. Only HTTP and HTTPS are allowed.');
+    }
+
+    // Check for suspicious patterns
+    if (urlObj.hostname.includes('..') || urlObj.hostname.length > 253) {
+      throw new Error('Invalid hostname format.');
+    }
+
+    return cleanUrl;
+  } catch (error) {
+    throw new Error(`Invalid URL: ${error.message}`);
+  }
+}
+
+// Function to fetch webpage content
+async function fetchWebpage(url) {
+  try {
+    // Validate and sanitize the URL first
+    const validatedUrl = validateAndSanitizeUrl(url);
+
+    // Create AbortController for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+    const response = await fetch(validatedUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      },
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const statusText = response.statusText || 'Unknown error';
+      throw new Error(`HTTP error! status: ${response.status} - ${statusText}`);
+    }
+
+    const html = await response.text();
+
+    // Simple HTML to text conversion (basic)
+    const text = html
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    return text.substring(0, 10000); // Limit to 10k chars
+  } catch (error) {
+    console.error('Error fetching webpage:', error);
+    return `Error fetching webpage: ${error.message}`;
+  }
+}
+
+// Web fetch endpoint
+app.post('/api/fetch-web', async (req, res) => {
+  try {
+    const { url } = req.body;
+
+    if (!url) {
+      return res.status(400).json({ error: 'URL is required' });
+    }
+
+    // Basic URL validation
+    try {
+      new URL(url);
+    } catch {
+      return res.status(400).json({ error: 'Invalid URL format' });
+    }
+
+    const content = await fetchWebpage(url);
+    res.json({ content });
+  } catch (error) {
+    console.error('Web fetch error:', error);
+    res.status(500).json({ error: 'Failed to fetch webpage' });
+  }
+});
+
+// Chat endpoint with web access
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message, history, needsWebAccess, file } = req.body;
+
+    // Build the system instruction
+    let systemInstruction = {
+      parts: [
+        {
+          text: `Company Name: Sentra
 Sentra is a structural health monitoring and digital engineering company specializing in real-time infrastructure intelligence.
 We integrate smart sensor networks, digital twins, and edge AI for predictive maintenance, fatigue analysis, and geotechnical monitoring.
 Our solutions help detect early signs of stress, displacement, vibration, and material degradation across bridges, tunnels, buildings, and other critical assets.
 Sentra also provides consulting and advisory services, foundation and geotechnical monitoring, fatigue and residual life assessment, and digital documentation of infrastructure assets.
-
 
 Sentra is a flagship product line developed and managed by Clove Technologies Private Limited, a leading geospatial and engineering technology company headquartered in India. Clove specializes in delivering end-to-end digital transformation solutions across infrastructure, construction, utilities, and government sectors.
 
@@ -69,7 +138,7 @@ With over two decades of industry expertise, Clove Technologies integrates advan
 Parent Organization
 Parent Company: Clove Technologies Private Limited (website:www.clovetech.com)
 Subsidiary/Product Line: Sentra (Structural Health Monitoring & IoT Solutions)
-Sentra operates under Clove Technologies’ Smart Infrastructure division, focusing on intelligent monitoring systems, IoT-based sensing, and digital twin integration for infrastructure lifecycle management.
+Sentra operates under Clove Technologies' Smart Infrastructure division, focusing on intelligent monitoring systems, IoT-based sensing, and digital twin integration for infrastructure lifecycle management.
 
 Clove Technologies – Specialities
 1. Geospatial Technologies: Comprehensive GIS and mapping solutions, including cadastral mapping, LiDAR data processing, remote sensing, and spatial analytics for land administration, urban planning, and infrastructure management.
@@ -87,6 +156,51 @@ Industry Verticals Served:
 - Land Administration and Cadastre
 - Urban Development and Smart Cities
 - Oil, Gas, and Industrial Facilities
+
+Sentra's Product Line from Various Brands (From World Sensing, Rockfield, . etc.,)
+
+Edge Devices :
+- Wireless Data Acquisition
+-- Vibrating Wire
+-- Vibrating Wire RCR
+-- Digital Data Logger
+-- Analog Data Logger
+-- Piconode Data Logger
+
+- Wireless Sensors
+-- Tiltmeter
+-- Tiltmeter Event Detection
+-- Vibration Meter
+-- Laser Tiltmeter
+-- GNSS Meter
+
+Core Communications :
+- Narrowband Communications
+-- Gateway
+-- Repeater
+
+- Broadband Communications
+-- Thread
+
+Wired Sensors:
+- Accelerometer
+- Strain Gauge
+
+You are currently on the About Us page of Sentra's website. Key information from this page:
+- Sentra engineers intelligent monitoring solutions for infrastructure owners, engineers, and decision-makers.
+- We specialize in bridges, tunnels, railways, and high-rise structures.
+- Our team brings expertise in structural engineering, IoT technology, and real-time analytics.
+- We provide Structural Health Monitoring, Bridge Inspection & Condition Assessment, Advanced Non-Destructive Testing (NDT), Asset Monitoring & Management Solutions, Geotechnical & Foundation Monitoring, and Fatigue and Residual Life Assessment.
+- Sentra has over 21 years of experience in digital engineering.
+
+Phone Number: +91 8885730066
+Email Address: connect@clovetech.com
+Office Address: IT SEZ, Plot No. 9, Pedda Rushikonda, Rushikonda, Visakhapatnam, Andhra Pradesh 530045
+
+AI AGENT OF SENTRA'S WEBSITE IS VERONICA
+
+Use this company and page-specific context to answer all upcoming user queries accurately and in alignment with Sentra's expertise.
+
 
 
 Sentra's Product Line from Various Brands (From World Sensing, Rockfield, . etc.,)
@@ -1289,417 +1403,103 @@ Battery
 Internal 12.8 V 9.9 AH (126.72 Wh) LiFePO4
 
 
-You have the ability to access and fetch content from websites. When a user asks for information that requires current data, external research, or information not in your training data, you can request web access by including "Can i Access Website:" followed by the URL in your response. The system will fetch the content and provide it to you for analysis. Use this capability when:
+
+`
+        }
+      ]
+    };
+
+    if (needsWebAccess) {
+      systemInstruction.parts[0].text += `\n\nYou have the ability to access and fetch content from websites. When a user asks for information that requires current data, external research, or information not in your training data, you can request web access by including "Can i Access Website:" followed by the URL in your response. The system will fetch the content and provide it to you for analysis. Use this capability when:
 - Users ask for current news, updates, or recent developments
 - Questions require data from external sources
 - Information about competitors, industry trends, or market data
 - Technical specifications or documentation from other websites
 - Real-time information like weather, stock prices, or current events
 
-Format: Can i Access Website:: https://example.com/path
-
-`,
-
-
-    },
-  ],
-};
-
-const initialInputHeight = messageInput.scrollHeight;
-
-// Simple markdown parser for basic formatting
-const parseMarkdown = (text) => {
-  let parsed = text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-    .replace(/`(.*?)`/g, '<code>$1</code>') // Inline code
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>') // H3
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>') // H2
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>') // H1
-    .replace(/^- (.*$)/gim, '• $1') // Bullet points with -
-    .replace(/^\* (.*$)/gim, '• $1') // Bullet points with *
-    .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic (after bullets)
-    .replace(/^---$/gm, '<hr>'); // Horizontal rules
-
-  // Basic table parsing
-  const lines = parsed.split('\n');
-  let inTable = false;
-  let tableRows = [];
-  let newLines = [];
-
-  for (let line of lines) {
-    if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
-      if (!inTable) {
-        inTable = true;
-        tableRows = [];
-      }
-      const cells = line.split('|').slice(1, -1).map(cell => cell.trim());
-      tableRows.push(cells);
-    } else {
-      if (inTable) {
-        // End table
-        let tableHtml = '<div style="overflow-x: auto;"><table border="1" style="border-collapse: collapse; width: 100%; min-width: 600px;">';
-        tableRows.forEach((row, index) => {
-          // Skip separator rows (rows with only dashes, colons, or empty/whitespace cells)
-          if (row.every(cell => /^[-:\s]*$/.test(cell.trim()))) return;
-
-          const tag = index === 0 ? 'th' : 'td';
-          const style = tag === 'th' ? 'padding: 8px; text-align: left; background-color: #000; color: #fff; font-weight: bold;' : 'padding: 8px; text-align: left;';
-          tableHtml += '<tr>';
-          row.forEach(cell => {
-            tableHtml += `<${tag} style="${style}">${cell}</${tag}>`;
-          });
-          tableHtml += '</tr>';
-        });
-        tableHtml += '</table></div>';
-        newLines.push(tableHtml);
-        inTable = false;
-      }
-      newLines.push(line);
+Format: Can i Access Website: https://example.com/path`;
     }
-  }
-  if (inTable) {
-    let tableHtml = '<div style="overflow-x: auto;"><table border="1" style="border-collapse: collapse; width: 100%; min-width: 600px;">';
-    tableRows.forEach((row, index) => {
-      // Skip separator rows (rows with only dashes, colons, or empty/whitespace cells)
-      if (row.every(cell => /^[-:\s]*$/.test(cell.trim()))) return;
 
-      const tag = index === 0 ? 'th' : 'td';
-      const style = tag === 'th' ? 'padding: 8px; text-align: left; background-color: #000; color: #fff; font-weight: bold;' : 'padding: 8px; text-align: left;';
-      tableHtml += '<tr>';
-      row.forEach(cell => {
-        tableHtml += `<${tag} style="${style}">${cell}</${tag}>`;
+    // Prepare the request body for Google API
+    // Ensure we have at least the current user message in contents
+    let contents = history || [];
+    if (!contents.length || contents[contents.length - 1].role !== 'user') {
+      const userParts = [{ text: message }];
+      if (file && file.data && file.mimeType) {
+        userParts.push({
+          inlineData: {
+            mimeType: file.mimeType,
+            data: file.data
+          }
+        });
+      }
+      contents.push({
+        role: 'user',
+        parts: userParts
       });
-      tableHtml += '</tr>';
-    });
-    tableHtml += '</table></div>';
-    newLines.push(tableHtml);
-  }
+    }
 
-  return newLines.join('<br>');
-};
+    const requestBody = {
+      contents: contents,
+      systemInstruction: systemInstruction,
+      generationConfig: {
+        temperature: 0.7,
+        topK: 40,
+        topP: 0.95,
+        maxOutputTokens: 2048,
+      },
+    };
 
-// Create message element with dynamic classes and return it
-const createMessageElement = (content, ...classes) => {
-  const div = document.createElement("div");
-  div.classList.add("message", ...classes);
-  div.innerHTML = content;
-  return div;
-};
-
-// Generate bot response using backend API with web access
-const generateBotResponse = async (incomingMessageDiv) => {
-  const messageElement = incomingMessageDiv.querySelector(".message-text");
-
-  // Add user message to chat history
-  chatHistory.push({
-    role: "user",
-    parts: [{ text: userData.message }],
-  });
-
-  try {
-    // First, send message to backend
-    const response = await fetch('/api/chat', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: userData.message,
-        history: chatHistory.slice(0, -1), // Send history without current message
-        needsWebAccess: true
-      }),
+    // Make direct API call to Google Gemini
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json();
+      console.error('Google API error:', errorData);
+      throw new Error(`Google API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
     }
 
     const data = await response.json();
-    let apiResponseText = data.response;
 
-    // Check if AI requested web access
-    const webAccessMatch = apiResponseText.match(/Can i Access Website:\s*(https?:\/\/[^\s\n]+)/i);
-    if (webAccessMatch) {
-      const url = webAccessMatch[1].trim();
-      messageElement.innerHTML = parseMarkdown(" Fetching webpage content from " + url + "...");
-
-      try {
-        // Fetch webpage content
-        const webResponse = await fetch('/api/fetch-web', {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url }),
-        });
-
-        if (webResponse.ok) {
-          const webData = await webResponse.json();
-          const webpageContent = webData.content;
-
-
-          // Send follow-up message with webpage content
-          const followUpResponse = await fetch('/api/chat', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              // 🛑 FIX APPLIED HERE: Changed the prompt to remove "I fetched from ${url}" 
-              // and present the data neutrally as "Document Context".
-              message: `Please analyze the following document context to provide a comprehensive answer to the user's original question: "${userData.message}"
-
-Document Context:
----
-${webpageContent.substring(0, 2000)}
----
-`,
-              history: chatHistory,
-              needsWebAccess: true
-            }),
-          });
-
-          if (followUpResponse.ok) {
-            const followUpData = await followUpResponse.json();
-            apiResponseText = followUpData.response;
-          } else {
-            apiResponseText = `❌ Error: Could not analyze the fetched content. ${followUpResponse.status} ${followUpResponse.statusText}`;
-          }
-        } else {
-          const errorData = await webResponse.json().catch(() => ({}));
-          apiResponseText = `❌ Error fetching webpage: ${webResponse.status} ${webResponse.statusText}. ${errorData.error || 'Unable to access the requested website.'}`;
-        }
-      } catch (fetchError) {
-        console.error('Web fetch error:', fetchError);
-        apiResponseText = `❌ Error: Unable to access web content. ${fetchError.message}`;
-      }
+    if (!data.candidates || !data.candidates[0].content || !data.candidates[0].content.parts) {
+      throw new Error("Invalid API response structure.");
     }
 
-    // Display the final response
-    messageElement.innerHTML = parseMarkdown(apiResponseText);
+    const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    res.json({ response: apiResponseText });
 
-    // Add bot response to chat history
-    chatHistory.push({
-      role: "model",
-      parts: [{ text: apiResponseText }],
-    });
   } catch (error) {
-    // Handle error in API response
-    console.error(error);
-    messageElement.innerText = `Error: ${error.message}`;
-    messageElement.style.color = "#ff0000";
-  } finally {
-    // Reset user's file data, removing thinking indicator and scroll chat to bottom
-    userData.file = { data: null, mimeType: null };
-    incomingMessageDiv.classList.remove("thinking");
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-  }
-};
-
-// Handle outgoing user messages
-const handleOutgoingMessage = (e) => {
-  e.preventDefault();
-  userData.message = messageInput.value.trim();
-
-  // Do nothing if message and file are empty
-  if (!userData.message && !userData.file.data) {
-    messageInput.value = "";
-    return;
-  }
-
-  messageInput.value = "";
-  messageInput.dispatchEvent(new Event("input"));
-  fileUploadWrapper.classList.remove("file-uploaded");
-
-  // Create and display user message
-  const messageContent = `<div class="message-text"></div>
-                          ${userData.file.data
-      ? `<img src="data:${userData.file.mimeType};base64,${userData.file.data}" class="attachment" />`
-      : ""
-    }`;
-  const outgoingMessageDiv = createMessageElement(messageContent, "user-message");
-  outgoingMessageDiv.querySelector(".message-text").innerText = userData.message;
-  chatBody.appendChild(outgoingMessageDiv);
-  chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-
-  // Simulate bot response with thinking indicator after a delay
-  setTimeout(() => {
-    const messageContent = `<svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-            <path
-              d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"
-            />
-          </svg>
-          <div class="message-text">
-            <div class="thinking-indicator">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-            </div>
-          </div>`;
-    const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
-    chatBody.appendChild(incomingMessageDiv);
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-    generateBotResponse(incomingMessageDiv);
-  }, 600);
-};
-
-// Adjust input field height dynamically
-messageInput.addEventListener("input", () => {
-  messageInput.style.height = `${initialInputHeight}px`;
-  messageInput.style.height = `${messageInput.scrollHeight}px`;
-  document.querySelector(".chat-form").style.borderRadius =
-    messageInput.scrollHeight > initialInputHeight ? "15px" : "32px";
-});
-
-// Handle Enter key press for sending messages
-messageInput.addEventListener("keydown", (e) => {
-  const userMessage = e.target.value.trim();
-  const fileUploaded = userData.file.data;
-
-  if (e.key === "Enter" && !e.shiftKey && (userMessage || fileUploaded) && window.innerWidth > 768) {
-    handleOutgoingMessage(e);
+    console.error('Chat error:', error);
+    res.status(500).json({ error: error.message || 'Failed to generate response' });
   }
 });
 
-// Handle file input change and preview the selected file
-fileInput.addEventListener("change", () => {
-  const file = fileInput.files[0];
-  if (!file) return;
-
-  // Simple validation for image types (optional but recommended)
-  if (!file.type.startsWith("image/")) {
-    alert("Please select an image file (e.g., JPEG, PNG, WEBP).");
-    fileInput.value = ""; // Clear the input
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    fileInput.value = "";
-    fileUploadWrapper.querySelector("img").src = e.target.result;
-    fileUploadWrapper.classList.add("file-uploaded");
-    const base64String = e.target.result.split(",")[1];
-
-    // Store file data in userData
-    userData.file = {
-      data: base64String,
-      mimeType: file.type, // <-- FIX: Use mimeType
-    };
-  };
-  reader.readAsDataURL(file);
-});
-
-// Cancel file upload
-fileCancelButton.addEventListener("click", () => {
-  userData.file = { data: null, mimeType: null };
-  fileUploadWrapper.classList.remove("file-uploaded");
-});
-
-// Assume EmojiMart is loaded correctly in your HTML
-// Initialize emoji picker and handle emoji selection
-const picker = new EmojiMart.Picker({
-  theme: "light",
-  skinTonePosition: "none",
-  previewPosition: "none",
-  onEmojiSelect: (emoji) => {
-    const { selectionStart: start, selectionEnd: end } = messageInput;
-    messageInput.setRangeText(emoji.native, start, end, "end");
-    messageInput.focus();
-  },
-  onClickOutside: (e) => {
-    if (e.target.id === "emoji-picker") {
-      document.body.classList.toggle("show-emoji-picker");
-    } else {
-      document.body.classList.remove("show-emoji-picker");
+// User profile endpoint
+app.post('/api/user-profile', (req, res) => {
+  try {
+    const { name, email } = req.body;
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Name and email are required' });
     }
-  },
-});
-document.querySelector(".chat-form").appendChild(picker);
-
-// Function to get time-based greeting
-function getTimeBasedGreeting() {
-  const now = new Date();
-  const hour = now.getHours();
-
-  if (hour >= 5 && hour < 12) {
-    return "Good morning";
-  } else if (hour >= 12 && hour < 17) {
-    return "Good afternoon";
-  } else if (hour >= 17 && hour < 22) {
-    return "Good evening";
-  } else {
-    return "Hello";
-  }
-}
-
-// Function to validate business email
-function isBusinessEmail(email) {
-  const publicDomains = [
-    'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
-    'icloud.com', 'live.com', 'msn.com', 'yahoo.co.uk', 'googlemail.com',
-    'me.com', 'mac.com', 'comcast.net', 'verizon.net', 'att.net',
-    'sbcglobal.net', 'bellsouth.net', 'cox.net', 'earthlink.net',
-    'protonmail.com', 'mail.com', 'yandex.com', 'zoho.com', 'gmx.com'
-  ];
-
-  const domain = email.split('@')[1].toLowerCase();
-  return !publicDomains.includes(domain);
-}
-
-// Function to handle user info form submission
-function handleInfoFormSubmission(e) {
-  e.preventDefault();
-
-  const name = userNameInput.value.trim();
-  const email = userEmailInput.value.trim();
-
-  let isValid = true;
-
-  // Clear previous errors
-  nameError.textContent = '';
-  emailError.textContent = '';
-
-  // Validate name
-  if (!name) {
-    nameError.textContent = 'Please enter your name';
-    isValid = false;
-  }
-
-  // Validate email
-  if (!email) {
-    emailError.textContent = 'Please enter your email';
-    isValid = false;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    emailError.textContent = 'Please enter a valid email address';
-    isValid = false;
-  } else if (!isBusinessEmail(email)) {
-    emailError.textContent = 'Please use a business email address';
-    isValid = false;
-  }
-
-  if (isValid) {
-    // Store user profile
-    userProfile.name = name;
-    userProfile.email = email;
-    userProfile.isFormSubmitted = true;
-
-    // Hide form and show chat interface
-    userInfoForm.style.display = 'none';
-    chatBody.style.display = 'block';
-    chatFooter.style.display = 'block';
-
-    // Update welcome message with personalized greeting
-    const greeting = getTimeBasedGreeting();
-    welcomeMessage.textContent = `${greeting}, ${name}! How can I help you today?`;
-  }
-}
-
-// --- Event Listeners ---
-infoForm.addEventListener("submit", handleInfoFormSubmission);
-
-sendMessage.addEventListener("click", (e) => {
-  if (!userProfile.isFormSubmitted) return;
-
-  const userMessage = messageInput.value.trim();
-  const fileUploaded = userData.file.data;
-  if (userMessage || fileUploaded) {
-    handleOutgoingMessage(e);
+    // In a real app, save to database
+    console.log('User profile saved:', { name, email });
+    res.json({ success: true });
+  } catch (error) {
+    console.error('User profile error:', error);
+    res.status(500).json({ error: 'Failed to save user profile' });
   }
 });
-document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
-closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+// Serve static files
+app.use(express.static('.'));
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
