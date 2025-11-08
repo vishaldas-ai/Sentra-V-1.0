@@ -12,20 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Check for business email domains (reject common public domains)
-    $publicDomains = [
-        'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
-        'icloud.com', 'live.com', 'msn.com', 'yahoo.co.uk', 'googlemail.com',
-        'me.com', 'mac.com', 'comcast.net', 'verizon.net', 'att.net',
-        'sbcglobal.net', 'bellsouth.net', 'cox.net', 'earthlink.net',
-        'protonmail.com', 'mail.com', 'yandex.com', 'zoho.com', 'gmx.com'
-    ];
 
-    $domain = strtolower(substr(strrchr($email, "@"), 1));
-    if (in_array($domain, $publicDomains)) {
-        echo "Please use a business email address!";
-        exit;
-    }
 
     $to = "Hello@markoagency.com";
     $subject = "New Newsletter Subscription";
